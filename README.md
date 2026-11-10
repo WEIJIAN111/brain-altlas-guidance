@@ -2,30 +2,20 @@
 
 > 小鼠脑区脑图查询器 · Mouse Brain Region Atlas Query Tool
 >
-> 当前版本：v0.3 ｜ 首次公开发布：2026 年 11 月 9 日
+> 当前版本：v0.4 ｜ 首次公开发布：2026 年 11 月 9 日
 > 在线访问：https://weijian111.github.io/brain-altlas-guidance/
 
 ## 更新说明
+
+### v0.4 — 2026-11-10
+
+- 逐区文献复核——按质量标准筛出 293 个脑区逐个检索文献，改写功能简介 302 条、神经元类型 260 条，纠正束间核/旁黑质核递质标注（5-羟色胺能→多巴胺能）等错误，21 个确无专门文献的脑区如实标注不作功能断言。
 
 ### v0.3 — 2026-11-09
 
 - 补齐全部 605 个脑区的功能简介与神经元类型构成（此前仅 84 个脑区有功能简介、79 个脑区有神经元类型构成）。
 - 28 个热门脑区按较新文献共识复核。
 - 纤维束、分层与室周结构如实标注为无神经元胞体，不套用神经元分类。
-
-## 作者与版权
-
-- **作者：韦计安（Jian-An Wei）**
-- **单位：暨南大学（Jinan University）**
-- **联系方式：jianwei@jnu.edu.cn**
-
-本项目由作者独立完成并首次公开发布于此仓库，仓库的提交记录作为公开的时间凭证。
-
-© 2026 韦计安. All rights reserved.
-
-本项目未采用任何开源许可证；未经作者书面许可，请勿复制、分发、改编或将其用于商业用途。如需引用或合作，请联系作者。
-
----
 
 ## 项目简介
 
@@ -64,30 +54,20 @@ Brain Altlas Guidance 是一个单文件、离线可用的小鼠脑区脑图查�
 
 > Mouse Brain Region Atlas Query Tool
 >
-> Current version: v0.3 | First public release: 9 November 2026
+> Current version: v0.4 | First public release: 9 November 2026
 > Live demo: https://weijian111.github.io/brain-altlas-guidance/
 
 ## Update Notes
+
+### v0.4 — 10 November 2026
+
+- Region-by-region literature review: 293 regions were screened against quality criteria and each was checked against the literature; 302 function summaries and 260 neuron-type entries were rewritten; transmitter annotations were corrected (including interfascicular nucleus / paranigral nucleus: serotonergic → dopaminergic), among other errors; 21 regions with no dedicated literature are labelled as such, with no functional claims made for them.
 
 ### v0.3 — 9 November 2026
 
 - Completed the function summaries and neuron-type composition for all 605 brain regions (previously, only 84 regions had function summaries and 79 had neuron-type composition).
 - Reviewed 28 popular brain regions against recent literature consensus.
 - Fiber tracts, laminar and periventricular structures are labelled as having no neuronal somata, and neuron classification is not applied to them.
-
-## Author & Copyright
-
-- **Author: 韦计安 (Jian-An Wei)**
-- **Affiliation: 暨南大学 (Jinan University)**
-- **Contact: jianwei@jnu.edu.cn**
-
-This project was independently created by the author and is first publicly released in this repository. The commit history of the repository serves as a public record of the time of release.
-
-© 2026 韦计安. All rights reserved.
-
-This project is not released under any open-source license. Do not copy, distribute, adapt or use it commercially without the author's written permission. For citations or collaboration, please contact the author.
-
----
 
 ## About
 
