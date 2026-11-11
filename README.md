@@ -2,10 +2,16 @@
 
 > 小鼠脑区脑图查询器 · Mouse Brain Region Atlas Query Tool
 >
-> 当前版本：v0.5 ｜ 首次公开发布：2026 年 11 月 9 日
+> 当前版本：v0.6 ｜ 首次公开发布：2026 年 11 月 9 日
 > 在线访问：https://weijian111.github.io/brain-altlas-guidance/
 
 ## 更新说明
+
+### v0.6 — 2026-11-11
+
+- 新增独立「神经环路」板块（与脑区详情并列），分为「STAM 单神经元环路连接」（单细胞重构数据）与「基于 Allen 脑图谱的环路连接」（Allen 顺行示踪数据，211 个脑区有投射 / 传入名单）。
+- 新增「按脑功能搜索」栏（43 个功能词条、带联想，点选后列出相关脑区）；脑区搜索支持功能关键词反查。
+- 页面文案改为面向公众的中性表述，顶部改为分点使用说明。
 
 ### v0.5 — 2026-11-11
 
@@ -58,10 +64,16 @@ Brain Altlas Guidance 是一个单文件、离线可用的小鼠脑区脑图查�
 
 > Mouse Brain Region Atlas Query Tool
 >
-> Current version: v0.5 | First public release: 9 November 2026
+> Current version: v0.6 | First public release: 9 November 2026
 > Live demo: https://weijian111.github.io/brain-altlas-guidance/
 
 ## Update Notes
+
+### v0.6 — 11 November 2026
+
+- Added a standalone "Neural Circuits" section alongside the region details, with "STAM single-neuron circuit connections" (single-cell reconstruction data) and "Allen Brain Atlas-based circuit connections" (Allen anterograde tracing data; 211 regions have projection / input lists).
+- Added a "Search by Brain Function" bar (43 function terms with suggestions; selecting one lists the related regions); region search now also supports reverse lookup by function keywords.
+- Page text revised to neutral, public-facing wording, with bulleted instructions at the top.
 
 ### v0.5 — 11 November 2026
 
