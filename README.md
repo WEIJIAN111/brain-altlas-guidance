@@ -2,10 +2,14 @@
 
 > 小鼠脑区脑图查询器 · Mouse Brain Region Atlas Query Tool
 >
-> 当前版本：v0.4 ｜ 首次公开发布：2026 年 11 月 9 日
+> 当前版本：v0.5 ｜ 首次公开发布：2026 年 11 月 9 日
 > 在线访问：https://weijian111.github.io/brain-altlas-guidance/
 
 ## 更新说明
+
+### v0.5 — 2026-11-11
+
+- 新增深色/浅色模式切换——页面右上角图标按钮一键切换，深色模式下白底图版保留白色衬底与边框以便辨认，主题偏好会在本地记住。
 
 ### v0.4 — 2026-11-10
 
@@ -54,10 +58,14 @@ Brain Altlas Guidance 是一个单文件、离线可用的小鼠脑区脑图查�
 
 > Mouse Brain Region Atlas Query Tool
 >
-> Current version: v0.4 | First public release: 9 November 2026
+> Current version: v0.5 | First public release: 9 November 2026
 > Live demo: https://weijian111.github.io/brain-altlas-guidance/
 
 ## Update Notes
+
+### v0.5 — 11 November 2026
+
+- Added dark/light mode toggle — switch with one click on the icon button at the top-right of the page; in dark mode, white-background plates keep a white backing and border so they remain recognisable; the theme preference is remembered locally.
 
 ### v0.4 — 10 November 2026
 
