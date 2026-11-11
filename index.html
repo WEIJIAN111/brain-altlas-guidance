@@ -31,6 +31,14 @@ button,input{font:inherit}
 .producer a{color:var(--accent);text-decoration:none}
 .producer a:hover{text-decoration:underline}
 .lede{color:var(--muted);max-width:720px;margin:10px 0 0;font-size:15.5px}
+.guide{max-width:760px;margin:14px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px 12px}
+.guide h2{font-size:15px;margin:0 0 8px;letter-spacing:.02em}
+.guide ul{margin:0;padding:0;list-style:none}
+.guide li{font-size:14.5px;color:var(--muted);line-height:1.55;padding:5px 0 5px 22px;position:relative;border-top:1px dashed var(--line)}
+.guide li:first-child{border-top:0}
+.guide li::before{content:"";position:absolute;left:2px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.guide li b{color:var(--ink);font-weight:800;white-space:nowrap}
+.guide .srcnote{font-size:13px;color:var(--faint);margin:10px 0 2px;line-height:1.6}
 .stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--muted)}
 .stat b{color:var(--ink)}
@@ -180,6 +188,9 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .connlinks a{text-decoration:none}
 .foot{margin-top:22px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:16px}
 .errpanel{margin-top:18px}
+.circuitpanel{margin-top:18px}
+.circuitbody{padding:16px 18px 18px}
+.circuitbody .circsub:first-of-type{margin-top:6px}
 .errbox{padding:14px 16px 16px}
 .errctl{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}
 .errctl input{flex:1;min-width:170px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:9px 12px;font-size:14.5px;outline:none}
@@ -198,6 +209,20 @@ table.err td.errfig{color:var(--muted);white-space:nowrap}
 :root[data-theme="dark"] .catbadge.c-pxonly{color:#fda4af}
 @media(max-width:860px){ .layout{grid-template-columns:1fr} .list{max-height:none} .top h1{font-size:27px} .searchbox{position:static} .kv{grid-template-columns:1fr 1fr} #d3canvas{height:320px} .slide{width:270px} }
 @media(max-width:480px){ .row{grid-template-columns:56px 1fr} .row .tag{display:none} .searchrow{flex-direction:column} .btn{padding:12px} }
+.circsub{font-size:13.5px;margin:16px 0 6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.circbadge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.connlab{font-size:12.5px;font-weight:800;color:var(--faint);letter-spacing:.04em;margin:10px 0 2px}
+.connlist{display:flex;flex-direction:column;gap:6px;margin:6px 0 4px}
+.tchip{display:flex;align-items:center;gap:9px;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:7px 11px;cursor:pointer;font-family:inherit}
+.tchip:hover{border-color:var(--accent)}
+.tchip .ta{font-weight:850;font-size:13.5px;min-width:44px}
+.tchip .tz{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tbar{flex:0 0 58px;height:6px;border-radius:99px;background:var(--surface2);overflow:hidden;margin-left:auto}
+.tbar span{display:block;height:100%;background:var(--accent);border-radius:99px}
+.tchip .tp{font-size:12.5px;font-weight:800;color:var(--accent);white-space:nowrap;min-width:40px;text-align:right}
+.funchit{font-size:12px;color:var(--accent);font-weight:600;line-height:1.35}
+.funchit b{font-weight:800}
+.sugnote.fn{white-space:normal;text-align:right;line-height:1.3}
 /* ---- 深色 / 浅色切换（右上角按钮，data-theme 控制全页） ---- */
 .top{position:relative;padding-right:56px}
 body{transition:background-color .25s ease,color .25s ease}
@@ -219,6 +244,27 @@ body{transition:background-color .25s ease,color .25s ease}
 :root[data-theme="dark"] .lbview img{background:#fff;border:1px solid #dfe3da;box-shadow:0 0 0 10px #f4f4ee,0 18px 50px rgba(0,0,0,.55)}
 @media(max-width:480px){ .top{padding-right:48px} .theme-toggle{width:40px;height:40px;top:18px} .theme-toggle svg{width:18px;height:18px} }
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important} }
+
+/* 按脑功能搜索栏 */
+.funcbox{position:static;margin-top:14px}
+.funclabel{font-weight:800;font-size:16.5px;margin-bottom:10px}
+.funcsub{color:var(--muted);font-weight:500;font-size:13px;margin-left:8px}
+.funcresults{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.frhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.frhead h3{margin:0;font-size:16px}
+.frhead span{color:var(--muted);font-size:13px}
+.frnote{color:var(--muted);font-size:12.5px;line-height:1.55;margin:6px 0 10px}
+.frlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:6px}
+.frlist .empty{grid-column:1/-1}
+.frow{display:flex;align-items:center;gap:6px;text-align:left;background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:5px 8px;cursor:pointer;color:var(--ink);font-family:inherit;width:100%;min-width:0}
+.frow:hover{border-color:var(--accent)}
+.frow.sel{border-color:var(--accent);box-shadow:0 0 0 1.5px var(--accent) inset}
+.frlist .abbr{font-size:12px;font-weight:800;padding:2px 5px;border-radius:6px;flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frlist .frow.sel .abbr{background:var(--accent);color:#fff}
+.frlist .frow>span:nth-child(2){display:flex;align-items:baseline;min-width:0}
+.frlist .rname{font-size:12.5px;font-weight:700;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frlist .ren,.frlist .tag{display:none}
+@media(max-width:560px){.frlist{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:5px}.frow{padding:5px 7px;gap:5px}}
 </style>
 </head>
 <body>
@@ -227,12 +273,23 @@ body{transition:background-color .25s ease,color .25s ease}
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换到深色模式" aria-pressed="false" title="切换到深色模式"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
     <h1>小鼠脑区 <span>脑图查询器</span></h1>
     <p class="producer">制作人：暨南大学 韦计安（<a href="mailto:jianwei@jnu.edu.cn">jianwei@jnu.edu.cn</a>）</p>
-    <p class="lede">按脑区名称或缩写搜索小鼠脑区：中文名、英文全称、Paxinos 缩写与 Allen 缩写都能查——两套缩写不一致时自动互认（如 Paxinos 的 10N 与 Allen 的 DMX 指同一结构）。本版已按你提供的 Paxinos &amp; Franklin 索引全量自查扩充，覆盖该索引的全部脑区类条目；点「确认搜索」后，下方用 Allen 官方 3D 脑模型高亮该脑区（无独立网格的会如实标注、不假高亮），并列出它在 Paxinos 图谱中从出现到消失的冠状、矢状切片系列。页面下方附完整的 Paxinos ↔ Allen 缩写勘误对照表。本版已为全部 605 个脑区补齐功能简介与神经元类型构成：热门脑区按较新的文献共识复核（如海马背腹轴分工、基底外侧杏仁核的效价编码、VTA 的细胞异质性），冷门亚区综合其所属核团、连接与细胞构筑归纳，缺乏专门研究的条目已在文中如实注明。</p>
+    <div class="guide" aria-label="使用说明">
+      <h2>使用说明</h2>
+      <ul>
+        <li><b>搜索脑区：</b>可按中文名、英文名、缩写或别名查，也可输入功能关键词（如「睡眠」「恐惧」）反查相关脑区；下方的「按脑功能搜索」栏收录 43 个功能词条，输入时有联想提示，选定功能即可查看相关脑区并点开详情。</li>
+        <li><b>查看定位：</b>3D 脑图与图版上的位置标记，显示脑区所在位置。</li>
+        <li><b>查看切片：</b>冠状与矢状面的完整图版序列。</li>
+        <li><b>脑区详情：</b>功能简介、主要神经元类型与坐标。</li>
+        <li><b>神经环路：</b>「STAM 单神经元环路连接」与「基于 Allen 脑图谱的环路连接」两类连接数据。</li>
+        <li><b>勘误对照：</b>Paxinos 与 Allen 两套命名的对应关系与存疑条目说明。</li>
+      </ul>
+      <p class="srcnote">数据来源：切片图版出自 Paxinos &amp; Franklin《The Mouse Brain in Stereotaxic Coordinates》，3D 模型为 Allen Institute CCFv3 官方网格，坐标以 Bregma 为参考；Paxinos 与 Allen 两套缩写不一致时自动互认（如 Paxinos 的 10N 与 Allen 的 DMX 指同一结构）。</p>
+    </div>
     <div class="stats">
       <span class="stat">收录 <b id="totalCount">—</b> 个脑区 · 覆盖 Paxinos 索引</span>
       <span class="stat">功能简介与神经元类型 <b>全部脑区已补齐</b></span>
       <span class="stat">3D 模型 <b>Allen CCFv3 官方网格</b></span>
-      <span class="stat">切片图版 <b>Paxinos &amp; Franklin（你的 PDF）</b></span>
+      <span class="stat">切片图版 <b>Paxinos &amp; Franklin 图谱</b></span>
       <span class="stat">坐标体系 <b>Bregma 参考</b></span>
       <span class="stat">使用方式 <b>离线版 · 单个文件，断网双击打开即可</b></span>
     </div>
@@ -240,7 +297,7 @@ body{transition:background-color .25s ease,color .25s ease}
 
   <section class="searchbox" aria-label="搜索脑区">
     <form class="searchrow" id="searchForm">
-      <div class="qwrap"><input id="q" type="search" placeholder="输入名称或缩写的一部分即可，如 黑质、伏隔、海马、CA、BNST…" autocomplete="off" aria-label="按脑区名称或缩写搜索" role="combobox" aria-expanded="false" aria-controls="suggest" aria-autocomplete="list"><div class="suggest" id="suggest" role="listbox" aria-label="候选脑区" hidden></div></div>
+      <div class="qwrap"><input id="q" type="search" placeholder="输入名称、缩写，或功能关键词，如 黑质、CA、BNST、睡眠、恐惧…" autocomplete="off" aria-label="按脑区名称、缩写或功能搜索" role="combobox" aria-expanded="false" aria-controls="suggest" aria-autocomplete="list"><div class="suggest" id="suggest" role="listbox" aria-label="候选脑区" hidden></div></div>
       <button class="btn primary" id="searchBtn" type="submit">确认搜索</button>
       <button class="btn secondary" id="clearBtn" type="button">清除</button>
     </form>
@@ -260,6 +317,23 @@ body{transition:background-color .25s ease,color .25s ease}
     </div>
   </section>
 
+  <section class="searchbox funcbox" aria-label="按脑功能搜索">
+    <div class="funclabel">按脑功能搜索<span class="funcsub">从功能出发反查脑区 · 共 43 个功能词条</span></div>
+    <form class="searchrow" id="funcForm">
+      <div class="qwrap"><input id="fq" type="search" placeholder="输入功能，如 睡、抑郁、疼，或学习记忆、奖赏、呼吸调节…" autocomplete="off" aria-label="按脑功能搜索" role="combobox" aria-expanded="false" aria-controls="fsuggest" aria-autocomplete="list"><div class="suggest" id="fsuggest" role="listbox" aria-label="候选功能" hidden></div></div>
+      <button class="btn primary" id="funcBtn" type="submit">查找脑区</button>
+      <button class="btn secondary" id="funcClearBtn" type="button">清除</button>
+    </form>
+    <div class="quick"><span>常用功能：</span>
+      <button class="qchip" data-fn="学习记忆" type="button">学习记忆</button><button class="qchip" data-fn="恐惧" type="button">恐惧</button><button class="qchip" data-fn="焦虑抑郁" type="button">焦虑抑郁</button><button class="qchip" data-fn="成瘾" type="button">成瘾</button><button class="qchip" data-fn="疼痛" type="button">疼痛</button><button class="qchip" data-fn="奖赏" type="button">奖赏</button><button class="qchip" data-fn="睡眠觉醒" type="button">睡眠觉醒</button><button class="qchip" data-fn="认知决策" type="button">认知决策</button><button class="qchip" data-fn="运动控制" type="button">运动控制</button>
+    </div>
+    <div class="funcresults" id="fresults" hidden>
+      <div class="frhead"><h3 id="frTitle"></h3><span id="frMeta"></span></div>
+      <p class="frnote">相关脑区依据各脑区功能简介中的相关表述整理，排序越靠前，与该功能的相关性越高；点任意脑区打开其详情。</p>
+      <div class="frlist" id="frlist"></div>
+    </div>
+  </section>
+
   <nav class="filters" id="filters" aria-label="按脑系统筛选"></nav>
 
   <section class="panel listpanel" aria-label="脑区列表">
@@ -276,7 +350,7 @@ body{transition:background-color .25s ease,color .25s ease}
       <div class="d3tools"><button id="rotBtn" type="button">暂停旋转</button><button id="resetViewBtn" type="button">重置视角</button></div>
       <div class="d3hud" id="d3hud">正在加载 Allen CCFv3 官方 3D 脑模型…</div>
     </div>
-    <p class="d3note">3D 脑为 Allen Institute 官网下载的 CCFv3 官方结构网格：半透明全脑（root）内以所属系统颜色高亮当前脑区的官方网格。可拖动旋转、滚轮或双指缩放；点「确认搜索」或在列表中点选脑区后，这里会换成该脑区的位置。该脑区在你提供的 Paxinos 图谱中的切片系列见紧接着的下面两个框。</p>
+    <p class="d3note">3D 脑为 Allen Institute 官网下载的 CCFv3 官方结构网格：半透明全脑（root）内以所属系统颜色高亮当前脑区的官方网格。可拖动旋转、滚轮或双指缩放；点「确认搜索」或在列表中点选脑区后，这里会换成该脑区的位置。该脑区在 Paxinos 图谱中的切片系列见紧接着的下面两个框。</p>
   </section>
 
   <section class="panel slicepanel" id="corPanel" aria-label="冠状切片系列">
@@ -285,7 +359,7 @@ body{transition:background-color .25s ease,color .25s ease}
         <span class="seriesctl"><span class="count" id="corCount"></span><button class="navbtn" id="corPrev" type="button" aria-label="冠状切片向前翻">‹</button><button class="navbtn" id="corNext" type="button" aria-label="冠状切片向后翻">›</button></span></div>
       <div class="scroller" id="corScroller" tabindex="0" aria-label="冠状切片横向滑动预览，可触摸滑动、拖动或用左右方向键浏览"></div>
       <p class="marknote" id="corMarkNote" hidden></p>
-      <p class="seriesnote">上方图版全部取自你提供的 Paxinos 图谱 PDF：从该脑区在冠状图版中出现到消失，范围内每一张都在这里、不抽样。横向滑动、拖动或点 ‹ › 浏览整组，点任意一张图在本页放大查看（可缩放、拖动平移，不打开新窗口）；加框的一张为最接近其代表性 AP 的图版。</p>
+      <p class="seriesnote">上方图版全部取自 Paxinos &amp; Franklin 图谱：从该脑区在冠状图版中出现到消失，范围内每一张都在这里、不抽样。横向滑动、拖动或点 ‹ › 浏览整组，点任意一张图在本页放大查看（可缩放、拖动平移，不打开新窗口）；加框的一张为最接近其代表性 AP 的图版。</p>
     </div>
   </section>
 
@@ -295,7 +369,7 @@ body{transition:background-color .25s ease,color .25s ease}
         <span class="seriesctl"><span class="count" id="sagCount"></span><button class="navbtn" id="sagPrev" type="button" aria-label="矢状切片向前翻">‹</button><button class="navbtn" id="sagNext" type="button" aria-label="矢状切片向后翻">›</button></span></div>
       <div class="scroller" id="sagScroller" tabindex="0" aria-label="矢状切片横向滑动预览，可触摸滑动、拖动或用左右方向键浏览"></div>
       <p class="marknote" id="sagMarkNote" hidden></p>
-      <p class="seriesnote">上方图版全部取自你提供的 Paxinos 图谱 PDF：从该脑区在矢状图版中出现到消失，范围内每一张都在这里、不抽样。横向滑动、拖动或点 ‹ › 浏览整组，点任意一张图在本页放大查看（可缩放、拖动平移，不打开新窗口）；加框的一张为最接近其代表性 ML 的图版。</p>
+      <p class="seriesnote">上方图版全部取自 Paxinos &amp; Franklin 图谱：从该脑区在矢状图版中出现到消失，范围内每一张都在这里、不抽样。横向滑动、拖动或点 ‹ › 浏览整组，点任意一张图在本页放大查看（可缩放、拖动平移，不打开新窗口）；加框的一张为最接近其代表性 ML 的图版。</p>
     </div>
   </section>
 
@@ -305,11 +379,16 @@ body{transition:background-color .25s ease,color .25s ease}
     </section>
   </div>
 
+  <section class="panel circuitpanel" id="circuitPanel" aria-label="神经环路">
+    <div class="panelhead"><h2>神经环路</h2><span id="circuitRegion"></span></div>
+    <div class="circuitbody"><div id="circuits"></div></div>
+  </section>
+
 
   <section class="panel errpanel" id="errPanel" aria-label="Paxinos 与 Allen 缩写勘误对照表">
     <div class="panelhead"><h2>缩写勘误对照表 · Paxinos &amp; Franklin ↔ Allen CCFv3</h2><span id="errCount"></span></div>
     <div class="errbox">
-      <p class="note" style="margin-top:0">自查方法：把你提供的 Paxinos &amp; Franklin《The Mouse Brain in Stereotaxic Coordinates》PDF 的「INDEX OF ABBREVIATIONS」全部条目逐条提取，再与 Allen CCFv3 本体（1,327 个结构）逐条对照。索引共 <b>766</b> 条：成功对照 <b>363</b> 条，其中<b>同名同写 123 条、仅大小写不同 61 条、异写同义 179 条——写法不一致合计 240 条</b>；仅 Paxinos 收录、Allen 无对应 <b>403</b> 条；Allen 另有 978 个结构未被该索引收录（多为 Allen 自行细分的亚层/亚核，不在本次覆盖目标内）。典型不一致：迷走神经背侧运动核 Paxinos 作 <b>10N</b>、Allen 作 <b>DMX</b>（文献中的 DMV 在本书索引里实际指背内侧下丘脑核腹侧部，是另一个结构）；外嗅皮层 Ect ↔ ECT、无颗粒岛叶 AID ↔ AId 仅大小写不同；丘脑底核 STh ↔ STN、伏隔核 Acb ↔ ACB、弓状核 Arc ↔ ARH、屏状核 Cl ↔ CLA、尾壳核 CPu ↔ CP 均为异写同义；穹窿下器 SFO 两边同名同写。主查询已支持两套缩写互认，本表可独立检索全部 766 条。</p>
+      <p class="note" style="margin-top:0">自查方法：将 Paxinos &amp; Franklin《The Mouse Brain in Stereotaxic Coordinates》的「INDEX OF ABBREVIATIONS」全部条目逐条提取，再与 Allen CCFv3 本体（1,327 个结构）逐条对照。索引共 <b>766</b> 条：成功对照 <b>363</b> 条，其中<b>同名同写 123 条、仅大小写不同 61 条、异写同义 179 条——写法不一致合计 240 条</b>；仅 Paxinos 收录、Allen 无对应 <b>403</b> 条；Allen 另有 978 个结构未被该索引收录（多为 Allen 自行细分的亚层/亚核，不在本次覆盖目标内）。典型不一致：迷走神经背侧运动核 Paxinos 作 <b>10N</b>、Allen 作 <b>DMX</b>（文献中的 DMV 在本书索引里实际指背内侧下丘脑核腹侧部，是另一个结构）；外嗅皮层 Ect ↔ ECT、无颗粒岛叶 AID ↔ AId 仅大小写不同；丘脑底核 STh ↔ STN、伏隔核 Acb ↔ ACB、弓状核 Arc ↔ ARH、屏状核 Cl ↔ CLA、尾壳核 CPu ↔ CP 均为异写同义；穹窿下器 SFO 两边同名同写。主查询已支持两套缩写互认，本表可独立检索全部 766 条。</p>
       <div class="errctl">
         <input id="errQ" type="search" placeholder="在本表中搜索缩写或名称，如 SFO、DMV、habenula…" aria-label="搜索勘误对照表">
         <button class="fbtn active" data-ecat="all" type="button">全部</button>
@@ -324,10 +403,10 @@ body{transition:background-color .25s ease,color .25s ease}
   </section>
 
   <footer class="foot">
-    <p><strong>离线版说明：</strong>本页为完全自包含的离线版本——three.js 组件、132 张图版与全部 Allen 官方网格都已内嵌在这一个 HTML 文件里，不从网络加载任何东西，也不需要同目录放其他文件。把这一个文件发给学生，学生在自己的电脑上断网、直接双击打开（file://）即可使用搜索、切片滑动与 3D 高亮。只有详情里「在 STAM 查看」这类文字链接需要联网点击后才访问外部网站，不影响页面本身的功能。</p>
-    <p><strong>数据与使用说明：</strong>脑区命名以双体系并行：主条目用 Allen Mouse Brain Atlas / CCFv3 缩写，同时标注 Paxinos &amp; Franklin 本书写法，中文名采用国内常用译名；本次扩充的 557 个脑区中，暂未配中文名的以英文全称显示；本版功能描述与「神经元类型构成」已补齐全部条目，综合 Allen CCFv3 本体、Paxinos &amp; Franklin 图谱与经典及近年综述的共识归纳（热门脑区已按较新文献复核，亚区条目多由其所属核团推及，个别缺乏专门研究的核团在条目内注明研究较少、未作超出依据的断言），均为教科书层面的概括——神经元类型按该脑区主要（主体）神经元的递质归纳，并列出常见的其他类型，同一脑区不同亚区/层的实际配比可有差异，不应理解为该脑区只有一种神经元。表中 Bregma 坐标为成年 C57BL/6J 小鼠的<strong>代表性参考值（近似）</strong>，整理自常用立体定位图谱的典型靶点范围，实际实验请以 Paxinos &amp; Franklin 图谱、品系/年龄/体重及预实验染色结果校准，不要直接照搬下针。</p>
-    <p><strong>脑图来源：</strong>3D 脑模型为从 Allen Institute 官网下载的 CCFv3 官方结构网格（structure meshes，含 root 全脑与 97 个脑区的网格，构建时下载，非实时连接）；没有独立网格的脑区在 3D 区会明确标注「暂无独立网格」，只以下方图版定位，不做假高亮。冠状 / 矢状切片图版全部提取自你提供的 Paxinos &amp; Franklin《The Mouse Brain in Stereotaxic Coordinates》PDF（共 132 张图版：冠状 Figure 1–100、矢状 Figure 101–132）；原有 49 个脑区的图版范围按该书缩写索引中该结构（及其亚区）出现的图版号整理（少数结构的矢状范围按 Allen 网格外侧向分布估算），本次新增脑区的图版范围直接取自该索引条目本身的图版号（同一结构多个写法条目合并时取并集），索引未单列某一平面的结构会如实标注暂缺。</p>
-    <p><strong>连接数据来源与边界：</strong>详情中的连接计数来自 STAM（atlas.brainsmatics.cn）公开的单细胞数据集 soma_axon.json（构建时下载整合）：共 1,555 个重构神经元，采样明显偏重皮层，不少皮层下脑区在该数据集中没有胞体采样（显示为 0／未采样，不代表该脑区没有投射）。STAM 没有开放可直接抓取的「脑区 → 命名靶区」投射表（其环路查询接口 FunctionalCircuit 在整合时实测返回 404、不可用），因此本页不虚构脑区级投射名单；需要逐个脑区看单细胞环路时，用详情里的按钮跳到 STAM 的 Neuronal Circuits 浏览器交互查询。</p>
+    <p><strong>离线版说明：</strong>本页为完全自包含的离线版本——three.js 组件、132 张图版与全部 Allen 官方网格都已内嵌在这一个 HTML 文件里，不从网络加载任何东西，也不需要同目录放其他文件。本文件可直接分发；离线状态下双击打开（file://）即可使用搜索、切片滑动与 3D 高亮。只有详情里「在 STAM 查看」这类文字链接需要联网点击后才访问外部网站，不影响页面本身的功能。</p>
+    <p><strong>数据与使用说明：</strong>脑区命名以双体系并行：主条目用 Allen Mouse Brain Atlas / CCFv3 缩写，同时标注 Paxinos &amp; Franklin 本书写法，中文名采用国内常用译名；本次扩充的 557 个脑区中，暂未配中文名的以英文全称显示；本版功能描述与「神经元类型构成」已补齐全部条目，综合 Allen CCFv3 本体、Paxinos &amp; Franklin 图谱与经典及近年综述的共识归纳（热门脑区已按较新文献复核，亚区条目多由其所属核团推及，个别缺乏专门研究的核团在条目内注明研究较少、未作超出依据的断言），均为教科书层面的概括——神经元类型按该脑区主要（主体）神经元的递质归纳，并列出常见的其他类型，同一脑区不同亚区/层的实际配比可有差异，不应理解为该脑区只有一种神经元。表中 Bregma 坐标为成年 C57BL/6J 小鼠的<strong>代表性参考值（近似）</strong>，整理自常用立体定位图谱的典型靶点范围，实际实验应以 Paxinos &amp; Franklin 图谱、品系/年龄/体重及预实验染色结果校准，不宜直接照搬下针。</p>
+    <p><strong>脑图来源：</strong>3D 脑模型为从 Allen Institute 官网下载的 CCFv3 官方结构网格（structure meshes，含 root 全脑与 97 个脑区的网格，构建时下载，非实时连接）；没有独立网格的脑区在 3D 区会明确标注「暂无独立网格」，只以下方图版定位，不做假高亮。冠状 / 矢状切片图版全部提取自 Paxinos &amp; Franklin《The Mouse Brain in Stereotaxic Coordinates》图谱（共 132 张图版：冠状 Figure 1–100、矢状 Figure 101–132）；原有 49 个脑区的图版范围按该书缩写索引中该结构（及其亚区）出现的图版号整理（少数结构的矢状范围按 Allen 网格外侧向分布估算），本次新增脑区的图版范围直接取自该索引条目本身的图版号（同一结构多个写法条目合并时取并集），索引未单列某一平面的结构会如实标注暂缺。</p>
+    <p><strong>连接数据来源与边界：</strong>详情页「神经环路」板块分两小节。① STAM 单神经元环路连接：基于 STAM 的单神经元重构数据，是单细胞水平的连接；计数来自 STAM（atlas.brainsmatics.cn）公开的单神经元重构数据集 soma_axon.json（构建时下载整合），共 1,555 个重构神经元，采样明显偏重皮层，不少皮层下脑区在该数据集中没有胞体采样（显示为 0／未采样，不代表该脑区没有投射）；STAM 没有开放可直接抓取的「脑区 → 命名靶区」投射表（其环路查询接口 FunctionalCircuit 在整合时实测返回 404、不可用），因此该小节只给真实计数，逐脑区的单神经元环路连接用详情里的按钮跳到 STAM 的 Neuronal Circuits 浏览器交互查询。② 基于 Allen 脑图谱的环路连接：基于 Allen 小鼠脑连接图谱的病毒顺行示踪数据，是群体水平的连接；名单来自 Allen Institute 小鼠脑连接图谱（Mouse Brain Connectivity Atlas）的 structure unionize 投射数据（Oh et al.），构建时自 api.brain-map.org 下载全部 2,992 个顺行示踪实验汇总，经本页 Paxinos ↔ Allen 对照映射到本工具的脑区；排序口径为每个实验中该靶区的归一化投射体积占该实验灰质总输出的份额、跨实验平均，各取前 10 名，平均份额低于 0.5% 的不列。这是群体水平的相对强度，不是单细胞精度；没有被示踪实验覆盖的脑区在小节内如实标注未覆盖、不提供名单。本版覆盖情况：605 个脑区中 306 个在 Allen CCFv3 中有对应结构，其中 211 个有可列的 Allen 投射名单（147 个有以本区为注射点的实验）。</p>
   </footer>
 </div>
 <div class="toast" id="toast" role="status"></div>
@@ -3433,6 +3512,9 @@ var CONN={MOp:{d:220,u:709,k:'MOp'},MOs:{d:247,u:801,k:'MOs'},SSp:{d:42,u:501,k:
 /* 神经元类型构成（教科书层面概括，按主要投射/主体神经元归纳，措辞留有余地）：
    k=主导倾向 exc 兴奋性为主 / inh 抑制性为主 / mono 单胺能为主 / mix 混合型；
    main=以……为主的表述；tags=主要类型在前、次要/少量类型在后（minor）；note=补充说明 */
+/* 基于 Allen 脑图谱的环路连接（构建时自 api.brain-map.org 下载 Mouse Brain Connectivity Atlas 的 structure unionize 数据汇总）：ACONN[缩写]={n:注射在本区的实验数, o:[[靶区,平均份额%],...], i:[[来源,平均份额%],...]}；ACOV=在 CCFv3 中有对应结构的脑区 */
+var ACONN={"MOp":{"n":31,"o":[["SSp",28.0],["MOs",15.7],["CP",14.7],["SSs",4.8],["VP",4.6],["PO",3.7],["VPL",2.5],["VPM",1.8],["SC",1.2],["RT",1.0]],"i":[["PO",17.4],["MOs",16.0],["VM",14.4],["SSp",14.0],["VP",13.1],["AId",12.1],["SMT",11.5],["GPe",9.7],["VPL",9.2],["SSs",8.5]]},"MOs":{"n":145,"o":[["MOp",16.0],["CP",15.0],["SSp",7.3],["ACAd",4.5],["AId",2.4],["SC",2.2],["ACA",2.1],["ORBl",2.0],["SSs",2.0],["ORB",1.6]],"i":[["VM",23.3],["ORBl",17.6],["ACAd",16.2],["MOp",15.7],["GPe",14.3],["CLA",13.9],["SMT",12.2],["AId",10.4],["VPL",9.8],["AV",9.1]]},"SSp":{"n":116,"o":[["MOp",14.0],["CP",10.8],["SSs",9.1],["MOs",5.5],["VP",4.9],["SSp-bfd",4.7],["VPM",2.8],["PO",2.0],["SC",1.9],["VPL",1.8]],"i":[["VPM",87.3],["PO",74.0],["VPL",65.9],["SSp-bfd",48.9],["SSs",29.3],["MOp",28.0],["GPe",24.0],["SI",14.2],["RT",10.3],["SMT",9.7]]},"SSs":{"n":32,"o":[["SSp",29.3],["CP",8.8],["MOp",8.5],["MOs",8.2],["SSp-bfd",4.8],["VP",4.4],["VPM",2.6],["SC",2.1],["PO",1.8],["AUDp",1.4]],"i":[["VPM",37.6],["PO",16.3],["SSp",9.1],["SSp-bfd",7.8],["SMT",6.0],["VP",5.2],["MOp",4.8],["AIp",4.7],["ECT",4.5],["GPe",4.0]]},"VISp":{"n":281,"o":[["RSP",15.9],["VISl",8.6],["LGd",8.0],["SC",6.8],["LP",3.3],["LD",2.5],["CP",2.2],["ENT",1.0],["APN",1.0],["SSp-bfd",0.9]],"i":[["LGd",75.5],["VISl",34.6],["LP",23.4],["POST",20.1],["RSP",8.8],["PRE",6.7],["TEa",5.4],["VPM",5.4],["LD",4.8],["AUDp",3.2]]},"VISl":{"n":67,"o":[["VISp",34.6],["RSP",11.8],["CP",6.1],["LP",4.6],["SC",3.8],["LGd",3.7],["ENT",3.6],["TEa",1.9],["ACAd",1.3],["LD",1.2]],"i":[["LP",8.7],["VISp",8.6],["LGd",6.4],["TEa",2.7],["POST",1.6],["RSP",1.3],["SUB",1.1],["ENT",0.9],["AUDp",0.8],["VPM",0.8]]},"AUDp":{"n":29,"o":[["TEa",7.4],["MG",4.0],["SSs",3.8],["VISp",3.2],["CP",3.0],["MGv",2.5],["SSp-bfd",2.4],["SSp",2.4],["RSP",2.2],["SC",2.0]],"i":[["MG",29.2],["TEa",10.9],["PIL",3.1],["LP",2.6],["ECT",2.3],["SSs",1.4],["LGd",1.0],["RPO",0.9],["APN",0.7],["TMv",0.6]]},"RSP":{"n":111,"o":[["VISp",8.8],["ACAv",6.1],["ACA",4.9],["SC",4.9],["ACAd",4.8],["MOs",3.3],["LD",2.8],["LGd",2.7],["ENT",1.9],["LP",1.8]],"i":[["AV",88.9],["LD",55.2],["AM",21.0],["VISp",15.9],["LP",15.8],["POST",13.8],["ACAd",13.6],["RPO",13.5],["LPO",13.4],["ACAv",12.8]]},"ACA":{"n":0,"o":[],"i":[["ACAv",27.6],["ACAd",24.2],["AM",22.4],["AV",8.4],["PL",5.7],["CLA",5.0],["DP",4.9],["RSP",4.9],["MD",4.2],["RE",4.2]]},"PL":{"n":18,"o":[["CP",19.5],["IL",11.1],["ORBm",10.1],["ORB",9.1],["ACB",7.9],["ACAv",6.5],["ACA",5.7],["ACAd",5.1],["AIv",3.2],["AI",2.5]],"i":[["ORBm",16.0],["IL",14.6],["AM",13.0],["MD",8.2],["CLA",7.3],["ORB",7.2],["AIv",6.5],["ACAv",5.4],["VM",5.4],["CM",4.4]]},"ORB":{"n":22,"o":[["ORBl",13.0],["ORBm",11.3],["CP",9.4],["PL",7.2],["MOs",5.1],["ACAd",4.9],["AIv",4.6],["RSP",3.1],["ACA",3.1],["AI",2.1]],"i":[["ORBl",44.7],["PR",33.7],["ORBm",29.5],["GR",10.9],["AOB",10.8],["IL",10.7],["MD",10.2],["PL",9.1],["AIv",8.9],["RE",8.5]]},"PIR":{"n":24,"o":[["ENT",17.0],["AIp",7.0],["AI",5.7],["EPd",4.8],["OT",4.3],["AIv",4.0],["MOB",2.9],["BMA",2.5],["BLA",2.3],["EPv",2.3]],"i":[["EPd",25.1],["AOB",7.6],["LA",6.6],["DR",5.6],["AIv",4.5],["SI",4.3],["AIp",4.3],["NLOT",4.1],["MOB",3.3],["BLA",3.2]]},"MOB":{"n":11,"o":[["PIR",3.3],["OT",1.7],["AOB",1.5],["ENT",0.6],["VL",0.5]],"i":[["AOB",20.1],["SI",5.7],["PIR",2.9],["RPO",2.7],["DR",2.0],["ACB",1.7],["LDT",0.8],["NLOT",0.8],["AIv",0.6]]},"CA1":{"n":32,"o":[["ENT",12.4],["SUB",9.1],["LS",6.8],["CA3",5.8],["RSP",5.5],["DG",4.6],["SSp",2.5],["ACB",1.9],["BMA",1.4],["BLA",1.3]],"i":[["CA3",36.9],["MS",19.0],["RPO",9.5],["ENT",9.2],["ADP",9.2],["SUB",8.2],["SF",6.8],["DG",6.5],["PRE",4.8],["MH",3.5]]},"CA2":{"n":0,"o":[],"i":[["CA3",2.4],["MS",1.2],["CA1",1.1],["DG",0.9],["PRE",0.6]]},"CA3":{"n":29,"o":[["CA1",36.9],["DG",13.0],["LS",12.4],["CA2",2.4],["SF",0.9],["VL",0.9],["ENT",0.7]],"i":[["MS",17.8],["DG",13.5],["ADP",5.9],["CA1",5.8],["SF",5.5],["PRE",4.8],["LS",3.1],["RPO",3.0],["IPN",2.0],["MPO",1.8]]},"DG":{"n":42,"o":[["CA3",13.5],["CA1",6.5],["RSP",2.2],["ENT",1.4],["LS",1.2],["CA2",0.9],["SC",0.7],["TEa",0.6],["SUB",0.6],["LP",0.6]],"i":[["SUM",20.5],["ENT",13.4],["CA3",13.0],["MS",12.0],["MH",10.0],["LH",9.8],["SUB",6.2],["CA1",4.6],["RPO",4.3],["GPe",4.0]]},"SUB":{"n":30,"o":[["ENT",39.8],["RSP",11.6],["CA1",8.2],["DG",6.2],["LS",5.3],["PRE",4.8],["ACB",2.7],["POST",2.7],["PAR",2.2],["AM",2.0]],"i":[["CA1",9.1],["PRE",3.8],["ENT",3.2],["MS",3.1],["POST",2.5],["SF",2.2],["AV",1.6],["RE",1.1],["RPO",1.1],["NOT",1.0]]},"ENT":{"n":91,"o":[["DG",13.4],["CA1",9.2],["SUB",3.2],["RSP",2.9],["ECT",2.4],["BLA",2.4],["CP",2.3],["PERI",2.1],["VISp",2.1],["TEa",1.9]],"i":[["PRE",129.6],["POST",100.6],["PAR",77.5],["SUB",39.8],["RE",35.0],["EPd",33.9],["CLA",24.0],["MS",21.1],["AIv",17.7],["PIR",17.0]]},"CLA":{"n":5,"o":[["ENT",24.0],["MOs",13.9],["AIp",10.9],["AI",10.1],["AId",7.7],["ACAd",7.5],["PL",7.3],["ECT",6.3],["ORB",5.5],["RSP",5.1]],"i":[["IL",3.1],["AIv",2.1],["PL",1.9],["ORB",1.5],["EPd",1.4],["ECT",1.4],["ORBm",1.3],["AIp",1.3],["DP",0.9],["LA",0.8]]},"CP":{"n":64,"o":[["SNr",7.5],["GPe",6.7],["SSp",4.9],["SSs",2.6],["MOp",2.6],["ENT",2.3],["AI",2.3],["AId",2.0],["MOs",1.8],["SSp-bfd",1.8]],"i":[["IAD",55.6],["PF",43.2],["CM",38.9],["VTA",27.8],["MD",22.9],["STN",21.2],["SNr",21.1],["PL",19.5],["AId",18.6],["VP",18.2]]},"ACB":{"n":17,"o":[["SI",7.6],["LS",4.3],["LHA",3.7],["OT",2.6],["BST",2.4],["CP",2.3],["LPO",1.7],["MOB",1.7],["LSv",1.4],["DG",1.3]],"i":[["PVT",17.6],["IF",14.6],["IMD",12.9],["PT",12.2],["VTA",9.1],["PL",7.9],["OT",7.7],["AM",7.1],["MD",5.5],["IL",5.4]]},"LS":{"n":16,"o":[["LHA",3.5],["MS",3.3],["CA3",3.1],["MPO",2.7],["LPO",2.6],["LSv",2.1],["SF",2.0],["ENT",1.8],["CA1",1.3],["PAG",1.1]],"i":[["LSv",17.1],["CA3",12.4],["SF",11.2],["MS",8.7],["LPO",7.3],["ADP",7.2],["SUM",7.2],["CA1",6.8],["MPO",6.3],["RPO",6.2]]},"BLA":{"n":6,"o":[["CP",15.7],["BMA",6.1],["SSp",4.8],["CEA",4.3],["SI",4.3],["ENT",3.9],["ACB",3.4],["MOs",3.4],["PIR",3.2],["LA",3.1]],"i":[["LA",10.6],["NLOT",7.8],["BMA",7.6],["CLI",6.4],["EPd",5.6],["IMD",5.5],["PVT",5.2],["CEA",5.1],["IF",4.5],["ECT",4.3]]},"CEA":{"n":20,"o":[["CEAm",6.6],["BMA",5.8],["BLA",5.1],["SSp",4.2],["BST",4.0],["MEA",3.6],["SI",3.5],["CP",2.2],["PARN",2.0],["LHA",1.9]],"i":[["BLA",4.3],["BMA",4.1],["PIL",3.2],["PVT",3.1],["PSTN",2.7],["MEA",2.5],["NLOT",2.0],["PAG",1.9],["DR",1.8],["V",1.8]]},"GPe":{"n":7,"o":[["SSp",24.0],["MOs",14.3],["MOp",9.7],["CP",8.2],["SNr",7.2],["SSp-bfd",5.5],["RSP",5.1],["RT",4.2],["DG",4.0],["SSs",4.0]],"i":[["STN",13.6],["CP",6.7],["GPi",3.8],["VP",2.0],["PIL",2.0],["PSTN",1.9],["PF",1.7],["CEA",1.3],["VPM",1.0],["ZI",1.0]]},"STN":{"n":3,"o":[["CP",21.2],["SNr",14.5],["GPe",13.6],["GPi",5.3],["SC",3.7],["SSp",2.1],["ZI",1.4],["SNc",1.2],["VPL",0.6],["PAG",0.6]],"i":[["GPe",1.8]]},"LGd":{"n":25,"o":[["VISp",75.5],["RSP",7.4],["VISl",6.4],["SSp-bfd",3.3],["RT",2.8],["SSs",2.7],["SSp",2.0],["LP",1.7],["CA1",1.4],["CP",1.3]],"i":[["VISp",8.0],["PPT",5.2],["VISl",3.7],["OP",3.1],["RT",2.9],["RSP",2.7],["NPC",2.4],["NOT",2.0],["DR",1.3],["SC",1.2]]},"LP":{"n":15,"o":[["VISp",23.4],["RSP",15.8],["TEa",9.2],["VISl",8.7],["SSp",8.4],["CP",7.7],["MOs",5.7],["DG",3.6],["SSp-bfd",3.5],["SSs",3.3]],"i":[["RT",7.4],["OP",7.2],["NOT",5.3],["PPT",5.0],["VISl",4.6],["NPC",4.1],["TEa",3.9],["VISp",3.3],["VPL",2.9],["SC",2.2]]},"VPM":{"n":10,"o":[["SSp",87.3],["SSs",37.6],["SSp-bfd",16.7],["CP",8.5],["VP",6.9],["VISp",5.4],["MOp",3.2],["RT",3.0],["VPL",2.2],["PO",1.6]],"i":[["RT",6.0],["SSp-bfd",3.6],["PO",2.9],["SSp",2.8],["VPL",2.7],["SSs",2.6],["MOp",1.8],["PSV",1.7],["SPVI",1.2],["APN",1.1]]},"VPL":{"n":3,"o":[["SSp",65.9],["MOs",9.8],["SSp-bfd",9.4],["MOp",9.2],["RSP",8.1],["VP",7.3],["PO",7.0],["CP",4.1],["RT",3.4],["LD",3.1]],"i":[["GR",7.5],["RT",3.6],["MOp",2.5],["VPM",2.2],["SSp",1.8],["PO",1.1],["SSs",0.9],["CB",0.9],["SSp-bfd",0.7],["MG",0.7]]},"MD":{"n":45,"o":[["CP",22.9],["ORB",10.2],["PL",8.2],["MOs",8.0],["ORBl",5.8],["ACB",5.5],["AI",4.9],["AId",4.8],["AIv",4.7],["ACAd",4.7]],"i":[["RT",5.2],["IMD",4.8],["LH",4.2],["ORBm",3.3],["AD",2.9],["IAD",2.9],["AId",2.4],["LDT",2.0],["PVT",1.8],["IL",1.7]]},"PO":{"n":9,"o":[["SSp",74.0],["MOp",17.4],["SSs",16.3],["SSp-bfd",8.9],["MOs",6.8],["CP",5.1],["VP",3.9],["VPM",2.9],["RSP",2.8],["RT",2.1]],"i":[["RT",9.2],["VPL",7.0],["MOp",3.7],["APN",2.6],["SSp-bfd",2.5],["SSp",2.0],["SSs",1.8],["VPM",1.6],["MOs",1.4],["PF",1.2]]},"MG":{"n":5,"o":[["AUDp",29.2],["TEa",20.5],["CP",5.4],["LA",3.3],["RT",2.2],["MGv",2.0],["ECT",1.9],["SSs",1.9],["MGd",1.3],["MGm",1.2]],"i":[["AUDp",4.0],["TEa",2.4],["PIL",1.0],["SAG",1.0],["CUN",0.8],["SPF",0.8],["SSs",0.5]]},"PVH":{"n":13,"o":[["LHA",4.2],["ME",3.2],["LS",2.5],["PeF",2.4],["ARH",2.1],["BST",1.9],["PAG",1.7],["VMH",1.2],["MPO",1.2],["RE",1.2]],"i":[["SCH",4.6],["AVPV",2.6],["ARH",1.9],["PVp",1.6],["DMH",1.6],["VMH",0.9],["MPO",0.9],["PMv",0.8],["BST",0.7],["PR",0.5]]},"ARH":{"n":17,"o":[["BST",3.3],["VMH",3.2],["DMH",3.1],["PVp",2.9],["PMv",2.7],["PVH",1.9],["ME",1.8],["MPO",1.7],["LS",1.5],["PAG",1.4]],"i":[["PVp",6.8],["SO",4.3],["PMv",2.5],["DMH",2.3],["SCH",2.3],["PVH",2.1],["AVPV",1.3],["VMH",1.2],["LSv",0.8],["BST",0.7]]},"VMH":{"n":24,"o":[["PAG",10.4],["SC",7.5],["LHA",3.6],["BST",3.0],["LS",2.4],["PH",2.0],["MPO",1.8],["BMA",1.7],["MEA",1.6],["DMH",1.5]],"i":[["ARH",3.2],["DMH",2.7],["MEA",2.2],["PVp",1.9],["PMv",1.8],["PIL",1.8],["PVH",1.2],["SF",1.2],["SCH",1.0],["BST",0.9]]},"LHA":{"n":33,"o":[["PAG",5.6],["LS",4.3],["SC",4.0],["PH",1.9],["SI",1.8],["ZI",1.5],["BST",1.2],["LPO",1.1],["MPO",1.0],["VTA",0.8]],"i":[["SO",15.2],["LPO",8.2],["MPO",6.0],["PSTN",5.9],["SUM",5.0],["PH",4.2],["PVH",4.2],["IPN",4.1],["ACB",3.7],["GPi",3.7]]},"PAG":{"n":35,"o":[["SC",10.9],["CEA",1.9],["LHA",1.9],["BST",1.5],["BLA",1.4],["RAmb",1.3],["PRNc",1.3],["LS",1.0],["CEAm",0.8],["VTA",0.8]],"i":[["III",21.6],["CUN",16.9],["SPF",14.9],["SAG",13.3],["VMH",10.4],["NPC",10.1],["PPT",6.5],["PH",6.3],["MPO",5.9],["ZI",5.7]]},"SNc":{"n":0,"o":[],"i":[["STN",1.2],["III",1.0],["PSTN",0.9],["SNr",0.7],["GPe",0.7]]},"SNr":{"n":7,"o":[["CP",21.1],["SC",13.1],["PAG",2.7],["VM",2.4],["ZI",1.9],["ACB",1.4],["MD",1.3],["RSP",1.1],["RR",1.0],["PF",0.9]],"i":[["STN",14.5],["CP",7.5],["GPe",7.2],["III",4.0],["PSTN",3.1],["ZI",1.4],["CEA",1.2],["TMv",0.7],["GPi",0.6],["BLA",0.6]]},"VTA":{"n":17,"o":[["CP",27.8],["ACB",9.1],["OT",7.1],["SI",3.7],["LHA",2.5],["VL",2.1],["PAG",1.9],["BLA",1.9],["LS",1.2],["SC",1.1]],"i":[["III",4.5],["PSTN",1.3],["LPO",1.2],["DR",1.1],["IPN",1.1],["CLI",1.0],["MPO",0.9],["RN",0.9],["MH",0.8],["LHA",0.8]]},"DR":{"n":10,"o":[["SSp",6.7],["PIR",5.6],["ENT",5.5],["MOs",4.5],["MOp",4.4],["PAG",4.2],["AI",4.1],["AIp",4.0],["AId",3.0],["BLA",2.7]],"i":[["IPN",0.8],["CLI",0.7],["PAG",0.6],["III",0.6]]},"NTS":{"n":10,"o":[["DMX",4.8],["IRN",4.6],["MDRNd",4.4],["PARN",2.4],["CU",1.7],["GR",1.7],["MDRNv",1.4],["PAG",1.2],["ZI",1.1],["IO",1.0]],"i":[["DMX",9.4],["XII",7.3],["PARN",2.7],["SUT",2.4],["SPVO",2.3],["SPVI",2.3],["IRN",1.4],["SPIV",1.4],["RO",1.2],["SPVC",1.1]]},"CBX":{"n":29,"o":[["CB",54.9],["SIM",2.4],["PFL",1.8],["SUV",1.6],["DN",1.0],["VL",0.7],["LAV",0.5]],"i":[["PG",200.5],["LRN",140.6],["PFL",137.0],["IO",106.4],["SIM",64.6],["PSV",35.9],["SPVO",29.4],["PRNc",29.1],["CB",27.6],["MV",24.5]]},"DN":{"n":4,"o":[["PFL",9.3],["CB",8.1],["VM",4.0],["VL",3.7],["FL",2.9],["SC",2.6],["RN",2.4],["PARN",2.3],["PRNc",1.4],["GRN",1.0]],"i":[["PFL",2.1],["CBX",1.0],["SIM",0.8],["IO",0.6]]},"III":{"n":2,"o":[["PAG",21.6],["RN",6.6],["VTA",4.5],["SNr",4.0],["CBX",2.2],["LHA",1.7],["ND",1.6],["RAmb",1.4],["RR",1.1],["SNc",1.0]],"i":[]},"VI":{"n":1,"o":[["ME",0.5],["RPA",0.5]],"i":[]},"DMX":{"n":4,"o":[["NTS",9.4],["MDRNd",3.0],["XII",0.6],["VL",0.5],["IG",0.5]],"i":[["NTS",4.8],["XII",3.0],["RO",0.8],["SUT",0.8],["PVH",0.6],["PSTN",0.5]]},"XII":{"n":7,"o":[["IRN",11.4],["MDRNv",9.7],["NTS",7.3],["MDRNd",6.7],["SPVC",3.7],["SPVI",3.3],["DMX",3.0],["GRN",2.9],["PARN",2.1],["SPVO",2.0]],"i":[["RO",7.0],["IRN",2.2],["IO",2.2],["NTS",1.0],["GRN",0.8],["SPVC",0.8],["PARN",0.7],["DMX",0.6]]},"AD":{"n":2,"o":[["AV",3.0],["MD",2.9],["VL",2.4],["RSP",2.3],["PVT",1.4],["AM",1.0],["PT",1.0],["AMv",0.7]],"i":[]},"ADP":{"n":2,"o":[["CA1",9.2],["LS",7.2],["CA3",5.9],["BST",5.3],["MPO",3.6],["LSv",3.4],["LHA",2.5],["MS",1.5],["LPO",1.3],["MEA",1.2]],"i":[["LSv",2.0],["AVPV",1.6],["PVp",1.0],["ARH",0.7],["MPO",0.6],["DMH",0.6],["SF",0.6]]},"AI":{"n":0,"o":[],"i":[["AId",26.4],["AIv",20.2],["AIp",20.0],["EPd",11.0],["CLA",10.1],["NLOT",9.4],["VP",9.2],["SMT",7.5],["PIR",5.7],["ORBm",5.0]]},"AId":{"n":14,"o":[["AI",26.4],["CP",18.6],["MOp",12.1],["MOs",10.4],["AIv",7.7],["SSp",7.6],["AIp",4.9],["SSs",3.4],["ORB",2.8],["ENT",2.7]],"i":[["AIv",18.7],["VP",14.2],["SMT",11.3],["NLOT",9.0],["CLA",7.7],["AIp",7.0],["IMD",6.6],["VM",5.6],["ORBl",5.3],["CM",5.0]]},"AIp":{"n":8,"o":[["AI",20.0],["ENT",11.6],["AId",7.0],["SSs",4.7],["PIR",4.3],["EPd",4.3],["AIv",3.6],["BLA",3.3],["CP",3.0],["SSp",3.0]],"i":[["EPd",18.7],["CLA",10.9],["AIv",9.1],["LA",7.0],["PIR",7.0],["AId",4.9],["DR",4.0],["NLOT",3.8],["VP",3.6],["SMT",2.7]]},"AIv":{"n":5,"o":[["AI",20.2],["AId",18.7],["ENT",17.7],["CP",10.1],["AIp",9.1],["ORB",8.9],["MOs",7.7],["PL",6.5],["ORBl",5.2],["ACB",4.9]],"i":[["AId",7.7],["ORBm",6.9],["PR",6.1],["NLOT",6.1],["MD",4.7],["ORB",4.6],["ORBl",4.5],["IL",4.3],["PIR",4.0],["AIp",3.6]]},"AM":{"n":12,"o":[["ACAv",29.7],["ACA",22.4],["RSP",21.0],["ACAd",14.5],["PL",13.0],["CP",12.3],["ACB",7.1],["IL",5.2],["ORBm",4.7],["ORB",4.1]],"i":[["IAD",5.0],["ACAv",2.9],["SUB",2.0],["ACAd",1.7],["SUM",1.5],["MD",1.1],["PT",1.1],["OP",1.1],["RSP",1.0],["AD",1.0]]},"AMB":{"n":0,"o":[],"i":[["RO",0.7],["IRN",0.7]]},"AMv":{"n":0,"o":[],"i":[["IAD",1.1],["AM",0.9],["ACAv",0.7],["AD",0.7]]},"AOB":{"n":7,"o":[["MOB",20.1],["ORB",10.8],["PIR",7.6],["MEA",3.3],["ORBl",2.9],["VL",1.5],["NLOT",0.9]],"i":[["MOB",1.5],["MEA",0.8],["CLI",0.8]]},"APN":{"n":13,"o":[["SC",23.1],["ZI",4.9],["PAG",3.4],["RN",2.9],["PO",2.6],["VP",2.0],["SPF",1.3],["TEa",1.3],["VPM",1.1],["PF",1.1]],"i":[["PPT",5.1],["NOT",4.4],["OP",4.0],["ZI",2.8],["NPC",2.5],["RN",2.3],["SC",1.6],["LDT",1.6],["GR",1.1],["VISp",1.0]]},"AV":{"n":12,"o":[["RSP",88.9],["CP",15.0],["ACAd",9.4],["MOs",9.1],["ACA",8.4],["ACAv",7.9],["SSp",5.4],["POST",5.3],["RT",3.4],["PRE",3.3]],"i":[["AD",3.0],["IAD",2.5],["SUB",1.5],["OP",1.3],["LDT",0.8],["LD",0.8],["AM",0.7],["NPC",0.7],["RSP",0.5],["RT",0.5]]},"AVPV":{"n":1,"o":[["MPO",10.5],["DMH",4.0],["BST",3.7],["LHA",3.3],["PH",3.1],["PVH",2.6],["LPO",2.3],["PVT",2.2],["ADP",1.6],["VLPO",1.4]],"i":[["ARH",1.1],["MPO",1.0],["PVp",0.9],["LSv",0.9],["SF",0.9],["DMH",0.8],["SCH",0.6],["PMv",0.5]]},"BMA":{"n":9,"o":[["ENT",7.9],["BLA",7.6],["MEA",6.6],["ACB",4.6],["CEA",4.1],["BST",3.9],["SI",3.9],["OT",3.9],["CP",3.5],["PIR",3.0]],"i":[["MEA",7.3],["BLA",6.1],["CEA",5.8],["PVT",5.3],["PT",4.5],["PIL",4.3],["NLOT",4.1],["SF",3.5],["CLI",3.5],["EPd",3.3]]},"BST":{"n":25,"o":[["MEA",3.4],["LS",3.2],["LHA",3.1],["MPO",2.5],["SI",2.1],["BMA",1.7],["PAG",1.6],["LSv",1.6],["CEA",1.3],["PMv",1.3]],"i":[["LSv",5.6],["ADP",5.3],["PT",4.4],["SF",4.3],["MPO",4.2],["PVp",4.1],["CEA",4.0],["MEA",3.9],["BMA",3.9],["PVT",3.9]]},"CB":{"n":9,"o":[["CBX",27.6],["SC",4.2],["RN",4.2],["PARN",3.0],["MV",2.5],["GRN",2.4],["PAG",2.2],["VM",2.1],["SPIV",1.5],["ZI",1.4]],"i":[["PG",75.9],["SIM",56.5],["CBX",54.9],["PFL",54.4],["IO",45.4],["LRN",41.4],["PSV",12.7],["MV",11.6],["SPVO",11.5],["PRNc",10.3]]},"CEAc":{"n":0,"o":[],"i":[["CEA",1.5],["BLA",1.1],["PVT",1.0],["ECT",0.8],["PIL",0.7],["BMA",0.7]]},"CEAl":{"n":0,"o":[],"i":[["CEA",1.8],["V",0.8],["PAG",0.8],["PVT",0.7],["DR",0.6],["BLA",0.6],["PIL",0.6],["IMD",0.6],["BMA",0.6]]},"CEAm":{"n":0,"o":[],"i":[["CEA",6.6],["BMA",2.8],["BLA",2.6],["MEA",2.1],["PSTN",2.0],["PIL",1.8],["GPi",1.4],["PVT",1.4],["NLOT",1.4],["BST",1.2]]},"ACAd":{"n":59,"o":[["ACA",24.2],["MOs",16.2],["RSP",13.6],["CP",13.0],["ACAv",11.8],["ORB",3.5],["SC",3.4],["PL",3.0],["AM",1.7],["ZI",1.5]],"i":[["ACAv",17.8],["AM",14.5],["AV",9.4],["CLA",7.5],["PL",5.1],["ORB",4.9],["ORBm",4.8],["RSP",4.8],["MD",4.7],["MOs",4.5]]},"ACAv":{"n":42,"o":[["ACA",27.6],["ACAd",17.8],["CP",13.9],["RSP",12.8],["PL",5.4],["ORB",3.8],["SC",2.9],["AM",2.9],["MOs",2.2],["ORBm",2.2]],"i":[["AM",29.7],["ACAd",11.8],["AV",7.9],["DP",6.7],["PL",6.5],["RE",6.3],["RSP",6.1],["PT",5.3],["IL",4.4],["MD",3.7]]},"CL":{"n":0,"o":[],"i":[["RT",2.0],["LH",1.1],["NPC",0.8],["IAD",0.8],["PPT",0.6],["ACAd",0.6],["OP",0.5]]},"CLI":{"n":4,"o":[["BLA",6.4],["RAmb",5.0],["BMA",3.5],["BST",3.3],["LHA",3.0],["PAG",2.7],["OT",2.1],["PIR",2.1],["SI",2.0],["ACB",1.6]],"i":[["DR",0.6],["IPN",0.5]]},"CM":{"n":6,"o":[["CP",38.9],["AId",5.0],["SSp",4.5],["PL",4.4],["MOs",4.1],["ORB",3.3],["AI",3.0],["ACB",2.4],["MOp",2.3],["ORBl",2.3]],"i":[["RT",1.3],["SMT",0.5]]},"CUN":{"n":2,"o":[["SC",29.7],["PAG",16.9],["PRNc",3.7],["GRN",1.2],["LHA",0.9],["MG",0.8],["SPF",0.8],["RAmb",0.7],["ZI",0.7],["IRN",0.6]],"i":[["SAG",3.2],["SPF",1.9],["SUT",1.1],["PAG",0.8],["SC",0.8],["DCO",0.7]]},"CU":{"n":0,"o":[],"i":[["GR",3.4],["NTS",1.7],["XII",0.9],["SPVI",0.7]]},"DCO":{"n":7,"o":[["CBX",21.1],["CB",6.7],["FL",6.2],["PFL",4.4],["PRNc",3.8],["VL",2.4],["GRN",1.9],["MV",1.8],["IRN",1.1],["SPIV",0.8]],"i":[["PSV",13.8]]},"EPd":{"n":3,"o":[["ENT",33.9],["PIR",25.1],["AIp",18.7],["AI",11.0],["BLA",5.6],["ECT",4.9],["EPv",3.9],["BMA",3.3],["PERI",3.0],["LA",2.7]],"i":[["LA",8.8],["PIR",4.8],["AIv",4.3],["AIp",4.3],["CLA",3.4],["NLOT",2.3],["DR",1.5],["SI",1.1],["IL",1.1],["CP",1.0]]},"ND":{"n":0,"o":[],"i":[["III",1.6]]},"ORBl":{"n":26,"o":[["ORB",44.7],["MOs",17.6],["CP",12.7],["AId",5.3],["AI",4.9],["AIv",4.5],["ACAd",2.7],["PL",2.4],["MD",1.7],["MOp",1.3]],"i":[["ORB",13.0],["SMT",11.6],["MD",5.8],["AIv",5.2],["CLA",3.2],["VM",3.1],["AOB",2.9],["GPe",2.8],["RE",2.7],["ORBm",2.6]]},"DMH":{"n":12,"o":[["PAG",4.7],["PH",4.1],["LHA",3.1],["VMH",2.7],["BST",2.5],["ENT",2.5],["ARH",2.3],["MPO",2.2],["LS",1.9],["ORB",1.7]],"i":[["AVPV",4.0],["SCH",3.7],["PVp",3.3],["ARH",3.1],["MPO",1.8],["VMH",1.5],["PH",1.4],["PMv",1.1],["LSv",0.9],["PVH",0.9]]},"DP":{"n":4,"o":[["IL",8.5],["ORB",8.4],["ACAv",6.7],["LS",6.1],["ORBm",6.0],["ACA",4.9],["ACB",4.9],["PL",3.7],["ACAd",3.1],["OT",2.7]],"i":[["RE",1.1],["IL",1.0],["AM",0.6],["PL",0.5]]},"TMd":{"n":0,"o":[],"i":[["PVp",1.0]]},"ECT":{"n":4,"o":[["TEa",17.9],["CP",10.9],["ENT",4.6],["SSs",4.5],["BLA",4.3],["ORB",4.1],["PL",3.4],["LA",3.2],["ACB",3.1],["ORBm",2.3]],"i":[["LA",12.9],["PIL",6.5],["CLA",6.3],["TEa",5.5],["EPd",4.9],["AIv",3.5],["AIp",2.4],["ENT",2.4],["LP",2.0],["MG",1.9]]},"Eth":{"n":0,"o":[],"i":[["RT",1.3],["APN",1.0],["VPL",0.8],["SSp-bfd",0.6],["MOp",0.6]]},"EW":{"n":0,"o":[],"i":[["III",0.8]]},"FF":{"n":0,"o":[],"i":[["GPi",1.3],["ZI",1.1],["APN",1.0],["RN",0.7],["DN",0.5]]},"FL":{"n":0,"o":[],"i":[["DCO",6.2],["PFL",6.0],["DN",2.9],["MV",1.3],["IO",0.7],["SIM",0.6],["PSV",0.6]]},"GRN":{"n":14,"o":[["CBX",17.0],["IRN",7.1],["CB",6.4],["PRNc",4.7],["MDRNv",3.7],["PARN",2.8],["SC",2.1],["PAG",1.9],["MDRNd",1.7],["LRN",1.5]],"i":[["SPIV",7.7],["IRN",7.5],["RO",5.6],["SPVO",5.5],["MV",5.5],["IO",5.3],["PRNc",4.9],["SPVI",3.6],["PARN",3.3],["NTB",3.2]]},"GR":{"n":4,"o":[["ORB",10.9],["VPL",7.5],["VP",4.2],["CU",3.4],["ZI",3.0],["IO",2.8],["MDRNd",2.0],["APN",1.1],["MDRNv",1.1],["NTS",0.7]],"i":[["NTS",1.7]]},"I5":{"n":0,"o":[],"i":[["SUT",0.9]]},"IAD":{"n":1,"o":[["CP",55.6],["AM",5.0],["RT",4.1],["MD",2.9],["AV",2.5],["AMv",1.1],["CL",0.8]],"i":[["PT",0.7]]},"IAM":{"n":0,"o":[],"i":[["SUM",0.6]]},"IF":{"n":1,"o":[["ACB",14.6],["CP",13.7],["OT",7.5],["LS",4.7],["BLA",4.5],["SI",4.3],["ENT",3.8],["LHA",3.5],["BMA",3.2],["BST",2.4]],"i":[["CLI",1.3],["MH",1.0],["IPN",0.8],["LH",0.7]]},"IG":{"n":0,"o":[],"i":[["MH",0.7],["DMX",0.5]]},"IGL":{"n":0,"o":[],"i":[["OP",0.5]]},"IMD":{"n":3,"o":[["CP",18.1],["ACB",12.9],["AId",6.6],["BLA",5.5],["MD",4.8],["AI",4.6],["PL",2.3],["PVT",2.2],["OT",2.1],["SI",2.0]],"i":[["AId",0.6]]},"IO":{"n":2,"o":[["CBX",106.4],["CB",45.4],["SIM",7.3],["GRN",5.3],["PRM",3.5],["PFL",2.8],["XII",2.2],["MDRNv",1.8],["LRN",1.5],["RO",0.9]],"i":[["RO",4.3],["GR",2.8],["CB",1.4],["NTS",1.0],["XII",0.8],["SPVI",0.8],["NOT",0.7],["LRN",0.6]]},"IPN":{"n":7,"o":[["RAmb",6.0],["LHA",4.1],["LS",3.6],["ACB",3.2],["SI",3.1],["CP",2.6],["PAG",2.4],["CA3",2.0],["DG",1.9],["VL",1.5]],"i":[["MH",24.2],["LH",4.3]]},"IPA":{"n":0,"o":[],"i":[["MH",1.1],["LH",0.5]]},"IPC":{"n":0,"o":[],"i":[["MH",4.7],["IPN",0.8],["LH",0.6]]},"IPDL":{"n":0,"o":[],"i":[["MH",2.7]]},"IPDM":{"n":0,"o":[],"i":[["MH",0.6]]},"IPI":{"n":0,"o":[],"i":[["MH",2.0],["LH",0.6]]},"IPL":{"n":0,"o":[],"i":[["MH",3.9],["LH",1.3],["IPN",0.7]]},"IPR":{"n":0,"o":[],"i":[["MH",6.0],["IPN",0.7]]},"IRN":{"n":10,"o":[["GRN",7.5],["PARN",7.1],["MDRNv",5.1],["MDRNd",5.0],["LRN",2.6],["XII",2.2],["P5",2.0],["PRNc",2.0],["CBX",1.8],["V",1.7]],"i":[["PARN",12.5],["XII",11.4],["SPVO",10.5],["GRN",7.1],["RO",6.4],["NTS",4.6],["SPIV",4.1],["V",4.0],["MV",3.9],["RN",3.8]]},"KF":{"n":0,"o":[],"i":[["SUT",1.9],["SPVO",1.1],["SPVI",0.9],["PSV",0.7]]},"LA":{"n":5,"o":[["ENT",15.1],["ECT",12.9],["TEa",12.4],["BLA",10.6],["EPd",8.8],["AIp",7.0],["PIR",6.6],["AI",4.3],["PERI",3.8],["BMA",2.6]],"i":[["PIL",4.7],["MG",3.3],["ECT",3.2],["BLA",3.1],["EPd",2.7],["NLOT",1.2],["BMA",1.0],["PT",1.0],["CEA",0.9],["LP",0.8]]},"LD":{"n":9,"o":[["RSP",55.2],["POST",6.6],["CP",6.3],["SSp",5.7],["PRE",5.1],["VISp",4.8],["ENT",3.8],["MOs",3.3],["ACAd",2.6],["ACA",2.5]],"i":[["OP",10.9],["NPC",5.9],["PPT",4.8],["RT",3.6],["VPL",3.1],["RSP",2.8],["VISp",2.5],["NOT",2.2],["VISl",1.2],["VPM",1.0]]},"LDT":{"n":4,"o":[["SC",10.8],["SSp",5.4],["PAG",4.0],["LS",3.5],["MOs",2.8],["MOp",2.3],["MD",2.0],["RSP",2.0],["DG",2.0],["ENT",2.0]],"i":[["IPN",0.8],["PRNc",0.6]]},"LH":{"n":6,"o":[["DG",9.8],["RAmb",5.6],["ACB",4.3],["IPN",4.3],["MD",4.2],["ACAv",2.6],["PL",2.3],["CP",2.3],["ACA",1.6],["IPL",1.3]],"i":[["MH",4.6],["GPi",2.8],["SF",1.5],["LPO",1.3],["LHA",0.7],["MPO",0.6],["IPN",0.6],["SI",0.5],["NPC",0.5]]},"LM":{"n":3,"o":[["CP",5.6],["PAG",3.1],["SSp",2.9],["SI",2.8],["SC",2.8],["LHA",2.4],["ACB",2.4],["AId",2.3],["AI",2.1],["ENT",2.0]],"i":[]},"NLOT":{"n":4,"o":[["CP",14.3],["AI",9.4],["AId",9.0],["BLA",7.8],["AIv",6.1],["SI",5.2],["OT",5.0],["ORB",4.3],["ACB",4.3],["BMA",4.1]],"i":[["SI",1.0],["AOB",0.9],["MEA",0.9],["BLA",0.9],["PIR",0.9],["BMA",0.8]]},"LPO":{"n":4,"o":[["RSP",13.4],["LHA",8.2],["LS",7.3],["BLA",4.0],["SI",3.7],["BST",2.9],["ACAv",2.7],["ACA",2.7],["ACAd",2.7],["PL",2.4]],"i":[["LS",2.6],["MPO",2.4],["AVPV",2.3],["ACB",1.7],["LSv",1.6],["SUM",1.5],["SF",1.3],["PH",1.3],["ADP",1.3],["BST",1.2]]},"LRN":{"n":4,"o":[["CBX",140.6],["CB",41.4],["GRN",2.7],["SIM",2.0],["IRN",0.8],["IO",0.6],["DMH",0.5]],"i":[["RO",2.6],["IRN",2.6],["RN",2.6],["IO",1.5],["GRN",1.5],["PRNc",0.7],["SPVI",0.7],["SPIV",0.6],["GR",0.5],["NTS",0.5]]},"LRNp":{"n":0,"o":[],"i":[["IO",0.6]]},"LSv":{"n":4,"o":[["LS",17.1],["BST",5.6],["MPO",4.7],["MS",3.9],["PT",2.2],["ADP",2.0],["ACB",1.9],["LHA",1.7],["LPO",1.6],["SF",1.2]],"i":[["ADP",3.4],["SF",2.9],["PVp",2.3],["LS",2.1],["PMv",1.9],["SUM",1.9],["MPO",1.6],["BST",1.6],["ACB",1.4],["ARH",1.3]]},"LAV":{"n":0,"o":[],"i":[["SPIV",3.1],["MV",1.4],["CB",0.9],["DCO",0.7],["CBX",0.5]]},"MDRNd":{"n":0,"o":[],"i":[["SPVC",6.8],["XII",6.7],["IRN",5.0],["NTS",4.4],["SPVI",3.8],["SPVO",3.2],["RN",3.1],["DMX",3.0],["RO",2.4],["GR",2.0]]},"MDRNv":{"n":0,"o":[],"i":[["XII",9.7],["IRN",5.1],["RO",4.8],["GRN",3.7],["IO",1.8],["SPVO",1.5],["NTS",1.4],["SPVC",1.4],["SPIV",1.2],["PARN",1.1]]},"ME":{"n":0,"o":[],"i":[["SO",5.6],["PVH",3.2],["SCH",1.9],["ARH",1.8],["LS",0.6],["VI",0.5]]},"MEA":{"n":24,"o":[["BMA",7.3],["SSp",5.6],["BST",3.9],["ENT",3.8],["LHA",3.0],["BLA",2.7],["CEA",2.5],["VMH",2.2],["CEAm",2.1],["SI",2.0]],"i":[["BMA",6.6],["CEA",3.6],["BST",3.4],["AOB",3.3],["PIL",3.0],["NLOT",2.6],["PMv",1.9],["SO",1.9],["VMH",1.6],["ADP",1.2]]},"MGd":{"n":0,"o":[],"i":[["MG",1.3],["TEa",0.9],["AUDp",0.8]]},"MGm":{"n":0,"o":[],"i":[["MG",1.2],["PIL",0.8],["AUDp",0.7]]},"GPi":{"n":3,"o":[["ZI",8.1],["PF",4.3],["GPe",3.8],["LHA",3.7],["VM",3.7],["VP",3.2],["RT",3.1],["LH",2.8],["RN",1.8],["CEA",1.5]],"i":[["STN",5.3],["GPe",2.3],["CP",1.0],["PSTN",0.5]]},"MGv":{"n":0,"o":[],"i":[["AUDp",2.5],["MG",2.0],["TEa",1.1]]},"MH":{"n":4,"o":[["RAmb",24.5],["IPN",24.2],["DG",10.0],["RSP",7.5],["IPR",6.0],["IPC",4.7],["LH",4.6],["IPL",3.9],["CA1",3.5],["IPDL",2.7]],"i":[["SF",1.7],["BST",0.6]]},"MMl":{"n":0,"o":[],"i":[["SUB",0.9]]},"MMm":{"n":0,"o":[],"i":[["SUB",0.7]]},"MEPO":{"n":0,"o":[],"i":[["AVPV",1.4]]},"ORBm":{"n":15,"o":[["ORB",29.5],["PL",16.0],["CP",12.5],["IL",7.1],["AIv",6.9],["AI",5.0],["ACAd",4.8],["ACB",4.2],["ACA",3.7],["RSP",3.6]],"i":[["PR",13.7],["IL",12.9],["ORB",11.3],["PL",10.1],["DP",6.0],["AM",4.7],["MD",4.5],["PT",4.3],["AIv",4.3],["RE",3.5]]},"V":{"n":4,"o":[["CBX",19.7],["P5",13.0],["CB",9.2],["SUT",4.9],["PARN",4.7],["IRN",4.0],["SIM",2.9],["PRNc",2.4],["VL",2.2],["CEA",1.8]],"i":[["SUT",2.7],["IRN",1.7],["XII",1.3],["SPVO",1.2],["RO",1.0],["PARN",0.8],["PSV",0.7]]},"MPO":{"n":11,"o":[["LS",6.3],["LHA",6.0],["PAG",5.9],["BST",4.2],["PH",2.7],["LPO",2.4],["CA1",1.9],["DMH",1.8],["SI",1.8],["CA3",1.8]],"i":[["AVPV",10.5],["LSv",4.7],["ADP",3.6],["LS",2.7],["BST",2.5],["LPO",2.3],["SF",2.3],["PVp",2.2],["DMH",2.2],["PMv",1.8]]},"MPT":{"n":0,"o":[],"i":[["OP",0.8]]},"MS":{"n":7,"o":[["ENT",21.1],["CA1",19.0],["CA3",17.8],["DG",12.0],["LS",8.7],["RSP",4.2],["SUB",3.1],["SF",2.2],["VL",1.8],["PRE",1.5]],"i":[["LSv",3.9],["LS",3.3],["SF",3.0],["ADP",1.5],["SUM",1.3],["LPO",1.2],["MPO",1.0],["AVPV",0.9],["PH",0.7],["RPO",0.5]]},"MV":{"n":12,"o":[["CBX",24.5],["CB",11.6],["GRN",5.5],["SPIV",4.4],["IRN",3.9],["PARN",3.0],["PRNc",2.1],["PAG",1.9],["LAV",1.4],["FL",1.3]],"i":[["SPIV",18.5],["CB",2.5],["DCO",1.8],["PFL",1.3],["GRN",1.2],["PRNc",1.0],["PSV",0.9],["IRN",0.9],["V",0.7],["PARN",0.7]]},"OP":{"n":1,"o":[["SC",49.2],["LD",10.9],["LP",7.2],["NPC",4.9],["PAG",4.4],["APN",4.0],["LGd",3.1],["ZI",2.5],["RE",2.1],["NOT",1.9]],"i":[]},"NOT":{"n":1,"o":[["SC",80.1],["RSP",8.3],["LP",5.3],["APN",4.4],["LD",2.2],["ZI",2.2],["LGd",2.0],["PAG",1.7],["NPC",1.7],["PPT",1.1]],"i":[["OP",1.9],["PPT",1.8],["SC",1.4],["NPC",1.1],["APN",0.6]]},"P5":{"n":0,"o":[],"i":[["V",13.0],["SUT",5.8],["IRN",2.0],["PARN",1.6],["RN",1.1],["SPVO",1.1],["RO",0.8],["XII",0.7],["PSV",0.7],["GRN",0.6]]},"Pa5":{"n":0,"o":[],"i":[["SPVI",0.7]]},"PAR":{"n":8,"o":[["ENT",77.5],["DG",2.0],["PRE",1.3],["VL",1.2],["CA3",0.7],["SF",0.7],["CA1",0.6]],"i":[["PRE",9.9],["POST",5.2],["SUB",2.2],["ENT",1.3],["MS",0.7]]},"PC5":{"n":0,"o":[],"i":[["V",0.8],["SUT",0.8]]},"NPC":{"n":3,"o":[["SC",41.2],["PAG",10.1],["LD",5.9],["LP",4.1],["CBX",3.2],["APN",2.5],["LGd",2.4],["ZI",2.2],["PH",1.4],["RE",1.2]],"i":[["OP",4.9],["PPT",1.8],["NOT",1.7],["APN",1.0],["RN",0.9],["SPF",0.8],["ZI",0.7],["PAG",0.6],["VMH",0.6]]},"PARN":{"n":7,"o":[["IRN",12.5],["CBX",4.4],["GRN",3.3],["SPVO",2.8],["NTS",2.7],["CB",2.1],["MDRNd",1.9],["P5",1.6],["PRNc",1.1],["MDRNv",1.1]],"i":[["SPVO",13.0],["SPVI",7.6],["IRN",7.1],["SPVC",5.5],["V",4.7],["SPIV",4.4],["RN",3.7],["CB",3.0],["MV",3.0],["GRN",2.8]]},"PeF":{"n":0,"o":[],"i":[["SO",2.5],["PVH",2.4],["VMH",0.9],["MPO",0.9],["LS",0.8],["LHA",0.8],["LPO",0.7],["DMH",0.6],["PH",0.6],["SPF",0.6]]},"PF":{"n":7,"o":[["CP",43.2],["MOs",3.5],["SC",3.4],["VP",2.6],["SSp",2.3],["RSP",2.1],["MOp",1.9],["GPe",1.7],["ACAd",1.6],["PAG",1.3]],"i":[["GPi",4.3],["RT",2.9],["GPe",1.4],["LH",1.3],["APN",1.1],["VPM",1.0],["VP",1.0],["SNr",0.9],["MOp",0.9],["MH",0.8]]},"PFL":{"n":5,"o":[["CBX",137.0],["CB",54.4],["FL",6.0],["SIM",2.9],["PG",2.4],["DN",2.1],["PRM",1.5],["MV",1.3]],"i":[["DN",9.3],["PG",6.2],["DCO",4.4],["IO",2.8],["CBX",1.8],["CB",1.3],["MV",1.1],["GRN",0.8],["NPC",0.8],["BST",0.7]]},"PH":{"n":24,"o":[["PAG",6.3],["LS",6.1],["LHA",4.2],["SC",1.9],["ZI",1.6],["DG",1.4],["VL",1.4],["DMH",1.4],["MPO",1.3],["LPO",1.3]],"i":[["DMH",4.1],["AVPV",3.1],["SUM",3.0],["MPO",2.7],["SPF",2.3],["VMH",2.0],["LHA",1.9],["LPO",1.7],["PMv",1.6],["PVp",1.4]]},"PIL":{"n":4,"o":[["TEa",14.3],["CP",6.8],["ECT",6.5],["LA",4.7],["BMA",4.3],["ZI",3.3],["CEA",3.2],["AUDp",3.1],["MEA",3.0],["SPF",2.5]],"i":[["SPF",1.5],["SAG",0.8],["CUN",0.6]]},"PRM":{"n":1,"o":[["CBX",6.0],["CB",3.4],["ECT",0.8]],"i":[["PG",20.9],["IO",3.5],["SPVO",3.3],["PSV",2.3],["PFL",1.5],["V",1.2],["SPVI",1.1],["CB",0.6]]},"PMd":{"n":0,"o":[],"i":[["PVp",1.2],["DMH",0.8],["PMv",0.8],["SUM",0.5]]},"PMv":{"n":12,"o":[["LS",3.9],["PAG",3.5],["BST",3.4],["LHA",3.2],["ARH",2.5],["MEA",1.9],["LSv",1.9],["CP",1.9],["MPO",1.8],["VMH",1.8]],"i":[["PVp",3.4],["ARH",2.7],["DMH",1.4],["BST",1.3],["LSv",1.0],["ADP",0.8],["VMH",0.7],["MPO",0.7]]},"PN":{"n":0,"o":[],"i":[["LH",0.6]]},"PG":{"n":2,"o":[["CBX",200.5],["CB",75.9],["PRM",20.9],["SIM",11.7],["PFL",6.2],["PSV",1.4],["VL",0.9]],"i":[["PFL",2.4],["NTB",1.1],["PRNc",1.1],["LDT",1.0],["NOT",0.8],["MOp",0.7],["RN",0.6],["SPVC",0.6],["GR",0.6],["SSp",0.5]]},"PRNc":{"n":12,"o":[["CBX",29.1],["CB",10.3],["PAG",5.1],["GRN",4.9],["SC",3.4],["IRN",3.1],["PARN",1.9],["SIM",1.2],["RN",1.2],["PG",1.1]],"i":[["NTB",11.5],["GRN",4.7],["DCO",3.8],["CUN",3.7],["V",2.4],["RN",2.2],["MV",2.1],["SPVO",2.0],["IRN",2.0],["SPVI",1.8]]},"POST":{"n":6,"o":[["ENT",100.6],["VISp",20.1],["RSP",13.8],["PAR",5.2],["SC",3.3],["VL",2.5],["SUB",2.5],["PRE",2.1],["VISl",1.6],["PAG",1.1]],"i":[["LD",6.6],["AV",5.3],["PRE",4.4],["SUB",2.7],["RSP",1.4],["NOT",0.9],["MS",0.8],["RE",0.8],["RPO",0.7],["CA1",0.6]]},"PoT":{"n":0,"o":[],"i":[["PIL",1.2],["APN",0.7],["ZI",0.6],["SPF",0.5]]},"PPT":{"n":1,"o":[["SC",90.1],["PAG",6.5],["LGd",5.2],["APN",5.1],["LP",5.0],["LD",4.8],["NOT",1.8],["NPC",1.8],["ZI",1.6],["RT",1.4]],"i":[["OP",1.6],["NOT",1.1],["NPC",1.0],["SC",0.6]]},"PPY":{"n":0,"o":[],"i":[["NTB",0.7]]},"PR":{"n":1,"o":[["ORB",33.7],["ORBm",13.7],["RE",6.2],["AIv",6.1],["IL",4.9],["Xi",4.1],["PL",3.3],["SMT",2.9],["ACAv",1.1],["PERI",0.7]],"i":[["RE",0.8]]},"PSV":{"n":3,"o":[["CBX",35.9],["DCO",13.8],["CB",12.7],["SC",4.6],["VP",3.2],["PRM",2.3],["PAG",2.0],["PARN",2.0],["IRN",2.0],["VPM",1.7]],"i":[["SPVI",7.3],["SPVC",6.1],["SPVO",4.5],["SUT",2.5],["XII",1.8],["V",1.6],["PG",1.4],["RN",1.0]]},"PRC":{"n":0,"o":[],"i":[["NPC",1.2],["OP",1.2],["PF",1.1],["SPF",0.8],["VMH",0.6],["PPT",0.5]]},"PERI":{"n":0,"o":[],"i":[["LA",3.8],["EPd",3.0],["CLA",2.4],["AIp",2.4],["ECT",2.3],["ENT",2.1],["PIR",1.3],["AIv",1.2],["RE",1.1],["PR",0.7]]},"PRE":{"n":6,"o":[["ENT",129.6],["PAR",9.9],["VISp",6.7],["CA1",4.8],["CA3",4.8],["POST",4.4],["SUB",3.8],["DG",2.8],["VL",1.4],["SF",1.0]],"i":[["LD",5.1],["SUB",4.8],["AV",3.3],["POST",2.1],["MS",1.5],["PAR",1.3],["ENT",1.2]]},"PS":{"n":0,"o":[],"i":[["ACB",1.3],["ADP",1.2],["AVPV",1.0],["LSv",1.0],["MPO",0.7]]},"PSTN":{"n":2,"o":[["LHA",5.9],["VL",5.4],["CP",5.3],["SI",3.9],["SNr",3.1],["CEA",2.7],["PAG",2.1],["CEAm",2.0],["GPe",1.9],["VTA",1.3]],"i":[["CEA",0.7],["DR",0.6],["GPi",0.5]]},"PT":{"n":12,"o":[["ACB",12.2],["ENT",8.3],["IL",6.1],["ACAv",5.3],["BMA",4.5],["CP",4.5],["BST",4.4],["ORBm",4.3],["BLA",4.1],["LS",3.5]],"i":[["LSv",2.2],["ORBm",1.0],["AD",1.0],["BST",0.9],["IL",0.9],["SF",0.9]]},"PVT":{"n":13,"o":[["ACB",17.6],["CP",10.5],["BMA",5.3],["BLA",5.2],["BST",3.9],["CEA",3.1],["SI",3.0],["LS",2.9],["OT",2.9],["IL",2.6]],"i":[["SCH",6.5],["IMD",2.2],["AVPV",2.2],["SF",1.5],["AD",1.4],["MH",1.4],["DMH",1.3],["PT",1.1],["VMH",1.0],["MPO",0.9]]},"PVa":{"n":0,"o":[],"i":[["SCH",2.1],["AVPV",0.7],["ARH",0.6],["PVp",0.6]]},"PVp":{"n":4,"o":[["ARH",6.8],["BST",4.1],["PMv",3.4],["DMH",3.3],["LS",2.9],["LSv",2.3],["MPO",2.2],["VMH",1.9],["PVH",1.6],["LHA",1.5]],"i":[["ARH",2.9],["PMv",1.2],["DMH",0.7],["LSv",0.6],["SO",0.6]]},"RN":{"n":3,"o":[["SC",5.5],["IRN",3.8],["PARN",3.7],["ZI",3.2],["MDRNd",3.1],["PAG",3.0],["LRN",2.6],["GRN",2.4],["APN",2.3],["PRNc",2.2]],"i":[["III",6.6],["CB",4.2],["APN",2.9],["DN",2.4],["GPi",1.8],["ZI",1.8],["PRNc",1.2],["SNr",0.9],["GRN",0.7],["PAG",0.7]]},"RAmb":{"n":0,"o":[],"i":[["MH",24.5],["IPN",6.0],["LH",5.6],["CLI",5.0],["DR",2.2],["III",1.4],["PAG",1.3],["RN",1.0],["IF",0.9],["MPO",0.9]]},"RE":{"n":18,"o":[["ENT",35.0],["ORB",8.5],["RSP",6.5],["ACAv",6.3],["ACA",4.2],["CP",4.2],["PL",4.0],["IL",4.0],["ORBm",3.5],["ACB",3.1]],"i":[["PR",6.2],["OP",2.1],["SCH",1.5],["NPC",1.2],["PVH",1.2],["PH",1.2],["SPF",1.0],["SF",0.9],["IL",0.9],["SUM",0.8]]},"NR":{"n":0,"o":[],"i":[["XII",0.6]]},"RO":{"n":5,"o":[["XII",7.0],["IRN",6.4],["GRN",5.6],["MDRNv",4.8],["IO",4.3],["CBX",3.4],["LRN",2.6],["MDRNd",2.4],["PARN",2.0],["NTS",1.2]],"i":[["IO",0.9]]},"RPA":{"n":0,"o":[],"i":[["VI",0.5]]},"RPO":{"n":1,"o":[["RSP",13.5],["CA1",9.5],["SSp",8.2],["LS",6.2],["ENT",6.2],["MOs",5.2],["DG",4.3],["ACAd",3.0],["CA3",3.0],["MOp",2.8]],"i":[["IPN",0.7]]},"RR":{"n":0,"o":[],"i":[["III",1.1],["SNr",1.0],["RN",0.7]]},"RT":{"n":14,"o":[["VP",11.7],["SSp",10.3],["PO",9.2],["LP",7.4],["VPM",6.0],["MD",5.2],["VM",4.3],["MOp",4.3],["LD",3.6],["VPL",3.6]],"i":[["GPe",4.2],["IAD",4.1],["AV",3.4],["VPL",3.4],["GPi",3.1],["VPM",3.0],["LGd",2.8],["SMT",2.7],["VM",2.7],["LD",2.3]]},"SSp-bfd":{"n":64,"o":[["SSp",48.9],["SSs",7.8],["MOs",7.7],["CP",7.0],["VP",4.4],["MOp",4.3],["VPM",3.6],["SC",3.1],["PO",2.5],["TEa",1.2]],"i":[["VPM",16.7],["VPL",9.4],["PO",8.9],["GPe",5.5],["SSs",4.8],["SSp",4.7],["SI",3.6],["LP",3.5],["LGd",3.3],["LD",2.4]]},"SAG":{"n":2,"o":[["SC",70.6],["PAG",13.3],["CUN",3.2],["PRNc",1.3],["MG",1.0],["SPF",1.0],["LGd",0.8],["PIL",0.8],["APN",0.7],["LP",0.7]],"i":[]},"SCH":{"n":2,"o":[["PVT",6.5],["PVH",4.6],["DMH",3.7],["ARH",2.3],["PVa",2.1],["ME",1.9],["RE",1.5],["VMH",1.0],["VMPO",0.7],["AVPV",0.6]],"i":[]},"SF":{"n":1,"o":[["LS",11.2],["CA1",6.8],["CA3",5.5],["BST",4.3],["BMA",3.5],["LHA",3.0],["MS",3.0],["LSv",2.9],["ACB",2.7],["MPO",2.3]],"i":[["MS",2.2],["LS",2.0],["LSv",1.2],["SUB",1.1],["PRE",1.0],["CA3",0.9],["CA1",0.8],["SUM",0.7],["PAR",0.7],["ADP",0.6]]},"SI":{"n":25,"o":[["SSp",14.2],["MOs",7.1],["MOB",5.7],["MOp",4.6],["PIR",4.3],["BLA",4.3],["SSs",3.7],["SSp-bfd",3.6],["ORB",3.4],["AI",3.3]],"i":[["OT",26.1],["ACB",7.6],["NLOT",5.2],["IF",4.3],["BLA",4.3],["BMA",3.9],["PSTN",3.9],["VTA",3.7],["LPO",3.7],["CEA",3.5]]},"SIM":{"n":10,"o":[["CBX",64.6],["CB",56.5],["DN",0.8],["FL",0.6]],"i":[["PG",11.7],["IO",7.3],["PFL",2.9],["V",2.9],["CBX",2.4],["LRN",2.0],["SPVO",1.8],["PRNc",1.2],["PSV",0.8],["DN",0.8]]},"SO":{"n":5,"o":[["LHA",15.2],["ME",5.6],["ARH",4.3],["PeF",2.5],["MEA",1.9],["PVp",0.6]],"i":[["AVPV",0.7]]},"SPVC":{"n":9,"o":[["SPVI",9.4],["MDRNd",6.8],["PSV",6.1],["PARN",5.5],["SPVO",4.8],["IRN",2.9],["MDRNv",1.4],["NTS",1.1],["GRN",0.8],["XII",0.8]],"i":[["SPVI",9.2],["XII",3.7],["SPVO",3.5],["IRN",1.3],["RO",1.0],["SPIV",0.9],["RN",0.8],["NTS",0.7],["PARN",0.6],["MV",0.5]]},"SPVI":{"n":4,"o":[["SPVC",9.2],["PARN",7.6],["PSV",7.3],["CBX",7.0],["SPVO",6.4],["IRN",3.8],["SC",3.8],["MDRNd",3.8],["GRN",3.6],["CB",2.9]],"i":[["SPVC",9.4],["SPVO",5.1],["XII",3.3],["SPIV",2.7],["RN",1.5],["IRN",1.3],["PARN",1.0],["NTS",0.9],["GRN",0.8],["RO",0.6]]},"SPVO":{"n":1,"o":[["CBX",29.4],["PARN",13.0],["CB",11.5],["IRN",10.5],["GRN",5.5],["SPVI",5.1],["PSV",4.5],["SPVC",3.5],["PRM",3.3],["MDRNd",3.2]],"i":[["SPVI",6.4],["SPVC",4.8],["PARN",2.8],["SPIV",2.3],["XII",2.0],["RN",1.1],["MV",1.0],["IRN",0.9],["V",0.7],["PSV",0.6]]},"SPF":{"n":2,"o":[["PAG",14.9],["SC",14.3],["LS",3.8],["PH",2.3],["ZI",2.3],["LHA",2.0],["CUN",1.9],["PIL",1.5],["RE",1.0],["PRC",0.8]],"i":[["PIL",2.5],["ZI",1.5],["VP",1.5],["APN",1.3],["SAG",1.0],["GPi",0.8],["CUN",0.8],["SNr",0.8],["VMH",0.7],["DMH",0.6]]},"SPIV":{"n":3,"o":[["MV",18.5],["GRN",7.7],["PARN",4.4],["CBX",4.3],["IRN",4.1],["LAV",3.1],["SPVI",2.7],["SPVO",2.3],["SUV",1.7],["NTS",1.4]],"i":[["MV",4.4],["CB",1.5],["DCO",0.8]]},"SUT":{"n":1,"o":[["P5",5.8],["V",2.7],["PSV",2.5],["NTS",2.4],["KF",1.9],["CUN",1.1],["I5",0.9],["DMX",0.8],["PC5",0.8]],"i":[["V",4.9],["PSV",1.1],["IRN",1.1],["SPVO",0.9],["PARN",0.8],["RN",0.7]]},"SMT":{"n":3,"o":[["CP",16.2],["MOs",12.2],["ORBl",11.6],["MOp",11.5],["AId",11.3],["SSp",9.7],["ORB",7.5],["AI",7.5],["SSs",6.0],["VM",4.7]],"i":[["PR",2.9],["DP",0.9],["ORBl",0.8],["ORBm",0.6],["RT",0.5]]},"SUM":{"n":4,"o":[["DG",20.5],["LS",7.2],["ENT",5.1],["LHA",5.0],["PH",3.0],["SI",2.2],["LSv",1.9],["PAG",1.7],["AM",1.5],["LPO",1.5]],"i":[["ADP",1.2],["LS",1.1],["MPO",0.9],["PMv",0.9],["PH",0.8],["LPO",0.7],["MH",0.7],["DMH",0.6],["LHA",0.6],["SF",0.6]]},"SUV":{"n":0,"o":[],"i":[["SPIV",1.7],["CBX",1.6],["CB",1.3],["MV",1.1],["DCO",0.7],["DN",0.6]]},"TEa":{"n":5,"o":[["AUDp",10.9],["SC",6.3],["ECT",5.5],["VISp",5.4],["LP",3.9],["RSP",2.8],["VISl",2.7],["ORB",2.4],["MG",2.4],["PAG",1.2]],"i":[["MG",20.5],["ECT",17.9],["PIL",14.3],["LA",12.4],["LP",9.2],["AUDp",7.4],["ENT",1.9],["VISl",1.9],["TMv",1.8],["EPd",1.8]]},"OT":{"n":2,"o":[["SI",26.1],["ACB",7.7],["MD",0.8]],"i":[["IF",7.5],["VTA",7.1],["NLOT",5.0],["PIR",4.3],["BMA",3.9],["PVT",2.9],["SI",2.7],["DP",2.7],["BLA",2.6],["ACB",2.6]]},"NTB":{"n":1,"o":[["PRNc",11.5],["GRN",3.2],["PG",1.1],["PPY",0.7]],"i":[]},"EPv":{"n":0,"o":[],"i":[["EPd",3.9],["PIR",2.3],["BLA",2.0],["LA",1.9],["BMA",1.1],["AIp",1.0],["NLOT",0.9],["DR",0.7],["SI",0.7],["MEA",0.6]]},"VL":{"n":0,"o":[],"i":[["PSTN",5.4],["DN",3.7],["POST",2.5],["DCO",2.4],["AD",2.4],["V",2.2],["VTA",2.1],["MS",1.8],["SC",1.6],["IPN",1.5]]},"VLPO":{"n":0,"o":[],"i":[["AVPV",1.4]]},"VM":{"n":10,"o":[["MOs",23.3],["MOp",14.4],["CP",10.4],["SSp",9.4],["AId",5.6],["PL",5.4],["AI",3.8],["ACAd",3.7],["ORB",3.5],["ORBl",3.1]],"i":[["SMT",4.7],["RT",4.3],["DN",4.0],["GPi",3.7],["SNr",2.4],["CB",2.1],["VP",2.1],["ZI",1.0],["CM",0.9],["ORBl",0.9]]},"VMPO":{"n":0,"o":[],"i":[["AVPV",1.2],["SCH",0.7]]},"VP":{"n":2,"o":[["CP",18.2],["AId",14.2],["MOp",13.1],["AI",9.2],["SSp",8.6],["MOs",6.8],["SSs",5.2],["AIp",3.6],["PAG",3.0],["VM",2.1]],"i":[["RT",11.7],["VPL",7.3],["VPM",6.9],["SSp",4.9],["MOp",4.6],["SSs",4.4],["SSp-bfd",4.4],["GR",4.2],["PO",3.9],["PSV",3.2]]},"TMv":{"n":1,"o":[["CP",8.7],["SSp",8.2],["ENT",7.4],["MOs",5.3],["MOp",4.7],["SC",4.2],["SSs",3.5],["AI",3.0],["PAG",2.9],["AId",2.8]],"i":[["PMv",1.3],["PVp",1.1],["ARH",0.8],["DMH",0.6],["ADP",0.5]]},"x":{"n":0,"o":[],"i":[["SPIV",0.9]]},"Xi":{"n":0,"o":[],"i":[["PR",4.1],["RE",0.5]]},"ZI":{"n":22,"o":[["SC",14.6],["PAG",5.7],["SSp",5.5],["CP",4.7],["APN",2.8],["SSs",2.7],["MOp",2.5],["RN",1.8],["SPF",1.5],["LHA",1.5]],"i":[["GPi",8.1],["APN",4.9],["PIL",3.3],["RN",3.2],["GR",3.0],["OP",2.5],["VM",2.4],["SPF",2.3],["NPC",2.2],["NOT",2.2]]},"IL":{"n":15,"o":[["PL",14.6],["ORBm",12.9],["ORB",10.7],["ACB",5.4],["CP",5.4],["ACAv",4.4],["AIv",4.3],["AI",3.1],["CLA",3.1],["ENT",3.1]],"i":[["PL",11.1],["DP",8.5],["ORBm",7.1],["PT",6.1],["AM",5.2],["PR",4.9],["RE",4.0],["MD",3.1],["AIv",2.8],["PVT",2.6]]},"SC":{"n":25,"o":[["PAG",5.5],["LP",2.2],["VL",1.6],["APN",1.6],["NOT",1.4],["LGd",1.2],["PRNc",1.0],["GRN",0.8],["CUN",0.8],["SSp",0.7]],"i":[["PPT",90.1],["NOT",80.1],["SAG",70.6],["OP",49.2],["NPC",41.2],["CUN",29.7],["APN",23.1],["ZI",14.6],["SPF",14.3],["SNr",13.1]]}};
+var ACOV={"MOp":1,"MOs":1,"SSp":1,"SSs":1,"VISp":1,"VISl":1,"AUDp":1,"RSP":1,"ACA":1,"PL":1,"ORB":1,"PIR":1,"MOB":1,"CA1":1,"CA2":1,"CA3":1,"DG":1,"SUB":1,"ENT":1,"CLA":1,"CP":1,"ACB":1,"LS":1,"BLA":1,"CEA":1,"GPe":1,"STN":1,"LGd":1,"LP":1,"VPM":1,"VPL":1,"MD":1,"PO":1,"MG":1,"PVH":1,"ARH":1,"VMH":1,"LHA":1,"PAG":1,"SNc":1,"SNr":1,"VTA":1,"DR":1,"LC":1,"NTS":1,"CBX":1,"DN":1,"III":1,"IV":1,"VI":1,"DMX":1,"XII":1,"Acs5":1,"AD":1,"ADP":1,"AHA":1,"AI":1,"AId":1,"AIp":1,"AIv":1,"alv":1,"AM":1,"AMB":1,"AMv":1,"AOB":1,"AONd":1,"AONe":1,"AONl":1,"AONm":1,"AP":1,"APN":1,"AV":1,"AVPV":1,"BAC":1,"BA":1,"B":1,"NB":1,"BMA":1,"BST":1,"CB":1,"cc":1,"CEAc":1,"CEAl":1,"CEAm":1,"ACAd":1,"ACAv":1,"cic":1,"CL":1,"CLI":1,"CM":1,"CUN":1,"CU":1,"das":1,"DCO":1,"EPd":1,"df":1,"ND":1,"NLLd":1,"ORBl":1,"DMH":1,"DP":1,"DT":1,"TMd":1,"ECT":1,"ECU":1,"Eth":1,"EW":1,"FC":1,"FF":1,"fi":1,"FL":1,"ccg":1,"GRN":1,"GR":1,"I5":1,"IAD":1,"IAM":1,"ias":1,"isl":1,"IF":1,"IG":1,"IGL":1,"IMD":1,"In":1,"INC":1,"InCo":1,"ICB":1,"IntG":1,"IO":1,"IPN":1,"IPA":1,"IPC":1,"IPDL":1,"IPDM":1,"IPF":1,"IPI":1,"IPL":1,"IPR":1,"IRN":1,"ISN":1,"IVF":1,"KF":1,"LA":1,"LD":1,"LDT":1,"LH":1,"LIN":1,"LM":1,"NLOT":1,"PBlc":1,"PBld":1,"PBle":1,"PBls":1,"PBlv":1,"LPO":1,"LRN":1,"LRNp":1,"LSS":1,"LSv":1,"LT":1,"LAV":1,"MA3":1,"MDc":1,"MDRNd":1,"MDl":1,"MDm":1,"MDRNv":1,"ME":1,"MEA":1,"MGd":1,"MGm":1,"GPi":1,"MGv":1,"MH":1,"MMl":1,"MMm":1,"MMme":1,"MEPO":1,"ORBm":1,"V":1,"MPO":1,"PBme":1,"MPNc":1,"MPNl":1,"MPNm":1,"MPT":1,"MS":1,"MT":1,"MV":1,"OP":1,"NOT":1,"P5":1,"Pa4":1,"Pa5":1,"PVHap":1,"PVHm":1,"PVHmm":1,"PVHp":1,"PAR":1,"PBG":1,"PC5":1,"NPC":1,"PARN":1,"PDTg":1,"PeF":1,"PF":1,"PFL":1,"PH":1,"PIL":1,"PRM":1,"PMd":1,"PMR":1,"PMv":1,"PN":1,"PG":1,"PRNc":1,"PRNv":1,"POST":1,"PoT":1,"PP":1,"PPT":1,"PPY":1,"PR":1,"PSV":1,"PRC":1,"PERI":1,"PRE":1,"PS":1,"PAS":1,"PSTN":1,"PT":1,"PVT":1,"PVa":1,"PVp":1,"RN":1,"RAmb":1,"RC":1,"RE":1,"REth":1,"RH":1,"RL":1,"RM":1,"NR":1,"RO":1,"RPA":1,"RPF":1,"RPO":1,"RR":1,"RT":1,"SSp-bfd":1,"SAG":1,"ccs":1,"SCH":1,"SCO":1,"SF":1,"SFO":1,"SG":1,"SH":1,"SI":1,"SIM":1,"sm":1,"SNl":1,"SO":1,"NTSco":1,"NTSce":1,"NTSge":1,"NTSm":1,"SPVC":1,"SPVI":1,"SPVO":1,"SPVOcdm":1,"SPVOvl":1,"SPF":1,"SPIV":1,"SUT":1,"SMT":1,"SubG":1,"SUM":1,"SUMl":1,"SUMm":1,"SUV":1,"TEa":1,"OT":1,"NTB":1,"tb":1,"VeCB":1,"EPv":1,"VL":1,"NLLv":1,"VLPO":1,"VM":1,"VMHc":1,"VMHdm":1,"VMHvl":1,"VMPO":1,"ORBv":1,"OV":1,"VP":1,"VTN":1,"TMv":1,"x":1,"Xi":1,"y":1,"ZI":1,"IL":1,"SC":1};
 var NTYPES={
 MOp:{k:'exc',label:'兴奋性为主',main:'以<b>谷氨酸能兴奋性</b>神经元为主',tags:['谷氨酸能锥体神经元 · 主要投射','GABA能中间神经元'],minor:[1],note:'另有少量 GABA 能中间神经元（PV、SST、VIP 等亚型）负责局部抑制与节律调控，个别层还可见胆碱能等调制性输入的靶细胞，但本区自身以谷氨酸能输出为主。'},
 MOs:{k:'exc',label:'兴奋性为主',main:'以<b>谷氨酸能兴奋性</b>神经元为主',tags:['谷氨酸能锥体神经元 · 主要投射','GABA能中间神经元'],minor:[1],note:'另有 GABA 能中间神经元参与局部回路；与 MOp 类似，属于典型的皮层兴奋—抑制混合构成，只是以兴奋性投射为主导。'},
@@ -4857,6 +4939,48 @@ function regionAliases(r){return ALIASES[r.a]||[];}
 /* 部分 / 模糊匹配打分：不要求全名精确命中——中文名、英文全称、缩写、Paxinos/Allen 异写与常用别名
    都支持前缀与包含匹配（如输入「黑质」命中黑质致密部、黑质网状部、黑质外侧部）；
    英文还支持按词前缀与多词组合匹配（如 substantia nigra）。 */
+
+/* 功能关键词反向搜索：功能简介 + 神经元类型文本构成可搜语料；命中只作低优先级排序（名称/缩写命中优先） */
+function funcHay(r){
+  if(r._fh!==undefined) return r._fh;
+  var t=(r.fn||'');
+  var nt=(typeof NTYPES!=='undefined')?NTYPES[r.a]:null;
+  if(nt){ t+=' '+(nt.label||'')+' '+String(nt.main||'').replace(/<[^>]+>/g,'')+' '+(nt.tags||[]).join(' '); }
+  r._fh=t;
+  return t;
+}
+function nameHit(r,q){
+  q=String(q).toLowerCase().trim(); if(!q) return false;
+  if(r.a.toLowerCase().indexOf(q)>-1) return true;
+  if((r.zh||'').indexOf(q)>-1) return true;
+  if((r.en||'').toLowerCase().indexOf(q)>-1) return true;
+  if(r.px&&String(r.px).toLowerCase().indexOf(q)>-1) return true;
+  var wr=r.al||[];
+  for(var i=0;i<wr.length;i++){ if(String(wr[i]).toLowerCase().indexOf(q)>-1) return true; }
+  var als=regionAliases(r);
+  for(var j=0;j<als.length;j++){ if(als[j].toLowerCase().indexOf(q)>-1) return true; }
+  if((r.parent||'').indexOf(q)>-1) return true;
+  return false;
+}
+function escH(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function funcTie(r,q){
+  q=String(q).toLowerCase().trim(); if(!q) return 0;
+  var hay=funcHay(r).toLowerCase(), toks=q.split(/\s+/), best=1e9;
+  for(var i=0;i<toks.length;i++){ if(!toks[i])continue; var ix=hay.indexOf(toks[i]); if(ix>-1&&ix<best)best=ix; }
+  return best===1e9?99999:best;
+}
+function cmpMatch(x,y,q,sx,sy){
+  var d=sy-sx; if(d) return d;
+  if(sx<=26&&sy<=26){ var t=funcTie(x,q)-funcTie(y,q); if(t) return t; }
+  return x.a.length-y.a.length||x.a.localeCompare(y.a);
+}
+function funcSnippet(r,q){
+  q=String(q).toLowerCase().trim(); if(!q) return '';
+  var hay=funcHay(r), low=hay.toLowerCase(), i=low.indexOf(q);
+  if(i<0) return '';
+  var s=Math.max(0,i-9), e=Math.min(hay.length,i+q.length+11);
+  return '功能：'+(s>0?'…':'')+escH(hay.slice(s,i))+'<b>'+escH(hay.slice(i,i+q.length))+'</b>'+escH(hay.slice(i+q.length,e))+(e<hay.length?'…':'');
+}
 function score(r,q){
   if(!q) return 1;
   q=String(q).toLowerCase().trim();
@@ -4887,6 +5011,12 @@ function score(r,q){
     if(ok) return 40;
   }
   if((r.parent||'').indexOf(q)>-1||divLabel(r.div).indexOf(q)>-1) return 30;
+  var fh=funcHay(r).toLowerCase();
+  if(toks.length>1){
+    var okf=true;
+    for(i=0;i<toks.length;i++){if(toks[i]&&fh.indexOf(toks[i])===-1){okf=false;break;}}
+    if(okf) return 24;
+  } else if(fh.indexOf(q)>-1) return 26;
   return 0;
 }
 function filtered(){
@@ -4895,7 +5025,7 @@ function filtered(){
     var s = score(r,state.q);
     return okDiv && (state.q? s>0 : true);
   });
-  out.sort(function(x,y){return score(y,state.q)-score(x,state.q) || x.a.length-y.a.length || x.a.localeCompare(y.a)});
+  out.sort(function(x,y){return cmpMatch(x,y,state.q,score(x,state.q),score(y,state.q));});
   return out;
 }
 function renderFilters(){
@@ -4909,25 +5039,59 @@ function renderFilters(){
 function renderList(){
   var list=filtered();
   $('resultMeta').textContent='显示 '+list.length+' / '+REGIONS.length+' 个脑区';
-  if(!list.length){$('list').innerHTML='<div class="empty">没有找到匹配的脑区。<br>试试缩写（如 VPM）、英文（如 hippocampus）或换个中文关键词。</div>';return;}
+  if(!list.length){$('list').innerHTML='<div class="empty">没有找到匹配的脑区。<br>试试缩写（如 VPM）、英文（如 hippocampus），或按功能找，如「睡眠」「恐惧」。</div>';return;}
+  var lq=state.q?String(state.q).toLowerCase().trim():'';
   $('list').innerHTML=list.map(function(r){
+    var fnote=(lq&&!nameHit(r,lq))?funcSnippet(r,lq):'';
     return '<button class="row'+(state.sel===r.a?' sel':'')+'" data-a="'+r.a+'">'
       +'<span class="abbr">'+r.a+'</span>'
-      +'<span><span class="rname">'+(r.zh||r.en)+'</span><br><span class="ren">'+(r.zh?r.en:('Paxinos 作 '+(r.px||r.a)))+'</span></span>'
+      +'<span><span class="rname">'+(r.zh||r.en)+'</span><br><span class="ren">'+(r.zh?r.en:('Paxinos 作 '+(r.px||r.a)))+'</span>'+(fnote?'<br><span class="funchit">'+fnote+'</span>':'')+'</span>'
       +'<span class="tag"><span class="dot" style="background:'+divColor(r.div)+'"></span>'+divLabel(r.div)+'</span></button>';
   }).join('');
   var rows=$('list').querySelectorAll('.row');
   for(var i=0;i<rows.length;i++) rows[i].onclick=function(){selectRegion(this.getAttribute('data-a'),true);};
 }
 function byAbbr(a){for(var i=0;i<REGIONS.length;i++)if(REGIONS[i].a===a)return REGIONS[i];return null}
-function connHTML(r){
+function allenListHTML(items,other){
+  var max=0,i;
+  for(i=0;i<items.length;i++) if(items[i][1]>max) max=items[i][1];
+  if(!max) return '';
+  return items.map(function(it){
+    var x=byAbbr(it[0]);
+    var w=Math.max(6,Math.round(100*it[1]/max));
+    return '<button class="tchip" data-rel="'+it[0]+'"><span class="ta">'+it[0]+'</span><span class="tz">'+(x?(x.zh||x.en):'')+'</span><span class="tbar"><span style="width:'+w+'%"></span></span><span class="tp">'+it[1]+'%</span></button>';
+  }).join('');
+}
+function allenHTML(r){
+  var head='<h4 class="circsub">基于 Allen 脑图谱的环路连接 <span class="circbadge">基于 Allen · 群体水平 · 病毒顺行示踪</span></h4>';
+  var srcNote='<p class="note">来源与口径：本小节是基于 Allen 脑图谱的环路连接，基于 Allen 小鼠脑连接图谱（Allen Institute Mouse Brain Connectivity Atlas，Oh et al.）的病毒顺行示踪数据，是群体水平的连接，不是单细胞水平。数据为该图谱的 structure unionize 数据，构建时自 api.brain-map.org 下载 2,992 个顺行示踪实验汇总，并经本页 Paxinos ↔ Allen 对照映射到本工具脑区。名单按各实验中归一化投射体积占该实验灰质总输出的平均份额排序，各取前 10 名，平均份额低于 0.5% 的不列；百分比为同一名单内的相对强度。这是群体水平的相对强度，不是单细胞精度——需要单神经元精度时看上方「STAM 单神经元环路连接」小节。</p>';
+  var d=ACONN[r.a];
+  if(!d){
+    if(!ACOV[r.a]) return head+'<p class="note">基于 Allen 脑图谱的环路连接未覆盖该脑区：它在 Allen CCFv3 中没有对应的同名结构（Paxinos 图谱独有条目），Allen 小鼠脑连接图谱没有它的病毒顺行示踪数据，这里不硬凑名单。</p>'+srcNote;
+    return head+'<p class="note">基于 Allen 脑图谱的环路连接未覆盖该脑区：没有病毒顺行示踪实验以该区为注射点，也未在其他实验中记录到达到阈值的显著投射，这里不硬凑名单。</p>'+srcNote;
+  }
+  var h=head;
+  h+='<p class="connlab">主要投射靶区 · 本区发出'+(d.n?'（基于 '+d.n+' 个注射在本区的示踪实验）':'')+'</p>';
+  if(d.o&&d.o.length){ h+='<div class="connlist">'+allenListHTML(d.o)+'</div>'; }
+  else { h+='<p class="note">基于 Allen 脑图谱的病毒顺行示踪数据中暂无注射在本区的实验，无法给出投射靶区名单。</p>'; }
+  h+='<p class="connlab">主要传入来源 · 投射到本区</p>';
+  if(d.i&&d.i.length){ h+='<div class="connlist">'+allenListHTML(d.i)+'</div>'; }
+  else { h+='<p class="note">其他实验中未记录到达到阈值（平均份额 ≥0.5%）的显著传入。</p>'; }
+  return h+srcNote;
+}
+function circuitHTML(r){
+  return '<p class="note" style="margin:0">本板块有两类来源不同、互相补充的环路连接，必须分清：<b>「STAM 单神经元环路连接」</b>基于 STAM 的单神经元重构数据，是单细胞水平的连接——每个计数背后都是一个被完整重构的神经元，精度最高，但采样到的神经元数量有限；<b>「基于 Allen 脑图谱的环路连接」</b>基于 Allen 小鼠脑连接图谱的病毒顺行示踪数据，是群体水平的连接，覆盖的脑区广、能给出具体的投射名单，但强度是群体平均的相对值，不是单细胞精度。</p>'
+    + stamHTML(r)
+    + allenHTML(r);
+}
+function stamHTML(r){
   var c=CONN[r.a];
-  var head='<h3>连接与投射 · STAM 单细胞数据</h3>';
-  if(!c) return head+'<p class="note">STAM 单细胞数据集中暂无该脑区的记录。</p>';
+  var head='<h4 class="circsub">STAM 单神经元环路连接 <span class="circbadge">基于 STAM 单神经元重构 · 单细胞水平</span></h4>';
+  if(!c) return head+'<p class="note">本小节是 STAM 单神经元环路连接，基于 STAM 的单神经元重构数据，是单细胞水平的连接。STAM 单神经元重构数据集中暂无该脑区的记录。</p>';
   var keyNote=(c.k!==r.a)?'（STAM 中该区记为 '+c.k+'）':'';
   if(c.d===0&&c.u===0){
-    return head+'<p class="note">STAM 的单细胞数据集（共 1,555 个重构神经元）中暂未采样到与 '+r.a+' 相关的神经元'+keyNote+'——这是该数据集采样范围的限制，不代表该脑区没有投射连接。逐脑区的单细胞环路请到 STAM 里交互查询：</p>'
-      +'<div class="connlinks"><a class="abtn primary" href="'+STAM_CIRCUITS+'" target="_blank" rel="noopener">在 STAM 查看单细胞环路</a><a class="abtn" href="'+STAM_HOME+'" target="_blank" rel="noopener">STAM 图谱主页</a></div>';
+    return head+'<p class="note">本小节是 STAM 单神经元环路连接，基于 STAM 的单神经元重构数据，是单细胞水平的连接。STAM 的单神经元重构数据集（共 1,555 个重构神经元）中暂未采样到与 '+r.a+' 相关的神经元'+keyNote+'——这是该数据集采样范围的限制，不代表该脑区没有投射连接。逐脑区的单神经元环路连接请到 STAM 里交互查询：</p>'
+      +'<div class="connlinks"><a class="abtn primary" href="'+STAM_CIRCUITS+'" target="_blank" rel="noopener">在 STAM 查看单神经元环路连接</a><a class="abtn" href="'+STAM_HOME+'" target="_blank" rel="noopener">STAM 图谱主页</a></div>';
   }
   var dTxt=c.d>0?('<b>'+c.d+' 个</b>'):'<b>0 个</b>（数据集中未采样到胞体在本区的神经元）';
   var uTxt=c.u>0?('<b>'+c.u+' 个</b>'):'<b>0 个</b>';
@@ -4936,8 +5100,8 @@ function connHTML(r){
     +'<div><label>发出投射 · 胞体在本区的重构神经元</label>'+dTxt+'</div>'
     +'<div><label>接受投射 · 轴突到达本区的重构神经元</label>'+uTxt+'</div>'
     +'</div>'
-    +'<p class="note">计数来自 STAM 公开单细胞数据集 soma_axon（共 1,555 个重构神经元，采样偏重皮层）'+keyNote+'，反映的是该数据集中重构到的单神经元，不是全脑投射的完整清单。STAM 未开放可直接抓取的脑区级命名投射表（其环路接口整合时实测不可用），所以这里只给真实计数、不虚构投射名单；要逐个脑区看它具体投射到哪、接受谁的投射，用下面按钮去 STAM 的环路浏览器里选这个脑区交互查询。</p>'
-    +'<div class="connlinks"><a class="abtn primary" href="'+STAM_CIRCUITS+'" target="_blank" rel="noopener">在 STAM 查看 '+r.a+' 的单细胞环路</a><a class="abtn" href="'+STAM_HOME+'" target="_blank" rel="noopener">STAM 图谱主页</a></div>';
+    +'<p class="note">本小节是 STAM 单神经元环路连接，基于 STAM 的单神经元重构数据，是单细胞水平的连接。计数来自 STAM 公开单神经元重构数据集 soma_axon（共 1,555 个重构神经元，采样偏重皮层）'+keyNote+'，反映的是该数据集中重构到的单神经元，不是全脑投射的完整清单。STAM 未开放可直接抓取的脑区级命名投射表（其环路接口整合时实测不可用），所以这一小节只给真实计数、不虚构投射名单；脑区级的投射名单见下方「基于 Allen 脑图谱的环路连接」（基于 Allen 的病毒顺行示踪数据，群体水平口径）。要逐个脑区看单细胞水平下它具体投射到哪、接受谁的投射，用下面按钮去 STAM 的环路浏览器里选这个脑区交互查询。</p>'
+    +'<div class="connlinks"><a class="abtn primary" href="'+STAM_CIRCUITS+'" target="_blank" rel="noopener">在 STAM 查看 '+r.a+' 的单神经元环路连接</a><a class="abtn" href="'+STAM_HOME+'" target="_blank" rel="noopener">STAM 图谱主页</a></div>';
 }
 function funcText(r){
   if(r.fn) return r.fn;
@@ -4959,7 +5123,7 @@ function nomHTML(r){
 }
 function renderDetail(){
   var r=byAbbr(state.sel)||filtered()[0]||REGIONS[0];
-  if(!r){$('detail').innerHTML='<div class="empty">请选择一个脑区</div>';return;}
+  if(!r){$('detail').innerHTML='<div class="empty">请选择一个脑区</div>';$('circuits').innerHTML='';$('circuitRegion').textContent='';return;}
   state.sel=r.a;
   var rel=(r.rel||[]).map(function(a){var x=byAbbr(a);return x?'<button class="qchip" data-rel="'+a+'">'+a+' · '+x.zh+'</button>':''}).join('');
   $('detail').innerHTML=
@@ -4977,11 +5141,12 @@ function renderDetail(){
     +'<div><label>所属上级结构</label><b style="font-size:13px">'+r.parent+'</b></div>'
     +'</div>'
     +'<h3>实验提示</h3><p class="note">查病毒注射 / 电极植入靶点时，先用上方 AP 范围确认目标切片位置，再结合图谱核对 ML / DV；坐标为近似参考值，正式实验前请做预实验并以组织学切片验证命中位置。</p>'
-    +connHTML(r)
     +(rel?'<h3>相关脑区（点击跳转）</h3><div class="rel">'+rel+'</div>':'')
     +'<div class="actions"><button class="abtn primary" id="atlasBtn">在上方脑图中定位</button><button class="abtn" id="copyBtn">复制引用格式</button><button class="abtn" id="csvBtn">导出当前列表 CSV</button></div>'
     +'</div>';
-  var relBtns=$('detail').querySelectorAll('[data-rel]');
+  $('circuits').innerHTML=circuitHTML(r);
+  $('circuitRegion').textContent=r.a+' · '+(r.zh||r.en);
+  var relBtns=document.querySelectorAll('#detail [data-rel], #circuits [data-rel]');
   for(var i=0;i<relBtns.length;i++) relBtns[i].onclick=function(){state.q='';$('q').value='';state.div='all';selectRegion(this.getAttribute('data-rel'),true);};
   $('atlasBtn').onclick=function(){document.getElementById('atlasPanel').scrollIntoView({behavior:'smooth',block:'start'});};
   $('copyBtn').onclick=function(){
@@ -5321,6 +5486,7 @@ function sugNote(r,q){
   var als=regionAliases(r);
   for(var i=0;i<als.length;i++){var w=als[i].toLowerCase();if(w===q||w.indexOf(q)===0||w.indexOf(q)>-1)return '别名 '+als[i]+' → '+r.a;}
   if(r.px&&r.px!==r.a&&String(r.px).toLowerCase().indexOf(q)>-1)return 'Paxinos 作 '+r.px;
+  if(!nameHit(r,q)){var sn=funcSnippet(r,q); if(sn) return sn;}
   return '';
 }
 function renderSuggest(){
@@ -5329,7 +5495,7 @@ function renderSuggest(){
   if(!q){hideSuggest();return;}
   var scored=[];
   for(var i=0;i<REGIONS.length;i++){var s=score(REGIONS[i],q);if(s>0)scored.push({r:REGIONS[i],s:s});}
-  scored.sort(function(x,y){return y.s-x.s||x.r.a.length-y.r.a.length||x.r.a.localeCompare(y.r.a);});
+  scored.sort(function(x,y){return cmpMatch(x.r,y.r,q,x.s,y.s);});
   sugItems=scored.slice(0,8); sugIdx=-1;
   if(!sugItems.length){
     box.innerHTML='<div class="sugempty">没有匹配的脑区，换个关键词或缩写试试（如 黑质、BNST、海马）</div>';
@@ -5341,7 +5507,7 @@ function renderSuggest(){
     return '<button type="button" class="sug" role="option" id="sug'+i+'" data-i="'+i+'" aria-selected="false">'
       +'<span class="sugabbr">'+r.a+'</span>'
       +'<span class="sugmain"><span class="sugname">'+(r.zh||r.en)+'</span><span class="sugen">'+r.en+'</span></span>'
-      +(note?'<span class="sugnote">'+note+'</span>':'')
+      +(note?'<span class="sugnote'+(note.indexOf('功能：')===0?' fn':'')+'">'+note+'</span>':'')
       +'</button>';
   }).join('');
   box.hidden=false; $('q').setAttribute('aria-expanded','true');
@@ -5395,6 +5561,158 @@ function renderErrata(){
 $('errQ').addEventListener('input',function(){errState.q=this.value;renderErrata();});
 document.querySelectorAll('[data-ecat]').forEach(function(b){b.onclick=function(){errState.cat=b.getAttribute('data-ecat');document.querySelectorAll('[data-ecat]').forEach(function(x){x.classList.toggle('active',x===b);});renderErrata();};});
 renderErrata();
+
+/* ---------- 按脑功能搜索（独立搜索栏） ---------- */
+/* 功能词表：名称 + 联想同义词 + 关键词组 + 核心脑区。功能与脑区的对应全部由各脑区现有的
+   功能简介文本按关键词组实时匹配生成（核心脑区仅保留在功能简介中确有命中的，并置于前列），
+   不另编名单；在功能简介中没有任何命中的方向不收录进词表。 */
+var FUNCS=[
+ {n:"学习记忆",syn:["记忆","学习","遗忘"],kw:["学习","记忆"],core:["CA1","CA3","DG","RSP"]},
+ {n:"恐惧",syn:["害怕","恐惧症"],kw:["恐惧"],core:["LA","BLA","CEA","IL","PL"]},
+ {n:"焦虑抑郁",syn:["焦虑","抑郁","焦虑症","抑郁症"],kw:["焦虑","抑郁"],core:["BST","LS","MH","LH"]},
+ {n:"成瘾",syn:["药物成瘾","上瘾","依赖","毒品"],kw:["成瘾","复吸","药物寻求","戒断"],core:["ACB","AcbC","CP","BST"]},
+ {n:"疼痛",syn:["疼","痛","痛觉","镇痛"],kw:["疼痛","痛觉","镇痛","伤害性","伤害感受"],core:["PAG","ACA","CEA","PBld"]},
+ {n:"奖赏",syn:["奖励","愉悦","犒赏","快乐"],kw:["奖赏","愉悦","正性强化","犒赏"],core:["VTA","ACB","AcbSh","OT","LH"]},
+ {n:"睡眠觉醒",syn:["睡眠","睡","睡觉","失眠","觉醒","唤醒"],kw:["睡眠","觉醒","唤醒"],core:["VLPO","LHA","TMd","LC","DR","PPTg","LDT"]},
+ {n:"认知决策",syn:["认知","决策","执行功能","判断"],kw:["决策","认知"],core:["PL","ACA","ORB","MD","ACAd"]},
+ {n:"运动控制",syn:["运动","动作"],kw:["运动控制","随意运动","运动计划","运动发起","精细运动","运动行为","运动输出"],core:["MOp","MOs","VA"]},
+ {n:"视觉",syn:["看","视觉皮层"],kw:["视觉"],core:["VISp","LGd","LP","VISl"]},
+ {n:"听觉",syn:["听","声音","耳朵"],kw:["听觉","声音"],core:["AUDp","MG","DCO"]},
+ {n:"嗅觉",syn:["闻","气味","鼻子"],kw:["嗅觉","气味"],core:["MOB","PIR","OT"]},
+ {n:"味觉",syn:["味道","品尝"],kw:["味觉","味蕾","味道"],core:["NTS"]},
+ {n:"躯体感觉",syn:["触觉","感觉","触碰","本体感觉"],kw:["躯体感觉","触觉","本体感觉"],core:["SSp","SSs","VPM","VPL"]},
+ {n:"前庭与平衡",syn:["前庭","平衡","眩晕","头晕"],kw:["前庭","平衡"],core:["LAV","MVePC"]},
+ {n:"摄食",syn:["吃","食欲","进食","饥饿","吃饭"],kw:["摄食","食欲","进食","饱腹","饥饿"],core:["ARH","LHA","PVH","DMH","VMH"]},
+ {n:"饮水与渗透调节",syn:["饮水","渴","口渴","喝水","渗透压"],kw:["饮水","渴感","渴觉","渗透压"],core:["SFO","OV","MEPO"]},
+ {n:"体温调节",syn:["体温","发热","散热"],kw:["体温","散热","产热","发热"],core:["MPO","VMPO","DMH","RPA"]},
+ {n:"呼吸调节",syn:["呼吸","喘气","通气"],kw:["呼吸"],core:["Bo","KF"]},
+ {n:"心血管调节",syn:["心血管","血压","心率","心脏"],kw:["血压","心血管","心率","交感"],core:["DMX","RVL","CVL"]},
+ {n:"昼夜节律",syn:["生物钟","节律","作息"],kw:["昼夜节律","生物钟","昼夜","近日节律"],core:["SCH","SPa","DMH"]},
+ {n:"应激",syn:["压力","紧张"],kw:["应激","皮质酮","糖皮质激素"],core:["PVH","CEA","BST","DMH"]},
+ {n:"注意力",syn:["注意","专注"],kw:["注意"],core:["LC","CLA","LP"]},
+ {n:"工作记忆",syn:["短时记忆","暂存"],kw:["工作记忆"],core:["PL","MD","CA3"]},
+ {n:"空间导航",syn:["导航","空间","方位"],kw:["空间导航","头方向","位置细胞","网格细胞","空间定位","导航"],core:["ENT","RSP","CA1","AD","PRE","POST"]},
+ {n:"社会行为",syn:["社交","社会性","互动"],kw:["社会","社交"],core:["MEA","LS","MePD"]},
+ {n:"攻击行为",syn:["攻击","打架","攻击性"],kw:["攻击"],core:["VMHvl","MEA","PMv"]},
+ {n:"性行为与生殖",syn:["性行为","生殖","交配","繁殖"],kw:["性行为","生殖","交配","排卵","射精","发情"],core:["MPO","AVPV","VMHvl","MePD"]},
+ {n:"探索行为",syn:["探索","探究","新奇","好奇"],kw:["探究","新奇","探索"],core:[]},
+ {n:"运动协调",syn:["协调","共济失调"],kw:["运动协调","协调运动","共济","运动学习"],core:["CBX","IO","SIM"]},
+ {n:"眼动",syn:["眼球","扫视","注视"],kw:["眼动","眼球运动","扫视","注视","凝视"],core:["INC","ND"]},
+ {n:"习惯形成",syn:["习惯","自动化行为"],kw:["习惯"],core:["CP","AcbC"]},
+ {n:"动机",syn:["动力","意愿"],kw:["动机"],core:["ACB","VTA"]},
+ {n:"情绪",syn:["情感","心情"],kw:["情绪"],core:["AId"]},
+ {n:"防御行为",syn:["防御","逃跑","逃避","僵直","冻结"],kw:["防御","逃跑","冻结行为","僵直"],core:["PAG","CEA","VMHdm","PMd"]},
+ {n:"发声",syn:["叫声","叫","发音"],kw:["发声","超声发声","叫声"],core:["CGPn","RAmb"]},
+ {n:"呕吐",syn:["恶心","吐"],kw:["呕吐","恶心","催吐"],core:["AP"]},
+ {n:"吞咽与咀嚼",syn:["吞咽","咀嚼","咽"],kw:["吞咽","咀嚼","舔食"],core:["AMB","XII","IRN"]},
+ {n:"神经内分泌",syn:["内分泌","激素","分泌"],kw:["内分泌","催产素","加压素","垂体"],core:["PVH","SO","ME"]},
+ {n:"能量与代谢调节",syn:["代谢","能量","血糖","肥胖","体重"],kw:["能量平衡","能量代谢","血糖","瘦素","代谢调节","葡萄糖"],core:["ARH","VMH","DMH"]},
+ {n:"联想学习",syn:["条件反射","条件化","巴甫洛夫","关联学习"],kw:["联想学习","条件反射","条件化","巴甫洛夫"],core:["LA","BLA","CA3"]},
+ {n:"感觉运动整合",syn:["感觉运动","感统"],kw:["感觉—运动","感觉运动","感觉信息与运动"],core:["CP","PF"]},
+ {n:"姿势与肌张力",syn:["姿势","肌张力","步态","站立"],kw:["姿势","肌张力","步态"],core:["GRN","LAV","Med"]}
+];
+function funcKwScore(fn,kws){var s=0,first=1e9,i,k,ix,n,j;for(i=0;i<kws.length;i++){k=kws[i];ix=fn.indexOf(k);if(ix>-1){s+=1;if(ix<first)first=ix;n=0;j=ix;while((j=fn.indexOf(k,j+k.length))>-1&&n<2){s+=0.25;n++;}}}return s>0?{s:s,f:first}:null;}
+function funcRegions(f){
+  if(f._list)return f._list;
+  var out=[],i,r,sc;
+  for(i=0;i<REGIONS.length;i++){r=REGIONS[i];sc=funcKwScore(r.fn||'',f.kw);if(sc)out.push({r:r,s:sc.s,f:sc.f,core:f.core.indexOf(r.a)});}
+  out.sort(function(x,y){var cx=x.core<0?999:x.core,cy=y.core<0?999:y.core;if(cx!==cy)return cx-cy;if(y.s!==x.s)return y.s-x.s;if(x.f!==y.f)return x.f-y.f;return x.r.a.localeCompare(y.r.a);});
+  f._list=out;return out;
+}
+function matchFuncs(q){
+  q=String(q||'').trim();if(!q)return[];
+  var out=[],i,j,f,rank,ix,s;
+  for(i=0;i<FUNCS.length;i++){f=FUNCS[i];rank=-1;ix=f.n.indexOf(q);
+    if(ix===0)rank=0;else if(ix>0)rank=1;
+    else{for(j=0;j<f.syn.length;j++){s=f.syn[j];if(s===q){rank=1;break;}if(s.indexOf(q)>-1){rank=2;break;}if(q.length>=2&&q.indexOf(s)>-1){rank=3;break;}}}
+    if(rank>-1)out.push({f:f,rank:rank});}
+  out.sort(function(a,b){return a.rank-b.rank||a.f.n.length-b.f.n.length;});
+  return out;
+}
+function renderFRList(list){
+  var el=$('frlist');
+  if(!list.length){el.innerHTML='<div class="empty">没有在功能简介中找到与该词相关的脑区，换一个功能词试试。</div>';return;}
+  el.innerHTML=list.map(function(it){var r=it.r;
+    return '<button type="button" class="frow'+(state.sel===r.a?' sel':'')+'" data-a="'+r.a+'">'
+      +'<span class="abbr">'+r.a+'</span>'
+      +'<span><span class="rname">'+escH(r.zh||r.en)+'</span><br><span class="ren">'+escH(r.en||'')+'</span></span>'
+      +'<span class="tag"><span class="dot" style="background:'+divColor(r.div)+'"></span>'+divLabel(r.div)+'</span></button>';
+  }).join('');
+  var rows=el.querySelectorAll('.frow');
+  for(var i=0;i<rows.length;i++)rows[i].onclick=function(){
+    var a=this.getAttribute('data-a');
+    var all=el.querySelectorAll('.frow');
+    for(var k=0;k<all.length;k++)all[k].classList.toggle('sel',all[k]===this);
+    selectRegion(a,true);
+  };
+}
+function showFuncResults(f){
+  var list=funcRegions(f);
+  $('frTitle').textContent='「'+f.n+'」相关脑区';
+  $('frMeta').textContent='共 '+list.length+' 个 · 按相关性排序';
+  $('fresults').hidden=false;
+  renderFRList(list);
+}
+function fallbackFuncSearch(q){
+  var low=String(q).toLowerCase(),hits=[],i;
+  for(i=0;i<REGIONS.length;i++){if(funcHay(REGIONS[i]).toLowerCase().indexOf(low)>-1)hits.push({r:REGIONS[i]});}
+  hits.sort(function(x,y){var t=funcTie(x.r,q)-funcTie(y.r,q);return t||x.r.a.localeCompare(y.r.a);});
+  $('frTitle').textContent='「'+q+'」未收录为功能词条 · 按功能简介文本直接检索';
+  $('frMeta').textContent='共 '+hits.length+' 个';
+  $('fresults').hidden=false;
+  renderFRList(hits);
+}
+var fsugIdx=-1,fsugItems=[];
+function hideFSuggest(){var b=$('fsuggest');if(b){b.hidden=true;b.innerHTML='';}var q=$('fq');if(q)q.setAttribute('aria-expanded','false');fsugItems=[];fsugIdx=-1;}
+function renderFSuggest(){
+  var box=$('fsuggest');if(!box)return;
+  var q=$('fq').value.trim();
+  if(!q){hideFSuggest();return;}
+  fsugItems=matchFuncs(q).slice(0,10);fsugIdx=-1;
+  if(!fsugItems.length){
+    box.innerHTML='<div class="sugempty">词表中没有匹配的功能词条；按回车将按功能简介文本直接检索</div>';
+    box.hidden=false;$('fq').setAttribute('aria-expanded','true');return;
+  }
+  box.innerHTML=fsugItems.map(function(it,i){var f=it.f;
+    return '<button type="button" class="sug" role="option" id="fsug'+i+'" data-i="'+i+'" aria-selected="false">'
+      +'<span class="sugmain"><span class="sugname">'+escH(f.n)+'</span><span class="sugen">'+escH(f.syn.slice(0,4).join(' · '))+'</span></span>'
+      +'<span class="sugnote">'+funcRegions(f).length+' 个相关脑区</span></button>';
+  }).join('');
+  box.hidden=false;$('fq').setAttribute('aria-expanded','true');
+  var btns=box.querySelectorAll('.sug');
+  for(var j=0;j<btns.length;j++)btns[j].addEventListener('mousedown',function(e){e.preventDefault();pickFunc(fsugItems[parseInt(this.getAttribute('data-i'),10)].f);});
+}
+function markFSug(){
+  var btns=$('fsuggest').querySelectorAll('.sug');
+  for(var i=0;i<btns.length;i++){var on=i===fsugIdx;btns[i].classList.toggle('active',on);btns[i].setAttribute('aria-selected',on?'true':'false');if(on)btns[i].scrollIntoView({block:'nearest'});}
+}
+function pickFunc(f){if(!f)return;hideFSuggest();$('fq').value=f.n;showFuncResults(f);}
+function initFuncSearch(){
+  var q=$('fq');if(!q||!$('fsuggest'))return;
+  q.addEventListener('input',renderFSuggest);
+  q.addEventListener('focus',function(){if(q.value.trim())renderFSuggest();});
+  q.addEventListener('blur',function(){setTimeout(hideFSuggest,150);});
+  q.addEventListener('keydown',function(e){
+    var box=$('fsuggest');var open=box&&!box.hidden&&fsugItems.length>0;
+    if(e.key==='ArrowDown'&&open){e.preventDefault();fsugIdx=(fsugIdx+1)%fsugItems.length;markFSug();}
+    else if(e.key==='ArrowUp'&&open){e.preventDefault();fsugIdx=(fsugIdx-1+fsugItems.length)%fsugItems.length;markFSug();}
+    else if(e.key==='Enter'&&open){e.preventDefault();pickFunc(fsugItems[fsugIdx>=0?fsugIdx:0].f);}
+    else if(e.key==='Escape'){hideFSuggest();}
+  });
+  document.addEventListener('pointerdown',function(e){var box=$('fsuggest');if(box&&!box.hidden&&!(e.target.closest&&e.target.closest('#funcForm .qwrap')))hideFSuggest();});
+  $('funcForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var box=$('fsuggest');
+    if(box&&!box.hidden&&fsugItems.length){pickFunc(fsugItems[fsugIdx>=0?fsugIdx:0].f);return;}
+    var v=q.value.trim();if(!v)return;
+    var m=matchFuncs(v);
+    if(m.length)pickFunc(m[0].f);else{hideFSuggest();fallbackFuncSearch(v);}
+  });
+  $('funcClearBtn').onclick=function(){q.value='';hideFSuggest();$('fresults').hidden=true;$('frlist').innerHTML='';q.focus();};
+  document.querySelectorAll('.qchip[data-fn]').forEach(function(b){b.onclick=function(){var n=b.getAttribute('data-fn');for(var i=0;i<FUNCS.length;i++)if(FUNCS[i].n===n){pickFunc(FUNCS[i]);break;}};});
+}
+initFuncSearch();
+
 $('totalCount').textContent=REGIONS.length;
 renderAll();
 initScroller($('corScroller'),'corPrev','corNext');
