@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="color-scheme" content="light dark"/>
+<script>(function(){try{var t=localStorage.getItem('mouse-brain-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
 <link rel="icon" href="data:,"/>
 <title>小鼠脑区脑图查询器</title>
 <style>
@@ -16,9 +17,8 @@
   --radius:16px;
   --cortex:#0f766e; --hipp:#7c3aed; --bgang:#b45309; --thal:#0369a1; --hypo:#be185d; --mid:#65a30d; --pons:#0891b2; --cere:#9333ea; --olf:#ca8a04;
 }
-@media (prefers-color-scheme: dark){
-  :root{ --bg:#111613; --surface:#1a211e; --surface2:#232b27; --line:#2e3833; --ink:#eef2ef; --muted:#a7b3ab; --faint:#7f8d84; --accent:#2dd4bf; --accent2:#fbbf24; --accent-soft:#13332f; --chip:#232b27; --shadow:0 10px 30px rgba(0,0,0,.35);}
-}
+:root{color-scheme:light}
+:root[data-theme="dark"]{ --bg:#111613; --surface:#1a211e; --surface2:#232b27; --line:#2e3833; --ink:#eef2ef; --muted:#a7b3ab; --faint:#7f8d84; --accent:#2dd4bf; --accent2:#fbbf24; --accent-soft:#13332f; --chip:#232b27; --shadow:0 10px 30px rgba(0,0,0,.35); color-scheme:dark;}
 *{box-sizing:border-box} html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-system,system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.6}
 a{color:var(--accent)}
@@ -81,9 +81,10 @@ button,input{font:inherit}
 .ntype-badge.inh{background:rgba(190,24,93,.11);color:#be185d}
 .ntype-badge.mono{background:rgba(180,83,9,.14);color:#b45309}
 .ntype-badge.mix{background:rgba(3,105,161,.11);color:#0369a1}
-@media (prefers-color-scheme: dark){
-.ntype-badge.exc{color:#2dd4bf}.ntype-badge.inh{color:#fda4af}.ntype-badge.mono{color:#fbbf24}.ntype-badge.mix{color:#7dd3fc}
-}
+:root[data-theme="dark"] .ntype-badge.exc{color:#2dd4bf}
+:root[data-theme="dark"] .ntype-badge.inh{color:#fda4af}
+:root[data-theme="dark"] .ntype-badge.mono{color:#fbbf24}
+:root[data-theme="dark"] .ntype-badge.mix{color:#7dd3fc}
 .ntype-main{font-size:14.5px;line-height:1.65}
 .ntype-main b{font-weight:800}
 .ntype-cells{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
@@ -139,7 +140,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .unmarkcap{color:var(--accent2);font-weight:700}
 .marknote{font-size:12.5px;line-height:1.55;margin:6px 0 0;color:#8a6d00}
 .lbmarks{position:absolute;pointer-events:none;z-index:5}
-@media (prefers-color-scheme: dark){.markcap,.marknote{color:#e8c766}}
+:root[data-theme="dark"] .markcap,:root[data-theme="dark"] .marknote{color:#e8c766}
 .lb{position:fixed;inset:0;z-index:300;background:rgba(8,12,10,.94);display:none;flex-direction:column}
 .lb.open{display:flex}
 .lbbar{display:flex;align-items:center;gap:8px;padding:10px 12px;flex-wrap:wrap}
@@ -192,15 +193,38 @@ table.err td.errfig{color:var(--muted);white-space:nowrap}
 .catbadge.c-case{background:rgba(180,83,9,.15);color:#b45309}
 .catbadge.c-alias{background:rgba(15,118,110,.13);color:#0f766e}
 .catbadge.c-pxonly{background:rgba(190,24,93,.10);color:#be185d}
-@media (prefers-color-scheme: dark){.catbadge.c-case{color:#fbbf24}.catbadge.c-alias{color:#2dd4bf}.catbadge.c-pxonly{color:#fda4af}}
+:root[data-theme="dark"] .catbadge.c-case{color:#fbbf24}
+:root[data-theme="dark"] .catbadge.c-alias{color:#2dd4bf}
+:root[data-theme="dark"] .catbadge.c-pxonly{color:#fda4af}
 @media(max-width:860px){ .layout{grid-template-columns:1fr} .list{max-height:none} .top h1{font-size:27px} .searchbox{position:static} .kv{grid-template-columns:1fr 1fr} #d3canvas{height:320px} .slide{width:270px} }
 @media(max-width:480px){ .row{grid-template-columns:56px 1fr} .row .tag{display:none} .searchrow{flex-direction:column} .btn{padding:12px} }
+/* ---- 深色 / 浅色切换（右上角按钮，data-theme 控制全页） ---- */
+.top{position:relative;padding-right:56px}
+body{transition:background-color .25s ease,color .25s ease}
+.panel,.searchbox,.stat,.suggest{transition:background-color .25s ease,border-color .25s ease}
+.theme-toggle{position:absolute;top:20px;right:0;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);padding:0;flex:0 0 auto}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.theme-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.theme-toggle svg{width:20px;height:20px;display:block}
+.theme-toggle .icon-sun{display:none}
+:root[data-theme="dark"] .theme-toggle .icon-sun{display:block}
+:root[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+:root[data-theme="dark"] .d3wrap{background:#0c0f0d}
+:root[data-theme="dark"] svg.brain{background:#0c0f0d}
+:root[data-theme="dark"] #d3fallback{background:#f4f4ee;padding:10px;border:1px solid #dfe3da;box-sizing:border-box}
+:root[data-theme="dark"] .scroller{padding:10px 8px 16px}
+:root[data-theme="dark"] .slide .platebtn{background:#fff;border-color:#dfe3da;box-shadow:0 0 0 6px #f4f4ee,0 10px 24px rgba(0,0,0,.45)}
+:root[data-theme="dark"] .slide.rep .platebtn{border-color:var(--accent)}
+:root[data-theme="dark"] .slide img{background:#fff}
+:root[data-theme="dark"] .lbview img{background:#fff;border:1px solid #dfe3da;box-shadow:0 0 0 10px #f4f4ee,0 18px 50px rgba(0,0,0,.55)}
+@media(max-width:480px){ .top{padding-right:48px} .theme-toggle{width:40px;height:40px;top:18px} .theme-toggle svg{width:18px;height:18px} }
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important} }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换到深色模式" aria-pressed="false" title="切换到深色模式"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
     <h1>小鼠脑区 <span>脑图查询器</span></h1>
     <p class="producer">制作人：暨南大学 韦计安（<a href="mailto:jianwei@jnu.edu.cn">jianwei@jnu.edu.cn</a>）</p>
     <p class="lede">按脑区名称或缩写搜索小鼠脑区：中文名、英文全称、Paxinos 缩写与 Allen 缩写都能查——两套缩写不一致时自动互认（如 Paxinos 的 10N 与 Allen 的 DMX 指同一结构）。本版已按你提供的 Paxinos &amp; Franklin 索引全量自查扩充，覆盖该索引的全部脑区类条目；点「确认搜索」后，下方用 Allen 官方 3D 脑模型高亮该脑区（无独立网格的会如实标注、不假高亮），并列出它在 Paxinos 图谱中从出现到消失的冠状、矢状切片系列。页面下方附完整的 Paxinos ↔ Allen 缩写勘误对照表。本版已为全部 605 个脑区补齐功能简介与神经元类型构成：热门脑区按较新的文献共识复核（如海马背腹轴分工、基底外侧杏仁核的效价编码、VTA 的细胞异质性），冷门亚区综合其所属核团、连接与细胞构筑归纳，缺乏专门研究的条目已在文中如实注明。</p>
@@ -5378,6 +5402,26 @@ initScroller($('sagScroller'),'sagPrev','sagNext');
 initLightbox();
 initSuggest();
 init3D();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('themeToggle'); if(!btn)return;
+  var root=document.documentElement;
+  function current(){return root.getAttribute('data-theme')==='dark'?'dark':'light';}
+  function sync(){
+    var dark=current()==='dark';
+    btn.setAttribute('aria-pressed',dark?'true':'false');
+    var label=dark?'切换到浅色模式':'切换到深色模式';
+    btn.setAttribute('aria-label',label); btn.title=label;
+  }
+  btn.addEventListener('click',function(){
+    var next=current()==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('mouse-brain-theme',next);}catch(e){}
+    sync();
+  });
+  sync();
+})();
 </script>
 </body>
 </html>
