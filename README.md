@@ -2,10 +2,16 @@
 
 > 小鼠脑区脑图查询器 · Mouse Brain Region Atlas Query Tool
 >
-> 当前版本：v0.7 ｜ 首次公开发布：2026 年 11 月 9 日
+> 当前版本：v0.8 ｜ 首次公开发布：2026 年 11 月 9 日
 > 在线访问：https://weijian111.github.io/brain-altlas-guidance/
 
 ## 更新说明
+
+### v0.8 — 2026-11-13
+
+- 新增版面二「中枢外周互作」：39 行器官×127 列 PRV 点阵矩阵，按连接数排序并附柱状图；参考文献与注射参数表 147 条（含 DOI），撤稿文献已剔除。
+- 新增版面三「迷走神经节连接图谱」：Zhao 2022 结状神经节 15 个 marker 类群×7 器官计数矩阵，含 Kupari 注释与 JG 小节。
+- 版面一「中枢神经细胞与功能」内容不变。
 
 ### v0.7 — 2026-11-12
 - 为 185 个脑区补齐中文名（按是否可能被检索/提及筛选：通行译名 84 个、按父级结构与方位规则派生 101 个，全部经逐条审计、修正 3 处译名）；全站 605 个脑区中 540 个已有中文名，其余 65 个冷门脑区保留英文全称。
@@ -67,11 +73,15 @@ Brain Altlas Guidance 是一个单文件、离线可用的小鼠脑区脑图查�
 
 > Mouse Brain Region Atlas Query Tool
 >
-> Current version: v0.7 | First public release: 9 November 2026
+> Current version: v0.8 | First public release: 9 November 2026
 > Live demo: https://weijian111.github.io/brain-altlas-guidance/
 
 ## Update Notes
 
+### v0.8 — 13 November 2026
+- Added a second tab, Central–Peripheral Interactions: a 39-organ × 127-region PRV dot matrix, sortable by connection count with bar charts; a 147-entry reference and injection-parameter table with DOIs, with retracted papers removed.
+- Added a third tab, Vagal Ganglion Connectivity Atlas: a Zhao 2022 nodose ganglion 15-marker-group × 7-organ count matrix, with Kupari annotations and a JG section.
+- Tab 1, Central Neurons and Functions, unchanged.
 ### v0.7 — 12 November 2026
 - Added Chinese names for 185 regions, screened by whether they are likely to be searched for or mentioned: 84 established translations and 101 derived from parent structure and orientation rules; all individually audited, with 3 translations corrected. 540 of the 605 regions now have Chinese names; the remaining 65 obscure regions keep their full English names.
 
