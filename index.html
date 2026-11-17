@@ -267,7 +267,7 @@ body{transition:background-color .25s ease,color .25s ease}
 @media(max-width:560px){.frlist{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:5px}.frow{padding:5px 7px;gap:5px}}
 </style>
 <style>
-/* ===== v0.8 双版面切换 ===== */
+/* ===== v0.9 四版面切换 ===== */
 .layouttabs{display:flex;gap:10px;margin:18px 0 2px;flex-wrap:wrap}
 .ltab{flex:1 1 240px;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);border-radius:14px;padding:11px 16px;font-size:16.5px;font-weight:800;cursor:pointer;text-align:center;font-family:inherit;line-height:1.35}
 .ltab small{display:block;font-size:12.5px;font-weight:600;color:var(--faint);margin-top:2px}
@@ -382,6 +382,51 @@ body{transition:background-color .25s ease,color .25s ease}
 :root[data-theme="dark"] #layout3 .ng-conf.mid{background:#453a16;color:#e8cd7a}
 @media(max-width:560px){#layout3 table.ngmtx td.ng-org{min-width:76px}#layout3 table.ngmtx thead th.ng-corner{min-width:76px}}
 @media(max-width:560px){.ltab{flex-basis:100%}}
+/* ===== 版面四：交感神经节连接图谱（样式全部限定在 #layout4 内） ===== */
+#layout4 .sym{margin-top:16px}
+#layout4 .sym h2{font-size:17px;margin:28px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--line);color:var(--ink)}
+#layout4 .sym h2:first-child{margin-top:4px}
+#layout4 .sym h3{font-size:15.5px;margin:22px 0 6px;color:var(--ink)}
+#layout4 .sym-note{color:var(--muted);font-size:13.5px;line-height:1.7;margin:6px 0;max-width:1100px}
+#layout4 .sym-warn{color:var(--accent2);font-weight:700}
+#layout4 .sym-src{color:var(--muted);font-size:13px;line-height:1.65;margin:6px 0}
+#layout4 .sym-tblwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;-webkit-overflow-scrolling:touch}
+#layout4 .sym-tblgroup{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+#layout4 .sym-tblgroup .sym-tblwrap{border:none;border-radius:0;background:transparent}
+#layout4 .sym-tblcap{font-weight:700;font-size:13.5px;margin:0;padding:10px 10px 2px;color:var(--ink)}
+#layout4 .sym table{border-collapse:collapse;width:100%;font-size:13.5px}
+#layout4 .sym th,#layout4 .sym td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top;color:var(--ink);line-height:1.55}
+#layout4 .sym thead th{background:var(--surface2);font-weight:700;white-space:nowrap}
+#layout4 .sym td.sym-num,#layout4 .sym th.sym-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+#layout4 .sym-hi{font-weight:700}
+#layout4 .sym td.sym-zero{color:var(--faint)}
+#layout4 .sym td.sym-na{color:var(--faint);font-size:12.5px}
+#layout4 .sym-grade{display:inline-block;min-width:20px;text-align:center;border-radius:5px;padding:0 5px;font-weight:700;color:#fff;font-size:12.5px;line-height:1.55;vertical-align:1px}
+#layout4 .sym-gA{background:var(--cortex)}
+#layout4 .sym-gB{background:var(--mid)}
+#layout4 .sym-gC{background:var(--accent2)}
+#layout4 .sym-gD{background:var(--hipp)}
+#layout4 .sym-gE{background:var(--faint)}
+:root[data-theme="dark"] #layout4 .sym-gC{background:#b45309}
+#layout4 .sym-cellnote{display:block;color:var(--muted);font-size:12px;line-height:1.5;margin-top:2px}
+#layout4 .sym-compact{margin:6px 0;padding-left:20px;font-size:14px;line-height:1.65;color:var(--ink)}
+#layout4 .sym-compact li{margin:2px 0}
+#layout4 .sym-segband{display:flex;gap:1px;min-width:252px;margin-top:2px}
+#layout4 .sym-segband i{flex:1 1 0;height:14px;background:var(--line);opacity:.5;border-radius:2px}
+#layout4 .sym-segband i.sym-on{background:var(--accent);opacity:1}
+#layout4 .sym-segband i.sym-alt{background:repeating-linear-gradient(45deg,var(--accent) 0 3px,transparent 3px,transparent 6px);opacity:.9;box-shadow:inset 0 0 0 1px var(--accent)}
+#layout4 .sym-segband i.sym-lb{margin-left:5px}
+#layout4 .sym-segaxis{display:flex;gap:1px;min-width:252px;margin-top:3px}
+#layout4 .sym-segaxis span{flex:1 1 0;text-align:center;font-size:9px;letter-spacing:-.4px;color:var(--muted);font-weight:400}
+#layout4 .sym-segaxis span.sym-lb{margin-left:5px}
+#layout4 td.sym-segbandcell{vertical-align:middle}
+/* 全局矩阵：固定首列（器官名）与表头，做法同版面二矩阵 */
+#layout4 .sym-mtxwrap{overflow:auto;max-height:78vh}
+#layout4 table.sym-mtx{min-width:1020px}
+#layout4 table.sym-mtx thead th{position:sticky;top:0;z-index:3}
+#layout4 table.sym-mtx td:first-child{position:sticky;left:0;background:var(--surface);font-weight:700;z-index:2;white-space:nowrap}
+#layout4 table.sym-mtx thead th:first-child{left:0;z-index:5}
+@media(max-width:560px){#layout4 .sym table{font-size:12.5px}#layout4 .sym th,#layout4 .sym td{padding:5px 6px}}
 </style>
 </head>
 <body>
@@ -399,6 +444,7 @@ body{transition:background-color .25s ease,color .25s ease}
         <li><b>脑区详情：</b>功能简介、主要神经元类型与坐标。</li>
         <li><b>神经环路：</b>「STAM 单神经元环路连接」与「基于 Allen 脑图谱的环路连接」两类连接数据。</li>
         <li><b>勘误对照：</b>Paxinos 与 Allen 两套命名的对应关系与存疑条目说明。</li>
+        <li><b>其他版面：</b>版面二为 PRV 逆行跨突触示踪的器官 × 脑区点阵矩阵，版面三为迷走神经节连接图谱，版面四为交感神经节连接图谱，均经页签切换。</li>
       </ul>
       <p class="srcnote">数据来源：切片图版出自 Paxinos &amp; Franklin《The Mouse Brain in Stereotaxic Coordinates》，3D 模型为 Allen Institute CCFv3 官方网格，坐标以 Bregma 为参考；Paxinos 与 Allen 两套缩写不一致时自动互认（如 Paxinos 的 10N 与 Allen 的 DMX 指同一结构）。</p>
     </div>
@@ -409,7 +455,7 @@ body{transition:background-color .25s ease,color .25s ease}
       <span class="stat">切片图版 <b>Paxinos &amp; Franklin 图谱</b></span>
       <span class="stat">坐标体系 <b>Bregma 参考</b></span>
       <span class="stat">使用方式 <b>离线版 · 单个文件，断网双击打开即可</b></span>
-      <span class="stat">当前版本 <b>v0.8</b></span>
+      <span class="stat">当前版本 <b>v0.9</b></span>
     </div>
   </header>
 
@@ -417,6 +463,7 @@ body{transition:background-color .25s ease,color .25s ease}
     <button class="ltab active" id="tabLayout1" type="button" role="tab" aria-selected="true" aria-controls="layout1">版面一 · 中枢神经细胞与功能<small>脑区搜索 · 按脑功能搜索 · 3D 与图版定位 · 神经环路 · 勘误表</small></button>
     <button class="ltab" id="tabLayout2" type="button" role="tab" aria-selected="false" aria-controls="layout2">版面二 · 中枢外周互作<small>PRV 逆行跨突触示踪 · 靶器官 × 脑区点阵矩阵</small></button>
     <button class="ltab" id="tabLayout3" type="button" role="tab" aria-selected="false" aria-controls="layout3">版面三 · 迷走神经节连接图谱<small>靶器官 × 结状神经节亚群条形码实测矩阵 · Kupari 对照注释 · 颈静脉简表</small></button>
+    <button class="ltab" id="tabLayout4" type="button" role="tab" aria-selected="false" aria-controls="layout4">版面四 · 交感神经节连接图谱<small>12 节骨架 · 逐节亚型与连接证据 · 器官 × 神经节分级矩阵</small></button>
   </nav>
   <div id="layout1">
 
@@ -804,6 +851,224 @@ body{transition:background-color .25s ease,color .25s ease}
 </tbody>
 </table>
 </div>
+    </div>
+  </section>
+  <section id="layout4" hidden aria-label="交感神经节连接图谱">
+    <div class="guide" aria-label="版面四使用说明">
+      <h2>使用说明</h2>
+      <ul>
+        <li><b>内容范围：</b>本版面呈现交感神经节的亚型构成与器官连接，分三层：第一节为 12 节骨架表（节前来源的脊髓中间外侧柱 IML 节段，并附共用 T1–L3 横轴的脊髓节段分区带）；第二节为逐节亚型与连接证据（2.1–2.12，与骨架表逐行同序）；第三节为全局分级矩阵（16 个器官 × 11 个神经节）及有级格出处索引；第四节列数据缺口。</li>
+        <li><b>证据分级：</b>A＝逆行标记＋定量共定位/计数（亚型或神经化学类层面）；B＝逆行标记＋转录组定量富集；C＝定性示踪或纤维神经化学（节或神经化学类层面）；D＝按（亚）型功能操纵（以注附于对应节，无仅有 D 级的格）；E＝经典解剖共识。</li>
+        <li><b>数据纪律：</b>数字均出自原文、补充或公开数据并逐项注出处；标「[计算]/[复算]/[估读]」者为对原始公开数据的事后汇总；原文未给出一律标「原文未给出」，无原文条目的格标「无据」，两者分开。以大鼠、猫或豚鼠为据的格在注中标物种。</li>
+        <li><b>示踪与方法缩写：</b>CTB＝霍乱毒素 B 亚单位、WGA＝麦胚凝集素、PRV＝伪狂犬病毒（均为逆行示踪），DiI＝亲脂性荧光染料（顺行示踪），AAV＝腺相关病毒，MERFISH／seqFISH＝空间转录组技术，FACS＝荧光活化细胞分选。</li>
+      </ul>
+    </div>
+    <div class="sym">
+<h2>一、节段骨架（12 节）</h2>
+<p class="sym-note">教材级经典解剖共识（人/哺乳类，小鼠节段划分大体同构）；节前来源为脊髓中间外侧柱（IML）节段。各节按节前来源的脊髓节段自上而下排列。<span class="sym-warn">⚠ 三处节段口径各家教材不一，表中并列两种说法。</span></p><p class="sym-note">「脊髓节段分区」列与节前来源文字同口径：各行共用 T1–L3 横轴（T12 与 L1 间略分开），实色块为表中主口径范围；三处 ⚠ 口径冲突并列另一说法，多出的节段以斜纹块表示。</p>
+<div class="sym-tblwrap"><table><thead><tr><th>神经节</th><th>节前来源（IML 节段）</th><th>脊髓节段分区<div class="sym-segaxis"><span>T1</span><span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>T8</span><span>T9</span><span>T10</span><span>T11</span><span>T12</span><span class="sym-lb">L1</span><span>L2</span><span>L3</span></div></th><th>主要靶器官</th></tr></thead><tbody><tr><td>颈上节 SCG</td><td>T1–T2 ⚠（一说 T1–T3）</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 T1–T2；另一口径 T1–T3（斜纹为多出的 T3）"><i class="sym-on"></i><i class="sym-on"></i><i class="sym-alt"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-lb"></i><i></i><i></i></div></td><td>眼（瞳孔开大肌等）、泪腺、唾液腺、松果体、头面部血管/汗腺/竖毛肌</td></tr><tr><td>星状节（颈胸节）SG</td><td>T1–T5 ⚠（教材或作 T2–T6）</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 T1–T5；另一口径 T2–T6（斜纹为多出的 T6）"><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-alt"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-lb"></i><i></i><i></i></div></td><td>心脏、肺、肩胛间棕色脂肪、前肢血管</td></tr><tr><td>颈中节 MCG</td><td>T2–T4</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 T2–T4"><i></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-lb"></i><i></i><i></i></div></td><td>心脏（心中神经）、甲状腺、气管/支气管</td></tr><tr><td>胸链上段（T2–T6 链节）</td><td>同节段 T2–T6</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 T2–T6"><i></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-lb"></i><i></i><i></i></div></td><td>肺、食管、胸壁与上肢血管/汗腺/竖毛肌</td></tr><tr><td>腹腔节 CG</td><td>T5–T9 ⚠（一说 T5–T12），经内脏大神经</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 T5–T9；另一口径 T5–T12（斜纹为多出的 T10–T12）"><i></i><i></i><i></i><i></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-alt"></i><i class="sym-alt"></i><i class="sym-alt"></i><i class="sym-lb"></i><i></i><i></i></div></td><td>肝/肝门、胆管、胰腺、脾、胃、十二指肠近段</td></tr><tr><td>肾上腺髓质（附注，非神经节）</td><td>节前纤维直达，约 T5–T11（内脏大/小神经）</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源约 T5–T11"><i></i><i></i><i></i><i></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i></i><i class="sym-lb"></i><i></i><i></i></div></td><td>嗜铬细胞即同源节后神经元，直接释放肾上腺素/去甲肾上腺素入血</td></tr><tr><td>胸链下段（T7–T12 链节）</td><td>同节段 T7–T12</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 T7–T12"><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-lb"></i><i></i><i></i></div></td><td>腹壁血管/汗腺/竖毛肌；节前纤维穿行成内脏神经至腹腔节群与肾上腺髓质</td></tr><tr><td>主动脉肾节 ARG</td><td>T9–T11，经内脏小神经</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 T9–T11"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i></i><i class="sym-lb"></i><i></i><i></i></div></td><td>肾、输尿管、性腺血管</td></tr><tr><td>肠系膜上节 SMG</td><td>T10–T12，经内脏小/最下神经</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 T10–T12"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-on"></i><i class="sym-lb"></i><i></i><i></i></div></td><td>空肠、回肠、十二指肠远段、升结肠、横结肠近段</td></tr><tr><td>腰链节</td><td>L1–L2（白交通支）</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 L1–L2"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-on sym-lb"></i><i class="sym-on"></i><i></i></div></td><td>下肢血管/汗腺/竖毛肌；腰内脏神经至肠系膜下节与腹下丛</td></tr><tr><td>肠系膜下节 IMG</td><td>L1–L2，经腰内脏神经</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 L1–L2"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-on sym-lb"></i><i class="sym-on"></i><i></i></div></td><td>横结肠远段、降结肠、乙状结肠、直肠；经腹下丛至膀胱/生殖器</td></tr><tr><td>上腹下丛 / 盆节</td><td>L1–L2（经下腹神经汇入；盆节为交感+副交感混合节）</td><td class="sym-segbandcell"><div class="sym-segband" title="节前来源 L1–L2"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="sym-on sym-lb"></i><i class="sym-on"></i><i></i></div></td><td>膀胱、直肠、生殖器官</td></tr></tbody></table></div>
+
+<h2>二、逐节亚型与连接证据</h2>
+<p class="sym-note">小节划分与顺序与第一节骨架表 12 行一一对应、同序。</p>
+
+<h3>2.1 颈上节 SCG（Senturk 2026）</h3>
+<div class="sym-tblgroup"><div class="sym-tblwrap"><table><thead><tr><th>亚型</th><th>定义 marker / 组合</th><th class="sym-num">全节构成 [估读]</th><th>神经节内位置分布</th></tr></thead><tbody>
+<tr><td>Dv1</td><td>Gfra2</td><td class="sym-num">≈9%</td><td>尾侧</td></tr>
+<tr><td>Dv2</td><td>Vip</td><td class="sym-num">≈3%</td><td class="sym-na">原文未给出</td></tr>
+<tr><td>Dv3</td><td>Cldn11</td><td class="sym-num">≈13%</td><td>MERFISH 未检出</td></tr>
+<tr><td>Dv4</td><td>Areg 或 Grin3a</td><td class="sym-num">≈6%</td><td>尾侧</td></tr>
+<tr><td>Dv5</td><td>Serpinb7 或 Slc35d3</td><td class="sym-num">≈3%</td><td>头侧</td></tr>
+<tr><td>Dv6</td><td>Sctr＋Ngb 共表达</td><td class="sym-num">≈48%</td><td>均匀</td></tr>
+<tr><td>Dv7</td><td>C1qtnf7＋Brinp1 共表达</td><td class="sym-num">≈9%</td><td>头侧</td></tr>
+<tr><td>Dv8</td><td>Calb1 或 Pth1r</td><td class="sym-num">≈9%</td><td>头侧</td></tr></tbody></table></div>
+<p class="sym-tblcap">各亚型投射靶器官分布</p>
+<div class="sym-tblwrap"><table><thead><tr><th>检测方式</th><th>唾液腺</th><th>面部皮肤</th><th>眼</th><th>舌</th></tr></thead><tbody>
+<tr><td>scRNAseq 赋型计数（构成）</td><td>Dv4 440（39.3%）、Dv6 461（41.2%）、Dv1 151（13.5%），n = 1,119</td><td>Dv6 80（70.8%）、Dv7 33（29.2%），n = 113</td><td class="sym-na">原文未给出</td><td class="sym-na">原文未给出</td></tr>
+<tr><td>MERFISH 赋型计数（构成）</td><td>Dv4 161（72.9%）、Dv6 50（22.6%），n = 221</td><td>Dv6 132（72.1%）、Dv4 36（19.7%），n = 183</td><td>Dv6 15（100%），n = 15</td><td>Dv6 58（79.5%）、Dv7 15（20.5%），n = 73</td></tr></tbody></table></div></div>
+<ul class="sym-compact"><li>两种检测方式互相印证、不可混用；Dv2、Dv3 在 MERFISH 检测方式下为 N/A。眼投射群仅 15 个细胞，「100% Dv6」颗粒度约 6.7 个百分点/细胞。</li>
+<li>跨体系映射：单型高置信对应 0 组；Dv1↔NA4＋NA5 组为中置信（判据 Gfra2）；Dv6＋Dv7↔NA2＋NA3 组为低置信（判据 NPY）；其余多为无法对应。</li>
+<li>松果体仅有纤维神经化学（TH⁺ 纤维全部 NPY⁺）；泪腺、汗腺、脑血管的亚型归属原文未给出。本节功能操纵证据（D 级）：原文未给出。</li></ul>
+
+
+<h3>2.2 星状节（Furlan 2016 / Sharma 2023 / Neri 2026）</h3>
+<p class="sym-note">三套亚型体系并存、命名互不映射。映射评估：ACh2↔SG4 为高置信；NA1a↔SG1、NA2↔SG1 为中置信；其余 6 组为低置信；SG2 整体无法对应（定义 marker Slc18a1 在旧体系无对应）。</p>
+<div class="sym-tblwrap"><table><thead><tr><th>亚型（体系）</th><th>定义 marker</th><th class="sym-num">全节构成</th><th class="sym-num">心脏</th><th class="sym-num">前肢</th><th class="sym-num">棕色脂肪</th></tr></thead><tbody>
+<tr><td>NA1a（Sharma）</td><td>Npy 高＋Cntn5 高</td><td class="sym-num">24.3% [复算]</td><td class="sym-num">≈33%（2/6）</td><td class="sym-na sym-num">原文未给出</td><td class="sym-na sym-num">原文未给出</td></tr>
+<tr><td>NA1b（Sharma）</td><td>Npy 低＋Kcnt1 高</td><td class="sym-num">23.9% [复算]</td><td class="sym-num">≈50%（3/6）</td><td class="sym-na sym-num">原文未给出</td><td class="sym-na sym-num">原文未给出</td></tr>
+<tr><td>NA1c（Sharma）</td><td>Npy 低＋Sctr 高</td><td class="sym-num">18.3% [复算]</td><td class="sym-num">0（明确不投射）</td><td class="sym-na sym-num">原文未给出</td><td class="sym-na sym-num">原文未给出</td></tr>
+<tr><td>NA3（Sharma）</td><td>Npy 低＋Vim 高</td><td class="sym-num">7.6% [复算]</td><td class="sym-num">≈17%（1/6）</td><td class="sym-na sym-num">原文未给出</td><td class="sym-na sym-num">原文未给出</td></tr>
+<tr><td>SG1（Neri）</td><td>Npy 高＋Fst＋Sctr＋Rxfp1</td><td class="sym-num">44.6%</td><td class="sym-na sym-num">原文未给出</td><td class="sym-num">56.5%（109/193）</td><td class="sym-num">41.8%（154/368）</td></tr>
+<tr><td>SG2（Neri）</td><td>Slc18a1/VMAT1 高＋Colq</td><td class="sym-num">37.4%</td><td class="sym-na sym-num">原文未给出</td><td class="sym-num">25.4%（49/193）</td><td class="sym-num">49.7%（183/368）</td></tr>
+<tr><td>SG3（Neri）</td><td>Aqp1 高＋Enc1</td><td class="sym-num">12.2%</td><td class="sym-na sym-num">原文未给出</td><td class="sym-num">3.6%（7/193）</td><td class="sym-num">7.3%（27/368）</td></tr>
+<tr><td>SG4（Neri）</td><td>Chat＋Slc18a3（胆碱能）</td><td class="sym-num">5.8%</td><td class="sym-na sym-num">原文未给出</td><td class="sym-num">14.5%（28/193）</td><td class="sym-num">1.1%（4/368）</td></tr>
+</tbody></table></div>
+<ul class="sym-compact"><li><span class="sym-warn">心脏构成的分母只有 6 个被标记测序细胞</span>，百分比颗粒度约 17 个百分点，引用须带分母。</li>
+<li>功能分离：SG2 激活升高棕色脂肪产热与血流；SG1 激活改善糖耐量、不产热（D 级证据）。棕色脂肪标记神经元位于星状节至 T4、少量 T5–T7。</li></ul>
+
+
+<h3>2.3 颈中节 MCG</h3>
+<ul class="sym-compact">
+<li>证据成色：小鼠一手数据近乎空白，无分段亚型体系；以下为 C/E 级。</li>
+<li>心脏：CTB 逆行仅少量标记（Rajendran 2019，定性，原文作 &quot;fewer&quot;；MCG 逐节计数原文未给出）。</li>
+<li>甲状腺、气管/支气管：骨架共识口径（E 级），小鼠一手示踪原文未给出。</li></ul>
+
+<h3>2.4 胸链上段（T2–T6 链节）</h3>
+<ul class="sym-compact">
+<li>亚型口径：无分段亚型体系。Furlan 测序池为星状＋胸链混合（n = 298）[复算]：NA3 103、NA2 39、NA5 23、NA4 18、NA1 10、ACh1 8、ACh2 8、Glut 4、未分类 85；分段逐型百分比原文未给出（仅图形条）。胸链任一节胆碱能神经元 ≤6%、TH⁺ &gt;97%（McKinnon 2019，小鼠）。</li>
+<li>棕色脂肪节后标记在星状尾部＋T1–T5（约一半在星状/T1）。</li>
+<li>肺的节段数据原始出处为豚鼠；T2 有少量心脏标记。</li></ul>
+
+<h3>2.5 腹腔节 CG（Wang 2025 CG-SMG 复合体数据）</h3>
+<p class="sym-src">Wang T, et al. <i>Nature</i> 637:895–902 (2025). DOI 10.1038/s41586-024-08269-0。TH⁺ 神经元两大类合计约占 80%，投射近互斥。</p>
+<p class="sym-note"><span class="sym-warn">口径注：本块定量（亚型构成、纤维密度、WGA 逆行计数）为 CG-SMG 复合体口径，CG 与 SMG 两节各自的份额不可拆；SMG 单节证据见 2.9。</span></p>
+<div class="sym-tblgroup"><div class="sym-tblwrap"><table><thead><tr><th>亚型</th><th class="sym-num">细胞数</th><th class="sym-num">占 TH⁺</th><th>CG / SMG 分布</th></tr></thead><tbody>
+<tr><td class="sym-hi">RXFP1 类</td><td class="sym-num">4,645</td><td class="sym-num">35.4%</td><td>CG 86.3% / SMG 13.7%</td></tr>
+<tr><td class="sym-hi">SHOX2 类（含 BMP3 亚群 2,496 个、DSP 亚群 4,706 个）</td><td class="sym-num">6,992</td><td class="sym-num">53.4%</td><td>CG 65.4% / SMG 34.6%</td></tr>
+<tr><td>两类均阴性</td><td class="sym-num">2,604</td><td class="sym-num">19.9%</td><td>—</td></tr></tbody></table></div>
+<p class="sym-tblcap">各亚型对各器官的纤维密度与节水平逆行计数</p>
+<div class="sym-tblwrap"><table><thead><tr><th>亚型 ＼ 器官</th><th class="sym-num">胆管</th><th class="sym-num">肝门区</th><th class="sym-num">胰腺</th><th class="sym-num">十二指肠</th><th class="sym-num">胃</th><th class="sym-num">空肠</th><th class="sym-num">回肠</th><th class="sym-num">结肠</th></tr></thead><tbody>
+<tr><td class="sym-hi">RXFP1 类纤维密度 %</td><td class="sym-num sym-hi">3.05 ± 0.82</td><td class="sym-num sym-hi">3.53 ± 1.23</td><td class="sym-num sym-hi">2.97 ± 0.78</td><td class="sym-num sym-hi">4.54 ± 1.32</td><td class="sym-num sym-zero">0.47 ± 0.29</td><td class="sym-num sym-zero">0.35 ± 0.16</td><td class="sym-num sym-zero">0.38 ± 0.03</td><td class="sym-num sym-zero">0.16 ± 0.08</td></tr>
+<tr><td class="sym-hi">SHOX2 类纤维密度 %</td><td class="sym-num sym-zero">0.14 ± 0.03</td><td class="sym-num sym-zero">0.13 ± 0.06</td><td class="sym-num sym-zero">0.11 ± 0.05</td><td class="sym-num sym-zero">0.67 ± 0.35</td><td class="sym-num sym-hi">3.22 ± 0.21</td><td class="sym-num sym-hi">6.65 ± 2.11</td><td class="sym-num sym-hi">4.72 ± 0.81</td><td class="sym-num sym-hi">6.89 ± 3.03</td></tr>
+<tr><td>节水平 WGA⁺ 细胞数（复合体）</td><td class="sym-num">—</td><td class="sym-num">28.5 ± 9.3</td><td class="sym-num">43.8 ± 5.7</td><td class="sym-num">46.5 ± 7.2</td><td class="sym-num">48.4 ± 12.0</td><td class="sym-num">84.3 ± 20.4</td><td class="sym-num">57.3 ± 13.5</td><td class="sym-num">69.8 ± 13.9</td></tr></tbody></table></div></div>
+<p class="sym-note">占比与分布为对 Source Data 原始计数的汇总 [计算]。</p>
+<ul class="sym-compact">
+<li>脾仅有 WGA 逆行计数 28.1 ± 5.0 个（复合体口径），顺行密度原文未给出。</li>
+<li><b>CG 与 SMG 的分开计数：原文未给出。</b>单节 DiI 顺行（n = 3/节，原文仅作定性支撑）：R-CG→十二指肠 2.44 ± 0.60；SMG 单节各器官值见 2.9。</li>
+<li>功能分离：RXFP1 类激活抑制胆汁分泌、升高胰高血糖素；SHOX2 类激活抑制胃肠转运与排便（D 级证据）。</li></ul>
+
+
+<h3>2.6 肾上腺髓质（附注，非神经节）</h3>
+<ul class="sym-compact">
+<li>非神经节：嗜铬细胞即同源节后神经元，节前纤维直达，约 T5–T11（内脏大/小神经），直接释放肾上腺素/去甲肾上腺素入血（骨架共识口径，E 级）。</li>
+<li>节前纤维经胸链上段、下段的内脏神经穿行直达，非节后中继；无亚型层面证据，本块仅作骨架附注。</li></ul>
+
+<h3>2.7 胸链下段（T7–T12 链节）</h3>
+<ul class="sym-compact">
+<li>亚型口径同 2.4 注：无分段亚型体系。</li>
+<li>腹股沟白色脂肪节后来源 T12–L1（节前 T7–T10）。</li>
+<li>腹壁皮肤（血管/汗腺/竖毛肌）靶为骨架共识口径，小鼠一手节段分辨示踪原文未给出。</li></ul>
+
+<h3>2.8 主动脉肾节 ARG</h3>
+<ul class="sym-compact">
+<li>小鼠 PRV 注肾后标记局限于 ARG 与肾上腺上节（链节未查，份额原文未给出）；PRV 注肝后 ARG 亦有标记。</li>
+<li>性腺脂肪由 ARG 经生殖股神经支配（AAV 逆行＋功能）。</li>
+<li>肾来源口径 ⚠ 并列：大鼠链节 66–80%、猫椎前节 &gt;50%、灵长类大致均分、小鼠椎前范围内 ARG 主导，四者口径不同、不可合并。</li>
+<li>转录组亚型：原文未给出（无 ARG 亚型体系）。</li></ul>
+
+<h3>2.9 肠系膜上节 SMG（单节口径）</h3>
+<p class="sym-note">本块只放 SMG 单节证据；与腹腔节的复合体定量（亚型构成、纤维密度、WGA 逆行计数）见 2.5 腹腔节块。单节切除研究原文未检索到，切除证据均为复合体口径。</p>
+<ul class="sym-compact">
+<li>单节构成（seqFISH）[计算]：SMG 内 SHOX2 类 2,417 个、RXFP1 类 638 个（TH⁺ 口径）。</li>
+<li>脾的来源构成（大鼠/猫）：椎前节为主（猫口径 98%），大鼠切除后脾去甲肾上腺素降 94–99%。</li></ul>
+<div class="sym-tblwrap"><table><thead><tr><th>器官</th><th class="sym-num">SMG 单节 DiI 纤维密度 %</th></tr></thead><tbody>
+<tr><td>结肠</td><td class="sym-num sym-hi">2.39 ± 0.94</td></tr>
+<tr><td>胃</td><td class="sym-num">0.94 ± 0.59</td></tr>
+<tr><td>胰腺</td><td class="sym-num">0.99 ± 0.96</td></tr>
+<tr><td>脾</td><td class="sym-num">0.83 ± 0.62</td></tr>
+<tr><td>空肠</td><td class="sym-num">0.78 ± 0.40</td></tr>
+<tr><td>回肠</td><td class="sym-num">0.52 ± 0.43</td></tr>
+<tr><td>肝门区</td><td class="sym-num">0.12 ± 0.05</td></tr>
+<tr><td>十二指肠</td><td class="sym-num">0.05 ± 0.02（近无）</td></tr></tbody></table></div>
+<p class="sym-note">单节 DiI 顺行（Wang 2025 Supp Fig. 1，n = 3/节，纤维密度＝神经面积/总面积 %，mean ± SEM）；原文仅作定性支撑。</p>
+
+<h3>2.10 腰链</h3>
+<ul class="sym-compact">
+<li>亚型口径同 2.4 注：无分段亚型体系。</li>
+<li>切除 L2–L5 后后爪出汗反应下降（功能证据，样本量 n = 2/组）；支配下肢的神经元以 L2 为主、向尾侧递减。</li>
+<li>腹股沟白色脂肪节后来源含 L1（T12–L1，见 2.7）。</li></ul>
+
+<h3>2.11 肠系膜下节 IMG</h3>
+<ul class="sym-compact">
+<li>无转录组亚型；神经化学分型（豚鼠）NPY 型约 20%、SOM 型约 75%、双阳 4–7%；胆碱能小群豚鼠 4.6%、大鼠 0.4%。</li>
+<li>远端结肠/远端回肠为节水平示踪口径（大鼠、豚鼠）；小鼠离体电生理示 IMG 节后神经元回投结肠。</li>
+<li>节前节段：教材 L1–L2 与豚鼠实测 T12–L2 ⚠ 并列；IMG 对膀胱的直接节后份额原文未给出。</li></ul>
+
+<h3>2.12 盆节（Sivori 2024 与 Keast 神经化学传统，两套口径并行）</h3>
+<p class="sym-note">身份口径 ⚠：经典输入定义（Keast 1995，大鼠）以节前输入分交感/副交感，两群约各半；Sivori 2024（小鼠，评审预印本）以转录组主张全节为分化的交感节。两说并列，公开评审对后者有质疑。</p>
+<div class="sym-tblwrap"><table><thead><tr><th>亚型（Sivori）</th><th>递质表型</th><th>定义性 top 基因</th><th>靶器官</th></tr></thead><tbody>
+<tr><td>P1</td><td>胆碱能</td><td>Htr7、Ust、Col24a1、Cbln2、Vwc2</td><td class="sym-na">原文未给出</td></tr>
+<tr><td>P2</td><td>胆碱能</td><td>Pamr1、Grp、Gata5、Grin2c、Galnt18</td><td class="sym-na">原文未给出</td></tr>
+<tr><td>P3</td><td>去甲肾上腺素能</td><td>Mecom、Gpr149、Lhfpl3、Cdh4、Gna14</td><td class="sym-na">原文未给出</td></tr>
+<tr><td>P4</td><td>胆碱能</td><td>Prr16、Aldh1a2、Mucl1、Mucl2、Pgm5</td><td class="sym-na">原文未给出</td></tr></tbody></table></div>
+<p class="sym-note">逐簇计数/占比原文未给出（两批次神经元合计 1,223 个）；器官逆行示踪原文未做，P 型 × 器官矩阵为空。成年雄小鼠全节 ChAT⁺ 占 51%（免疫组化口径）。</p>
+<div class="sym-tblwrap"><table><thead><tr><th>靶器官（大鼠雄，Keast 系列）</th><th>NPY⁺</th><th>TH⁺</th><th>VIP⁺</th><th>说明</th></tr></thead><tbody>
+<tr><td>膀胱</td><td>≥50%</td><td>25–30%</td><td>5–10%</td><td>全节口径，输入身份未定</td></tr>
+<tr><td>远端结肠</td><td>≥50%</td><td>25–30%</td><td>5–10%</td><td>输入切分：交感与副交感数目约相等，TH⁺ 群几乎全为交感</td></tr>
+<tr><td>阴茎</td><td>5–7%</td><td>0%</td><td>&gt;90%</td><td>另一口径（Domoto 1994）VIP⁺ 仅 25%，跨篇冲突并列</td></tr>
+<tr><td>输精管</td><td colspan="3">TH⁺＋NPY 60–70%；仅 VIP 15–25%；仅 NPY 5–10%</td><td>五组构成，原文区间</td></tr></tbody></table></div>
+<ul class="sym-compact"><li>映射：P3↔TH⁺/NPY⁺ 类为中置信（判据 Th）；P1＋P2＋P4 合并↔胆碱能类群整体为中置信（判据 Chat）；逐型下分原文未给出。</li>
+<li>小鼠器官逆行定量原文未给出；雌鼠子宫交感主源在肠系膜下节/链节，盆节仅有限参与。</li></ul>
+
+<h2>三、全局分级矩阵：器官（行）× 神经节（列）</h2>
+<p class="sym-note">格内小字为该格的证据摘要；出处逐格索引见下方索引表。CG-SMG 合并注：Wang 2025 的逆行计数与纤维密度为复合体口径，CG 与 SMG 两列引此口径处均已注明；两列等级差来自单节证据（seqFISH 分布、单节 DiI），复合体数字未拆分给两节。填充账：总格 176；A 13、B 7、C 16、E 4；原文未给出 29；无据 107。D 级证据以注附于对应节（2.5、2.2、2.10、2.11），无仅有 D 级的格。</p>
+<div class="sym-tblwrap sym-mtxwrap"><table class="sym-mtx"><thead><tr><th>器官 ＼ 神经节</th><th>颈上节 SCG</th><th>颈中节 MCG</th><th>星状节</th><th>胸链上段</th><th>胸链下段</th><th>腰链</th><th>腹腔节 CG</th><th>肠系膜上节 SMG</th><th>主动脉肾节 ARG</th><th>肠系膜下节 IMG</th><th>盆节</th></tr></thead><tbody><tr><td>眼与头颈腺体</td><td><span class="sym-grade sym-gB">B</span><span class="sym-cellnote">眼仅 Dv6（MERFISH 15 个赋型细胞）；唾液腺 Dv4＋Dv6 为主；舌 Dv6＋Dv7；面部皮肤 Dv6 为主。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>心脏</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">心脏 CTB 逆行在 MCG 仅少量（原文定性 fewer，无逐节计数）。小鼠</span></td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">NA1a/NA1b/NA3 支配心脏（逆行测序群分母 6 个细胞，颗粒度大）。小鼠</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">T2 节有少量心脏 CTB⁺（定性，无逐节计数）。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>肺</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gE">E</span><span class="sym-cellnote">骨架共识靶含气管/支气管；小鼠一手示踪原文未给出</span></td><td class="sym-na">原文未给出</td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">节后胞体在星状＋T2–T4（综述转述，原始逆行数据为豚鼠，非小鼠）</span></td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>肩胛间棕色脂肪</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">SG1 41.8%（血管）/ SG2 49.7%（实质），CTB＋FACS 测序。小鼠</span></td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">同批 CTB 数据：标记神经元分布至 T4；PRV 节水平 T1–T5 强标记。小鼠</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">T5–T7 仅少数标记神经元，节后不超过 T7。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>肝 / 肝门区</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">RXFP1 纤维密度 3.53±1.23%（肝门口径）；WGA 28.5±9.3 个（复合体口径，见 CG-SMG 合并注）。小鼠</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">单节 DiI 自 SMG 0.12±0.05，近背景；密度主测在复合体口径。小鼠</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">PRV 注肝中叶后同侧与对侧 ARG 均有标记，份额原文未给出。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>胆管</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">RXFP1 3.05±0.82%；RXFP1 类 86.3% 位于 CG。小鼠</span></td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>脾</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gB">B</span><span class="sym-cellnote">WGA 28.1±5.0 个（复合体口径，CG/SMG 未分开）；亚型顺行密度原文未给出。小鼠</span></td><td><span class="sym-grade sym-gB">B</span><span class="sym-cellnote">WGA 复合体口径同 CG 列；单节 DiI 自 SMG 0.83±0.62。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>胃</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">SHOX2 3.22±0.21%，RXFP1 无投射；WGA 48.4±12.0 个（复合体）。小鼠</span></td><td><span class="sym-grade sym-gB">B</span><span class="sym-cellnote">复合体口径同 CG 列；单节 DiI 自 SMG 0.94±0.59（与大鼠 CG 为大头的定性不一致，并列）。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>胰腺</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">RXFP1 2.97±0.78%（含胰岛）；WGA 43.8±5.7 个（复合体）。小鼠</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">单节 DiI 自 SMG 0.99±0.96，个体变异大（n=3），三节相近无单节主导。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>十二指肠</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">RXFP1 4.54±1.32% 为主；单节 DiI R-CG 2.44±0.60 为三节最高。小鼠</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">单节 DiI 自 SMG 0.05±0.02，近无；来源以 CG 为主。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>空肠</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">SHOX2 6.65±2.11%；WGA 84.3±20.4 个（复合体）。小鼠</span></td><td><span class="sym-grade sym-gB">B</span><span class="sym-cellnote">复合体口径同 CG 列；单节 DiI 自 SMG 0.78±0.40。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>回肠</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">SHOX2 4.72±0.81%；WGA 57.3±13.5 个（复合体）。小鼠</span></td><td><span class="sym-grade sym-gB">B</span><span class="sym-cellnote">复合体口径同 CG 列；单节 DiI 自 SMG 0.52±0.43。小鼠</span></td><td class="sym-na">无据</td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">远端肠道（远端回肠＋结肠）节后来源之一。大鼠，非小鼠</span></td><td class="sym-na">无据</td></tr>
+<tr><td>结肠</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">大肠的链节来源为腰链节。豚鼠，非小鼠</span></td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">SHOX2 6.89±3.03%；WGA 69.8±13.9 个（复合体）。小鼠；远端结肠另有 IMG/盆节来源，见对应列</span></td><td><span class="sym-grade sym-gB">B</span><span class="sym-cellnote">复合体口径同 CG 列；单节 DiI 自 SMG 2.39±0.94 为三节最高。小鼠</span></td><td class="sym-na">无据</td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">远端结肠节后来源之一（大鼠）；豚鼠远端肠道由 SMG、IMG 与腹下神经节输入；小鼠离体电生理示 IMG 节后回投结肠（功能支持，无计数）</span></td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">远端结肠逆行＋神经化学定量同膀胱群大体相同；输入切分示交感与副交感数目约相等、TH⁺ 结肠神经元几乎全为交感。大鼠雄，非小鼠</span></td></tr>
+<tr><td>肾</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">肾节后来源链节 T11–L3 同侧 66%（此行对应 T11–T12 部分）。大鼠，非小鼠</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">肾节后来源链节 T11–L3（此行对应 L1–L3 部分），另肾神经染料链节 &gt;70%（尤 T12–L1）。大鼠，非小鼠</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">PRV 注肾后 CG-SMG 复合体内仅稀疏标记（复合体口径，不可拆为 CG 单节份额）。小鼠</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">PRV 注肾后 CG-SMG 复合体内仅稀疏标记（复合体口径）；大鼠口径椎前节 SMG＋CG 合计 20%、SMG 为主。大鼠＋小鼠，口径并列</span></td><td><span class="sym-grade sym-gC">C</span><span class="sym-cellnote">PRV 注左肾皮质后节后标记局限于同侧 ARG 与肾上腺上节（定性，无计数；链节未查）。小鼠</span></td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+<tr><td>膀胱</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td><span class="sym-grade sym-gE">E</span><span class="sym-cellnote">腰内脏神经至 IMG 与腹下丛的教材共识；腰链节后直达膀胱的原文未给出</span></td><td class="sym-na">原文未给出</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td><span class="sym-grade sym-gA">A</span><span class="sym-cellnote">逆行＋神经化学定量：NPY⁺ ≥50%、TH⁺ 25–30%、VIP⁺ 5–10%（全节口径，输入身份未定）。大鼠雄，非小鼠</span></td></tr>
+<tr><td>肾上腺髓质</td><td class="sym-na">无据</td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td><span class="sym-grade sym-gE">E</span><span class="sym-cellnote">节前纤维经内脏神经直达髓质（T5–T11 的上段部分），非节后中继</span></td><td><span class="sym-grade sym-gE">E</span><span class="sym-cellnote">节前纤维直达髓质（经典口径）</span></td><td class="sym-na">无据</td><td class="sym-na">原文未给出</td><td class="sym-na">原文未给出</td><td class="sym-na">原文未给出</td><td class="sym-na">无据</td><td class="sym-na">无据</td></tr>
+</tbody></table></div>
+
+<h3>3.1 有级格出处索引</h3>
+<div class="sym-tblwrap"><table><thead><tr><th>格</th><th>级</th><th>出处</th></tr></thead><tbody><tr><td>眼与头颈腺体 × 颈上节 SCG</td><td><span class="sym-grade sym-gB">B</span></td><td>Senturk 2026</td></tr>
+<tr><td>心脏 × 颈中节 MCG</td><td><span class="sym-grade sym-gC">C</span></td><td>Rajendran 2019</td></tr>
+<tr><td>心脏 × 星状节</td><td><span class="sym-grade sym-gA">A</span></td><td>Sharma 2023</td></tr>
+<tr><td>心脏 × 胸链上段</td><td><span class="sym-grade sym-gC">C</span></td><td>Rajendran 2019</td></tr>
+<tr><td>肺 × 颈中节 MCG</td><td><span class="sym-grade sym-gE">E</span></td><td>骨架共识（第一节）；Rajendran 2019</td></tr>
+<tr><td>肺 × 胸链上段</td><td><span class="sym-grade sym-gC">C</span></td><td>Kummer 等气道综述（转述）</td></tr>
+<tr><td>肩胛间棕色脂肪 × 星状节</td><td><span class="sym-grade sym-gA">A</span></td><td>Neri 2026</td></tr>
+<tr><td>肩胛间棕色脂肪 × 胸链上段</td><td><span class="sym-grade sym-gA">A</span></td><td>Neri 2026；François 2019</td></tr>
+<tr><td>肩胛间棕色脂肪 × 胸链下段</td><td><span class="sym-grade sym-gC">C</span></td><td>Neri 2026；François 2019</td></tr>
+<tr><td>肝 / 肝门区 × 腹腔节 CG</td><td><span class="sym-grade sym-gA">A</span></td><td>Wang 2025</td></tr>
+<tr><td>肝 / 肝门区 × 肠系膜上节 SMG</td><td><span class="sym-grade sym-gC">C</span></td><td>Wang 2025 Supp Fig. 1</td></tr>
+<tr><td>肝 / 肝门区 × 主动脉肾节 ARG</td><td><span class="sym-grade sym-gC">C</span></td><td>Torres 2021</td></tr>
+<tr><td>胆管 × 腹腔节 CG</td><td><span class="sym-grade sym-gA">A</span></td><td>Wang 2025</td></tr>
+<tr><td>脾 × 腹腔节 CG</td><td><span class="sym-grade sym-gB">B</span></td><td>Wang 2025</td></tr>
+<tr><td>脾 × 肠系膜上节 SMG</td><td><span class="sym-grade sym-gB">B</span></td><td>Wang 2025</td></tr>
+<tr><td>胃 × 腹腔节 CG</td><td><span class="sym-grade sym-gA">A</span></td><td>Wang 2025</td></tr>
+<tr><td>胃 × 肠系膜上节 SMG</td><td><span class="sym-grade sym-gB">B</span></td><td>Wang 2025（含 Supp Fig. 1）</td></tr>
+<tr><td>胰腺 × 腹腔节 CG</td><td><span class="sym-grade sym-gA">A</span></td><td>Wang 2025</td></tr>
+<tr><td>胰腺 × 肠系膜上节 SMG</td><td><span class="sym-grade sym-gC">C</span></td><td>Wang 2025</td></tr>
+<tr><td>十二指肠 × 腹腔节 CG</td><td><span class="sym-grade sym-gA">A</span></td><td>Wang 2025（含 Supp Fig. 1）</td></tr>
+<tr><td>十二指肠 × 肠系膜上节 SMG</td><td><span class="sym-grade sym-gC">C</span></td><td>Wang 2025（含 Supp Fig. 1）</td></tr>
+<tr><td>空肠 × 腹腔节 CG</td><td><span class="sym-grade sym-gA">A</span></td><td>Wang 2025</td></tr>
+<tr><td>空肠 × 肠系膜上节 SMG</td><td><span class="sym-grade sym-gB">B</span></td><td>Wang 2025 Supp Fig. 1</td></tr>
+<tr><td>回肠 × 腹腔节 CG</td><td><span class="sym-grade sym-gA">A</span></td><td>Wang 2025</td></tr>
+<tr><td>回肠 × 肠系膜上节 SMG</td><td><span class="sym-grade sym-gB">B</span></td><td>Wang 2025 Supp Fig. 1</td></tr>
+<tr><td>回肠 × 肠系膜下节 IMG</td><td><span class="sym-grade sym-gC">C</span></td><td>Quinson 2001</td></tr>
+<tr><td>结肠 × 腰链</td><td><span class="sym-grade sym-gC">C</span></td><td>Trudrung 1994</td></tr>
+<tr><td>结肠 × 腹腔节 CG</td><td><span class="sym-grade sym-gA">A</span></td><td>Wang 2025</td></tr>
+<tr><td>结肠 × 肠系膜上节 SMG</td><td><span class="sym-grade sym-gB">B</span></td><td>Wang 2025（含 Supp Fig. 1）</td></tr>
+<tr><td>结肠 × 肠系膜下节 IMG</td><td><span class="sym-grade sym-gC">C</span></td><td>Quinson 2001；Trudrung 1994；Hibberd 2020</td></tr>
+<tr><td>结肠 × 盆节</td><td><span class="sym-grade sym-gA">A</span></td><td>Keast 1989；Luckensmeyer &amp; Keast 1995</td></tr>
+<tr><td>肾 × 胸链下段</td><td><span class="sym-grade sym-gC">C</span></td><td>Ferguson 1986（经 Barajas 1992 转引）</td></tr>
+<tr><td>肾 × 腰链</td><td><span class="sym-grade sym-gC">C</span></td><td>Ferguson 1986；Sripairojthikoon &amp; Wyss 1987</td></tr>
+<tr><td>肾 × 腹腔节 CG</td><td><span class="sym-grade sym-gC">C</span></td><td>Torres 2021</td></tr>
+<tr><td>肾 × 肠系膜上节 SMG</td><td><span class="sym-grade sym-gC">C</span></td><td>Torres 2021；Ferguson 1986</td></tr>
+<tr><td>肾 × 主动脉肾节 ARG</td><td><span class="sym-grade sym-gC">C</span></td><td>Torres 2021</td></tr>
+<tr><td>膀胱 × 腰链</td><td><span class="sym-grade sym-gE">E</span></td><td>骨架共识（第一节）</td></tr>
+<tr><td>膀胱 × 盆节</td><td><span class="sym-grade sym-gA">A</span></td><td>Keast &amp; de Groat 1989</td></tr>
+<tr><td>肾上腺髓质 × 胸链上段</td><td><span class="sym-grade sym-gE">E</span></td><td>骨架共识（第一节）</td></tr>
+<tr><td>肾上腺髓质 × 胸链下段</td><td><span class="sym-grade sym-gE">E</span></td><td>骨架共识（第一节）</td></tr>
+</tbody></table></div>
+
+<h2>四、数据缺口</h2>
+<ul class="sym-compact">
+<li><b>盆节亚型 × 器官矩阵为空</b>：P1–P4 的靶器官归属原文一律未给出；神经化学定量来自大鼠，与 P 型的桥接仅一项达中置信度。</li>
+<li><b>链各段无分段亚型定量，颈中节小鼠一手数据近乎空白</b>：Furlan 分段构成只有图形条；肺的节段原始数据为豚鼠。</li>
+<li><b>单节份额普遍不可拆</b>：CG 与 SMG 分开计数原文未给出；小鼠肾的链节份额无原文，ARG 占肾来源的百分比原文未给出；IMG 对膀胱的直接份额原文未给出。</li>
+<li>心脏亚型构成的分母只有 6 个细胞；SCG 逐型全节计数原文未给出；IMG 与 ARG 无转录组亚型。</li></ul>
+<p class="sym-src" style="margin-top:28px">逐格出处见 3.1 索引表；逐节数字出处随各节标注。</p>
     </div>
   </section>
 
@@ -6142,20 +6407,22 @@ init3D();
 </script>
 <script>
 (function(){
-  /* ===== v0.8 双版面切换 ===== */
-  var t1=document.getElementById('tabLayout1'),t2=document.getElementById('tabLayout2'),t3=document.getElementById('tabLayout3');
-  var p1=document.getElementById('layout1'),p2=document.getElementById('layout2'),p3=document.getElementById('layout3');
+  /* ===== v0.9 四版面切换 ===== */
+  var t1=document.getElementById('tabLayout1'),t2=document.getElementById('tabLayout2'),t3=document.getElementById('tabLayout3'),t4=document.getElementById('tabLayout4');
+  var p1=document.getElementById('layout1'),p2=document.getElementById('layout2'),p3=document.getElementById('layout3'),p4=document.getElementById('layout4');
   if(!t1||!t2||!p1||!p2)return;
   function show(n){
-    p1.hidden=n!==1;p2.hidden=n!==2;if(p3)p3.hidden=n!==3;
-    t1.classList.toggle('active',n===1);t2.classList.toggle('active',n===2);if(t3)t3.classList.toggle('active',n===3);
+    p1.hidden=n!==1;p2.hidden=n!==2;if(p3)p3.hidden=n!==3;if(p4)p4.hidden=n!==4;
+    t1.classList.toggle('active',n===1);t2.classList.toggle('active',n===2);if(t3)t3.classList.toggle('active',n===3);if(t4)t4.classList.toggle('active',n===4);
     t1.setAttribute('aria-selected',n===1?'true':'false');
     t2.setAttribute('aria-selected',n===2?'true':'false');
     if(t3)t3.setAttribute('aria-selected',n===3?'true':'false');
+    if(t4)t4.setAttribute('aria-selected',n===4?'true':'false');
   }
   t1.addEventListener('click',function(){show(1);});
   t2.addEventListener('click',function(){show(2);});
   if(t3)t3.addEventListener('click',function(){show(3);});
+  if(t4)t4.addEventListener('click',function(){show(4);});
 
   /* ===== 版面二：器官搜索、置顶行与标记列重排（无高亮，靠置顶与重排强调） ===== */
   var ALIAS={
