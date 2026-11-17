@@ -2,10 +2,13 @@
 
 > 小鼠脑区脑图查询器 · Mouse Brain Region Atlas Query Tool
 >
-> 当前版本：v0.8 ｜ 首次公开发布：2026 年 11 月 9 日
+> 当前版本：v0.9 ｜ 首次公开发布：2026 年 11 月 9 日
 > 在线访问：https://weijian111.github.io/brain-altlas-guidance/
 
 ## 更新说明
+
+### v0.9 — 2026-11-17
+- 新增版面四「交感神经节连接图谱」：12 个交感神经节的节段骨架（节前来源、脊髓节段分区与靶器官）、逐节亚型与连接证据、16 器官 × 11 神经节的分级矩阵（A–E 级），无证据处如实标注。
 
 ### v0.8 — 2026-11-13
 
@@ -73,10 +76,13 @@ Brain Altlas Guidance 是一个单文件、离线可用的小鼠脑区脑图查�
 
 > Mouse Brain Region Atlas Query Tool
 >
-> Current version: v0.8 | First public release: 9 November 2026
+> Current version: v0.9 | First public release: 9 November 2026
 > Live demo: https://weijian111.github.io/brain-altlas-guidance/
 
 ## Update Notes
+
+### v0.9 — 17 November 2026
+- Added a fourth tab, Sympathetic Ganglion Connectivity Atlas: a segmental skeleton of 12 sympathetic ganglia (preganglionic sources, spinal segmental zones and target organs), per-ganglion subtypes and connectivity evidence, and a 16-organ × 11-ganglion graded matrix (grades A–E), with absence of evidence labelled as such.
 
 ### v0.8 — 13 November 2026
 - Added a second tab, Central–Peripheral Interactions: a 39-organ × 127-region PRV dot matrix, sortable by connection count with bar charts; a 147-entry reference and injection-parameter table with DOIs, with retracted papers removed.
